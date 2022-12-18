@@ -1,6 +1,6 @@
 {
   "name": "@odata2ts/converter-luxon",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "publishConfig": {
     "access": "public"
   },
@@ -24,7 +24,7 @@
     "luxon": "^3.0.4"
   },
   "dependencies": {
-    "@odata2ts/converter-api": "^0.0.0"
+    "@odata2ts/converter-api": "^0.1.0"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",
