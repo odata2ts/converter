@@ -31,6 +31,15 @@ describe("V2DateTimeToDateTimeOffset Test", () => {
     expect(TO_TEST.convertTo(undefined)).toBeUndefined();
   });
 
+  test("conversion with negative timestamps", () => {
+    const negTimestamp = -2208988800000
+    const negFrom = `/Date(${negTimestamp})/`;
+    const to = "1900-01-01T00:00:00.000Z";
+
+    expect(TO_TEST.convertFrom(negFrom)).toBe(to);
+    expect(TO_TEST.convertTo(to)).toBe(negFrom);
+  });
+
   test("converting from DateTimeV2 with offset", () => {
     expect(TO_TEST.convertFrom(createWithOffset(90))).toBe(createIsoWithOffset("+01:30"));
     expect(TO_TEST.convertFrom(createWithOffset(60))).toBe(createIsoWithOffset("+01:00"));

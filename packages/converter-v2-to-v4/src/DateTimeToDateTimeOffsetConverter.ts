@@ -15,7 +15,7 @@ function formatDateTimeV2(iso8601: string, offset?: string) {
   return `/Date(${new Date(iso8601).getTime()}${offset || ""})/`;
 }
 
-const DATE_TIME_V2_REGEXP = /\/Date\(([0-9]+)(([+-])([0-9]+))?\)\//;
+const DATE_TIME_V2_REGEXP = /\/Date\(([+-]?\d+)(([+-])(\d+))?\)\//;
 const ISO_OFFSET_REGEXP = /([+-])(\d{2}):(\d{2})/;
 
 /**
