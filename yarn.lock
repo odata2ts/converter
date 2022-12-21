@@ -1792,7 +1792,7 @@ __metadata:
   dependencies:
     "@odata2ts/converter-api": ^0.1.0
     "@odata2ts/converter-luxon": ^0.1.0
-    "@odata2ts/converter-v2-to-v4": ^0.1.0
+    "@odata2ts/converter-v2-to-v4": ^0.1.1
     "@types/jest": ^27.4.1
     "@types/node": ^17.0.23
     jest: 27.5.1
@@ -1803,7 +1803,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@odata2ts/converter-v2-to-v4@^0.1.0, @odata2ts/converter-v2-to-v4@workspace:packages/converter-v2-to-v4":
+"@odata2ts/converter-v2-to-v4@^0.1.1, @odata2ts/converter-v2-to-v4@workspace:packages/converter-v2-to-v4":
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-v2-to-v4@workspace:packages/converter-v2-to-v4"
   dependencies:
