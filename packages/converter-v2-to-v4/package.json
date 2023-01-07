@@ -4,6 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "description": "A set of odata2ts compatible converters to convert certain OData V2 types to their V4 analog",
   "license": "MIT",
   "repository": "git@github.com:odata2ts/odata2ts.git",
   "author": "texttechne",
@@ -20,6 +21,22 @@
     "lib",
     "LICENSE"
   ],
+  "keywords": [
+    "odata2ts",
+    "odata",
+    "odata v2",
+    "odata v4",
+    "converter",
+    "datetime",
+    "datetimeoffset",
+    "time",
+    "typescript",
+    "ts",
+    "javascript",
+    "js",
+    "types",
+    "data types"
+  ]
   "dependencies": {
     "@odata2ts/converter-api": "^0.1.0"
   },

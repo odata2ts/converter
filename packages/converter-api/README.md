@@ -3,7 +3,7 @@
 # odata2ts Converter API
 
 Defines the API of converters and converter packages as they are used in 
-[`@odat2ts`](https://github.com/odata2ts/odata2ts).
+[`@odata2ts`](https://github.com/odata2ts/odata2ts).
 
 As an API this module only consists of interfaces, which you should implement when writing your own converters.
 
@@ -23,14 +23,14 @@ instead. So the converter would do the following conversions:
 
 With the help of converters the consumer then only needs to handle JS date objects.
 Furthermore, converters can also remedy the different representations of V2 and V4
-(see [@odata2ts/v2-to-v4-converter](https://github.com/odata2ts/converter/tree/main/packages/converter-v2-to-v4)).
+(see [@odata2ts/v2-to-v4-converter](https://www.npmjs.com/package/@odata2ts/converter-v2-to-v4)).
 
 ## `odata2ts` Configuration
 To use converters in the generation process of `odata2ts`, you have to install them and configure them via 
 the config file `odata2ts.config.ts`.
 
 ```ts 
-import { ConfigFileOptions } from "./src/OptionModel";
+import { ConfigFileOptions } from "@odata2ts/odata2ts";
 
 // minimal case: only one converter package is configured, nothing else
 const config: ConfigFileOptions = {

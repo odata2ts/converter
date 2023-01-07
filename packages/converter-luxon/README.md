@@ -2,7 +2,7 @@
 
 # Luxon Converters
 
-[Luxon](https://moment.github.io/luxon) based [`@odat2ts`](https://github.com/odata2ts/odata2ts) compatible converters for date and time related OData types.
+[Luxon](https://moment.github.io/luxon) based [`odata2ts`](https://github.com/odata2ts/odata2ts) compatible converters for date and time related OData types.
 
 User facing data types:
 * [DateTime](https://moment.github.io/luxon/api-docs/index.html#datetime)

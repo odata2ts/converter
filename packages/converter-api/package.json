@@ -4,6 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "description": "Contract between odata2ts and converters",
   "license": "MIT",
   "repository": "git@github.com:odata2ts/odata2ts.git",
   "author": "texttechne",
@@ -19,6 +20,18 @@
     "*.md",
     "lib",
     "LICENSE"
+  ],
+  "keywords": [
+    "odata2ts",
+    "odata",
+    "converter",
+    "api",
+    "typescript",
+    "ts",
+    "javascript",
+    "js",
+    "types",
+    "data types"
   ],
   "dependencies": {
     "@odata2ts/odata-core": "^0.1.0"

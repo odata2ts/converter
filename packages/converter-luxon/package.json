@@ -4,6 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "description": "Luxon based odata2ts compatible converters for date and time related OData types",
   "license": "MIT",
   "repository": "git@github.com:odata2ts/odata2ts.git",
   "author": "texttechne",
@@ -19,6 +20,23 @@
     "*.md",
     "lib",
     "LICENSE"
+  ],
+  "keywords": [
+    "odata2ts",
+    "odata",
+    "converter",
+    "luxon",
+    "datetime",
+    "date",
+    "time",
+    "duration",
+    "datetimeoffset",
+    "typescript",
+    "ts",
+    "javascript",
+    "js",
+    "types",
+    "data types"
   ],
   "peerDependencies": {
     "luxon": "^3.0.4"

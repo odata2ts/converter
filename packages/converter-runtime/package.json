@@ -4,6 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "description": "Provides necessary implementations for using odata2ts converters at runtime",
   "license": "MIT",
   "repository": "git@github.com:odata2ts/odata2ts.git",
   "author": "texttechne",
@@ -21,6 +22,16 @@
     "lib",
     "LICENSE"
   ],
+  "keywords": [
+    "odata2ts",
+    "odata",
+    "converter",
+    "runtime",
+    "typescript",
+    "ts",
+    "javascript",
+    "js"
+  ]
   "dependencies": {
     "@odata2ts/converter-api": "^0.1.0"
   },

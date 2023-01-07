@@ -2,9 +2,9 @@
 
 # odata2ts Converter Runtime
 
-Provides necessary implementations for using [`@odat2ts`](https://github.com/odata2ts/odata2ts) converters at runtime.
+Provides necessary implementations for using [`@odata2ts`](https://github.com/odata2ts/odata2ts) converters at runtime.
 This library is primarily intended to be used by the 
-[odata2ts generator](https://www.npmjs.com/package/@odata2ts/odata2model).
+[odata2ts generator](https://www.npmjs.com/package/@odata2ts/odata2ts).
 
 Provided implementations:
 * `IdentityConverter`: just returns what was passed 
