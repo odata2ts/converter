@@ -2,7 +2,7 @@
   "name": "@odata2ts/converter",
   "version": "1.0.0",
   "private": true,
-  "description": "Root project which bundles all converter related packages.",
+  "description": "Root project which bundles all converter related packages for odata2ts.",
   "license": "MIT",
   "repository": "git@github.com:odata2ts/converter.git",
   "scripts": {
