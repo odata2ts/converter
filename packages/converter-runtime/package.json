@@ -6,7 +6,7 @@
   },
   "description": "Provides necessary implementations for using odata2ts converters at runtime",
   "license": "MIT",
-  "repository": "git@github.com:odata2ts/odata2ts.git",
+  "repository": "git@github.com:odata2ts/converter.git",
   "author": "texttechne",
   "main": "./lib/index.js",
   "scripts": {

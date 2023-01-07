@@ -6,7 +6,7 @@
   },
   "description": "Luxon based odata2ts compatible converters for date and time related OData types",
   "license": "MIT",
-  "repository": "git@github.com:odata2ts/odata2ts.git",
+  "repository": "git@github.com:odata2ts/converter.git",
   "author": "texttechne",
   "main": "./lib/index.js",
   "scripts": {

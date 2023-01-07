@@ -6,7 +6,7 @@
   },
   "description": "A set of odata2ts compatible converters to convert certain OData V2 types to their V4 analog",
   "license": "MIT",
-  "repository": "git@github.com:odata2ts/odata2ts.git",
+  "repository": "git@github.com:odata2ts/converter.git",
   "author": "texttechne",
   "main": "./lib/index.js",
   "scripts": {

@@ -6,7 +6,7 @@
   },
   "description": "Contract between odata2ts and converters",
   "license": "MIT",
-  "repository": "git@github.com:odata2ts/odata2ts.git",
+  "repository": "git@github.com:odata2ts/converter.git",
   "author": "texttechne",
   "main": "./lib/index.js",
   "scripts": {
