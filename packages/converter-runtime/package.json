@@ -31,7 +31,7 @@
     "ts",
     "javascript",
     "js"
-  ]
+  ],
   "dependencies": {
     "@odata2ts/converter-api": "^0.1.0"
   },
