@@ -25,158 +25,31 @@ With the help of converters the consumer then only needs to handle JS date objec
 Furthermore, converters can also remedy the different representations of V2 and V4
 (see [@odata2ts/v2-to-v4-converter](https://www.npmjs.com/package/@odata2ts/converter-v2-to-v4)).
 
-## `odata2ts` Configuration
-To use converters in the generation process of `odata2ts`, you have to install them and configure them via 
-the config file `odata2ts.config.ts`.
 
-```ts 
-import { ConfigFileOptions } from "@odata2ts/odata2ts";
+## Documentation
+[Converter Documentation](https://odata2ts.github.io/docs/generator/converters)
 
-// minimal case: only one converter package is configured, nothing else
-const config: ConfigFileOptions = {
-  converters: ["@odata2ts/v2-to-v4-converter"]
-}
-export default config;
-```
-This would use the default list of converters specified in the v2-to-v4-converter module.
-To only use specific converters of that package, we require a different syntax:
-```ts 
-  ...
-  converters: [
-    {
-      module: "@odata2ts/v2-to-v4-converter",
-      use: ["dateTimeToDateTimeOffsetConverter", "stringToNumberConverter"]
-    },
-    "@odata2ts/luxon-converter"
-  ]
-  ...
-```
-Each converter package must list the converters it offers and a unique identifier for each converter.
-This unique identifier is listed here via the `use` parameter.
-
-### The Order of Converters
-Multiple converters may specify the same source type. In this case the last specified converter wins.
-
-### Converter Chains
-The given list of converters will get evaluated by `odata2ts`, so that converter chains are automatically created.
-
-The starting point for any converter chain must be an OData type, since that's what we get from the OData service.
-So for each OData type we check if a converter was specified. 
-If so, we check with the resulting data type for the next converter and so forth.
+Main Documentation of odata2ts: [https://odata2ts.github.io/](https://odata2ts.github.io/)
 
 
-## Creating a Converter Module
-Converters live in their own modules with their own `package.json`.
-Multiple converters can reside in one converter module.
+## Support, Feedback, Contributing
+This project is open to feature requests, suggestions, bug reports, usage questions etc.
+via [GitHub issues](https://github.com/odata2ts/converter/issues).
 
-So you need to set up an own module first and don't forget the `main` attribute in the `package.json`.
-Compare existing converter implementations.
+Contributions and feedback are encouraged and always welcome.
 
-### Install API
-```
-npm install --save @odata2ts/converter-api 
-```
-If you want to use enums for referencing OData types, which is recommended, then also install:
-```
-npm install --save @odata2ts/odata-core 
-```
+See the [contribution guidelines](https://github.com/odata2ts/converter/blob/main/CONTRIBUTING.md) for further information.
 
+## Spirit
+This project has been created and is maintained in the following spirit:
 
-### Writing a Converter
-You should implement the interface `ValueConverter<SourceType, TargetType>`, 
-where "SourceType" is the JS type of the OData type you want to convert from 
-and "TargetType" is the JS type of the new data type you want to convert to.
+* adhere to the **OData specification** as much as possible
+  * support any OData service implementation which conforms to the spec
+  * allow to work around faulty implementations if possible
+* stability matters
+  * exercise Test Driven Development
+  * bomb the place with unit tests (code coverage > 95%)
+  * ensure that assumptions & understanding are correct by creating integration tests
 
-Let's take the following conversion as example here: 
-From OData's date time type ("2022-12-31T12:15:00Z") to JS' Date object.
-So we get the following converter: `ValueConverter<string, Date>`.
-
-You require:
-* id: this must match exactly the name of your exported variable, since it is used to import this converter from your module
-* from: the data type(s) you want to convert from, in this case `Edm.DateTimeOffset`
-* to: the data type of your choice, in this case `Date` 
-* convertFrom: conversion from OData type
-* convertTo: conversion to OData type
-
-```ts
-import { ParamValueModel, ValueConverter } from "@odata2ts/converter-api";
-import { ODataTypesV4 } from "@odata2ts/odata-core";
-
-export const myConverter: ValueConverter<string, Date> = {
-  id: "myConverter",
-  from: ODataTypesV4.DateTimeOffset, // or just "Edm.DateTimeOffset"
-  to: "Date",
-  convertFrom: (value: ParamValueModel<string>): ParamValueModel<Date> => {
-    return typeof value !== "string" ? value : new Date(value);
-  },
-  convertTo: (value: ParamValueModel<Date>): ParamValueModel<string> => {
-    return !value ? value : value.toISOString();
-  }
-}
-```
-The `ParamValueModel<Type>` makes sure that `null` and `undefined` are valid values:
-* `null` is simply allowed as value
-* `undefined` is used to signal that the conversion failed
-
-Attribute `from` can be a list of types.
-
-
-### The Module Export
-Each converter module must have a default export or alternatively an export called `config`.
-The type of this export is `ConverterPackage`, which requires an ID and a list
-of those converters that should be used by default.
-
-Additionally, all available converters must be exported individually.
-The export name must match the id of the converter.
-
-```ts
-import { ConverterPackage } from "@odata2ts/converter-api";
-import { myConverter } from "./MyConverter"
-
-export const config: ConverterPackage = {
-  id: "MyConverters",
-  converters: [myConverter]
-}
-export {
-  myConverter
-}
-```
-
-### About Data Types
-
-The handling of data types within the ValueConverter is a bit special, but follows these rules:
-* the types of JS data types are just written as strings: "number", "string", "Date", ...
-* OData Types always have the prefix "Edm.", e.g. "Edm.String", "Edm.DateTimeOffset", ...
-  * enums for V2 and V4 data types are available via `@odata2ts/odata-core`
-* 3rd party data types (need to be imported before usage) specify their module as prefix separated by a dot, e.g. "luxon.Duration" 
-  * "module.DataType" => import { DataType } from "module";
-
-A little cheat sheet regarding OData's data types:
-
-| OData Type         | Version | JS format | Example                                                    |
-|--------------------|:-------:|:---------:|------------------------------------------------------------|
-| Edm.String         | V2 & V4 |  string   | "Test"                                                     |
-| Edm.Boolean        | V2 & V4 |  boolean  | true                                                       |  
-| Edm.Int16          | V2 & V4 |  number   | 3                                                          |
-| Edm.Int32          | V2 & V4 |  number   | 222                                                        | 
-| Edm.Byte           |   V2    |  string   | "1"                                                        |  
-| Edm.Byte           |   V4    |  number   | 1                                                          |  
-| Edm.SByte          |   V2    |  string   |                                                            |
-| Edm.SByte          |   V4    |  number   |                                                            |
-| Edm.Int64          |   V2    |  string   |                                                            |
-| Edm.Int64          |   V4    |  number   |                                                            |
-| Edm.Single         |   V2    |  string   |                                                            |
-| Edm.Single         |   V4    |  number   |                                                            |
-| Edm.Double         |   V2    |  string   |                                                            |
-| Edm.Double         |   V4    |  number   |                                                            |
-| Edm.Decimal        |   V2    |  string   |                                                            |
-| Edm.Decimal        |   V4    |  number   |                                                            |
-| Edm.Duration       |   V4    |  string   | "P12DT12H15M"                                              |
-| Edm.Time           |   V2    |  string   | "PT12H15M"                                                 |
-| Edm.TimeOfDay      |   V4    |  string   | "12:15:00"                                                 |
-| Edm.Date           |   V4    |  string   | "2022-12-31"                                               |
-| Edm.DateTime       |   V2    |  string   | "/Date(123...)/"                                           |
-| Edm.DateTimeOffset | V2 & V4 |  string   | "2022-12-31T12:15:00+01:00"                                |
-| Edm.Binary         | V2 & V4 |  string   |                                                            |
-| Edm.Stream         |   V4    |    ---    | streams are accessed differently and thus are out of scope |
-
+## License
+MIT - see [License](./LICENSE).

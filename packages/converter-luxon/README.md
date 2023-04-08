@@ -12,52 +12,34 @@ User facing data types:
 Note: This converter expects, that Luxon itself has been already installed, 
 it doesn't pull Luxon automatically into your project. So if not already present, also install `luxon`.
 
-Via npm:
 ```
 npm install --save @odata2ts/converter-luxon
 ```
-Via yarn:
-```
-yarn add @odata2ts/converter-luxon
-```
 
-## Integration
-To integrate this converter into any `odata2ts` project, add it to the list of converters within the project configuration file `odata2ts.config.ts`.
-Converters are referenced by their package name, so in this case `@odata2ts/converter-luxon`.
+## Documentation
 
-For V2, the v2-to-v4-converter should also be installed to handle V2 date times (Edm.DateTime) with Luxon as well.
-For V4 you just leave it out.
-```typescript
-import { ConfigOptions } from "@odata2ts/odata2model";
+[Luxon-Converter Documentation](https://odata2ts.github.io/docs/generator/luxon-converter)
 
-const config: ConfigOptions = {
-  converters: ["@odata2ts/converter-v2-to-v4", "@odata2ts/converter-luxon"],
-};
+Main Documentation of odata2ts: [https://odata2ts.github.io/](https://odata2ts.github.io/)
 
-export default config;
-```
+## Support, Feedback, Contributing
+This project is open to feature requests, suggestions, bug reports, usage questions etc.
+via [GitHub issues](https://github.com/odata2ts/converter/issues).
 
-### Configuration
-You can also choose to exactly specify which converters to use instead of automatically integrating all of them.
-Instead of a simple string you specify an object where the converters are listed by their id (in the following example "xxxToLuxon").
-These converter ids are listed in the "Conversions" table.
+Contributions and feedback are encouraged and always welcome.
 
-```typescript
-    ...
-    converters: [
-      {
-        module: "@odata2ts/converter-luxon",
-        use: ["dateTimeOffsetToLuxonConverter", "durationToLuxonConverter"],
-      },
-    ],
-    ...
-```
+See the [contribution guidelines](https://github.com/odata2ts/converter/blob/main/CONTRIBUTING.md) for further information.
 
-## Conversions
+## Spirit
+This project has been created and is maintained in the following spirit:
 
-| OData Type         | Converter Id                   | Luxon Type | Description                                                                      |
-|--------------------|--------------------------------|:----------:|----------------------------------------------------------------------------------| 
-| Edm.DateTimeOffset | dateTimeOffsetToLuxonConverter |  DateTime  |                                                                                  |
-| Edm.Date           | dateToLuxonConverter           |  DateTime  | Luxon's DateTime will still have the time part, which should be ignored by user  |
-| Edm.TimeOfDay      | timeOfDayToLuxonConverter      |  DateTime  | Luxon's DateTime will still have the date part, which should be ignored by user  |
-| Edm.Duration       | durationToLuxonConverter       |  Duration  |                                                                                  |
+* adhere to the **OData specification** as much as possible
+  * support any OData service implementation which conforms to the spec
+  * allow to work around faulty implementations if possible
+* stability matters
+  * exercise Test Driven Development
+  * bomb the place with unit tests (code coverage > 95%)
+  * ensure that assumptions & understanding are correct by creating integration tests
+
+## License
+MIT - see [License](./LICENSE).
