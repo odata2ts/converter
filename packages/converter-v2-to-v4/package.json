@@ -1,6 +1,6 @@
 {
   "name": "@odata2ts/converter-v2-to-v4",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publishConfig": {
     "access": "public"
   },
@@ -38,7 +38,7 @@
     "data types"
   ],
   "dependencies": {
-    "@odata2ts/converter-api": "^0.1.1"
+    "@odata2ts/converter-api": "^0.1.2"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",
