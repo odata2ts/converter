@@ -15,7 +15,8 @@ export type MappedConverterChains = Map<string, ValueConverterChain>;
 async function doLoad(converters: Array<TypeConverterConfig>): Promise<Array<RuntimeConverterPackage>> {
   return Promise.all(
     converters.map((conv) => {
-      return import(conv.module)
+      // explicit string wrapping silences webpack
+      return import(`${conv.module}`)
         .catch((e) => {
           throw new Error(`Failed to load module "${conv.module}"!`, e);
         })
