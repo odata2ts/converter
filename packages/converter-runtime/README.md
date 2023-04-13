@@ -2,12 +2,11 @@
 
 # Converter Runtime for odata2ts
 
-Provides necessary implementations for using [odata2ts](https://github.com/odata2ts/odata2ts) converters at runtime.
-This library is primarily intended to be used by the 
+Provides necessary implementations for using [odata2ts converters](https://odata2ts.github.io/docs/generator/converters/)
+within the generation process. So this library is primarily intended to be used by the 
 [odata2ts generator](https://www.npmjs.com/package/@odata2ts/odata2ts).
 
 Provided implementations:
-* `IdentityConverter`: just returns what was passed 
 * `ChainedConverter`: chains the output of converter A to the input of converter B
 * `loadConverters()`: loading function to dynamically import specified converters
   * takes care of loading order => last converter wins if multiple converters could be used for a given data type
