@@ -2,7 +2,7 @@
 
 # Luxon Converters
 
-[Luxon](https://moment.github.io/luxon) based [`odata2ts`](https://github.com/odata2ts/odata2ts) compatible converters for date and time related OData types.
+[Luxon](https://moment.github.io/luxon) based [odata2ts](https://github.com/odata2ts/odata2ts) compatible converters for date and time related OData types.
 
 User facing data types:
 * [DateTime](https://moment.github.io/luxon/api-docs/index.html#datetime)
@@ -18,7 +18,7 @@ npm install --save @odata2ts/converter-luxon
 
 ## Documentation
 
-[Luxon-Converter Documentation](https://odata2ts.github.io/docs/generator/luxon-converter)
+[Luxon-Converter Documentation](https://odata2ts.github.io/docs/generator/converters/luxon-converter)
 
 Main Documentation of odata2ts: [https://odata2ts.github.io/](https://odata2ts.github.io/)
 

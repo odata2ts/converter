@@ -2,7 +2,7 @@
 
 # V2-to-V4 Converters
 
-A set of [`@odata2ts`](https://github.com/odata2ts/odata2ts) compatible converters to convert certain OData V2 types to their V4 analog. 
+A set of [odata2ts](https://github.com/odata2ts/odata2ts) compatible converters to convert certain OData V2 types to their V4 analog. 
 Thus, other converters only need to take care of the V4 data models.
 
 Conversions:
@@ -18,7 +18,7 @@ npm install --save @odata2ts/converter-v2-to-v4
 
 ## Documentation
 
-[V2-to-V4-Converter Documentation](https://odata2ts.github.io/docs/generator/v2-to-v4-converter)
+[V2-to-V4-Converter Documentation](https://odata2ts.github.io/docs/generator/converters/v2-to-v4-converter)
 
 Main Documentation of odata2ts: [https://odata2ts.github.io/](https://odata2ts.github.io/)
 
