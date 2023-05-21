@@ -16,8 +16,6 @@ export const stringToNumberConverter: ValueConverter<string, number> = {
     ODataTypesV2.SByte,
     ODataTypesV2.Single,
     ODataTypesV2.Double,
-    ODataTypesV2.Int64,
-    ODataTypesV2.Decimal,
   ],
   to: "number",
 
