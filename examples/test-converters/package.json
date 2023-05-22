@@ -3,7 +3,7 @@
   "version": "0.2.3",
   "private": true,
   "license": "MIT",
-  "repository": "git@github.com:odata2ts/odata2ts.git",
+  "repository": "git@github.com:odata2ts/converter.git",
   "author": "texttechne",
   "main": "./lib/index.js",
   "scripts": {

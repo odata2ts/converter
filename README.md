@@ -9,13 +9,30 @@ to realize data type conversions: From OData types to native JS types or third-p
 - the `converter-api` package specifies converters and serves as contract between odata2ts and any converter implementation
 
 It also contains converters you can use:
-- [v2-to-v4-converter](https://www.npmjs.com/package/@odata2ts/converter-v2-to-v4)
-  - you probably want V2 number types to be JS numbers
-  - by converting v2 to v4 data types other converters only need to take care of V4 data types
-  - makes switch between V2 and V4 versions of the same OData service more pain-free
-- [luxon-converter](https://www.npmjs.com/package/@odata2ts/converter-luxon)
-  - third-party `DateTime` type
-  - third-party `Duration` type
+- [V2-to-V4 Converters](https://www.npmjs.com/package/@odata2ts/converter-v2-to-v4)
+  - V2 numeric types are converted from `string` to `number`
+  - `Edm.Int64` and `Edm.Decimal` are not converted and remain type `string`
+  - `Edm.DateTime` is converted to `Edm.DateTimeOffset`, i.e. proper ISO 8601 date and time presentation
+  - `Edm.Time` is by default converted to `Edm.TimeOfDay` (ISO 8601 time), but can also be relabeled as `Edm.Duration`
+- [Common Converters](https://www.npmjs.com/package/@odata2ts/converter-common)
+  - `Edm.DateTimeOffset`: JavaScript `Date` type 
+  - `Edm.Duration`: simple duration object
+  - `Edm.Int64`: JavaScript `bigint` type
+- [Luxon Converters](https://www.npmjs.com/package/@odata2ts/converter-luxon)
+  - `Edm.DateTimeOffset`: Luxon's `DateTime` type
+  - `Edm.Date`: Luxon's `DateTime` type
+  - `Edm.TimeOfDay`: Luxon's `DateTime` type
+  - `Edm.Duration`: Luxon's `Duration` type
+- [UI5 V2 Converters](https://www.npmjs.com/package/@odata2ts/converter-ui5-v2)
+  - type alignment with UI5 V2 ODataModel (`sap.ui.model.odata.v2.ODataModel`)
+
+Converters can be picked as a package (using the default converter set) or individually
+by specifying each converter. If different converters handle the same data type, then the last converter wins.
+
+Converters are chainable. This makes the `v2-to-v4 converter` utterly useful, because it spares
+other converters the work and headaches to cope with V2 types and lets them focus on converting V4 data types.
+For example, every `Edm.DateTime` gets converted to `Edm.DateTimeOffset`, so that the Luxon and the common converter
+only need to handle `Edm.DateTimeOffset`.
 
 ## Background
 While some OData types (`Edm.String`, `Edm.Boolean`, ...) can easily and perfectly be mapped to native JS types,
