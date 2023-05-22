@@ -7,8 +7,8 @@ describe("LoadConverters Test", () => {
   const V2_TO_V4_PKG = "@odata2ts/converter-v2-to-v4";
   const LUXON_PKG = "@odata2ts/converter-luxon";
 
-  // time, dateTime, byte, sByte, single, double, int64, decimal
-  const V2_TO_V4_CONVERTERS_SIZE = 8;
+  // time, dateTime, byte, sByte, single, double
+  const V2_TO_V4_CONVERTERS_SIZE = 6;
 
   test("no converters", async () => {
     const result = await loadConverters(ODataVersions.V4, undefined);
@@ -85,7 +85,7 @@ describe("LoadConverters Test", () => {
     const modules = [V2_TO_V4_PKG, LUXON_PKG];
 
     const result = await loadConverters(ODataVersions.V2, modules);
-    expect(result?.size).toBe(9);
+    expect(result?.size).toBe(7);
 
     const dateTimeToLuxon = result?.get(ODataTypesV2.DateTime);
     expect(dateTimeToLuxon).toStrictEqual({
