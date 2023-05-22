@@ -19,6 +19,10 @@ describe("TimeOfDayToLuxonConverter Test", () => {
     expect(TO_TEST.convertTo(candidate2)).toBe(FROM_STRING);
   });
 
+  test("conversion with invalid dateTime", () => {
+    expect(TO_TEST.convertTo(DateTime.fromISO("hello"))).toBeUndefined();
+  });
+
   test("conversion with milliseconds", () => {
     const FROM_STRING = "12:30:45.123";
     const candidate = TO_TEST.convertFrom(FROM_STRING);

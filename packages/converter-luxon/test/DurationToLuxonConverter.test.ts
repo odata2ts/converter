@@ -1,3 +1,5 @@
+import { Duration } from "luxon";
+
 import { durationToLuxonConverter } from "../src";
 import { execCommonConverterTests } from "./CommonTests";
 
@@ -5,6 +7,10 @@ describe("DurationToLuxonConverter Test", () => {
   const TO_TEST = durationToLuxonConverter;
 
   execCommonConverterTests(TO_TEST);
+
+  test("conversion with invalid dateTime", () => {
+    expect(TO_TEST.convertTo(Duration.fromISO("hello"))).toBeUndefined();
+  });
 
   test("conversion of day duration", () => {
     const dayDuration = "PT12H15M20S";
