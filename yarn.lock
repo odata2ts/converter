@@ -1865,6 +1865,7 @@ __metadata:
   resolution: "@odata2ts/converter-playground@workspace:examples/playground"
   dependencies:
     "@odata2ts/converter-common": ^0.0.0
+    "@odata2ts/converter-runtime": "workspace:^"
     "@odata2ts/converter-v2-to-v4": ^0.1.4
     "@odata2ts/odata-query-objects": ^0.17.3
     "@odata2ts/odata2ts": ^0.22.0
@@ -1878,7 +1879,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@odata2ts/converter-runtime@^0.1.5, @odata2ts/converter-runtime@workspace:packages/converter-runtime":
+"@odata2ts/converter-runtime@^0.1.5, @odata2ts/converter-runtime@workspace:^, @odata2ts/converter-runtime@workspace:packages/converter-runtime":
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-runtime@workspace:packages/converter-runtime"
   dependencies:
