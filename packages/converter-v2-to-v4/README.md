@@ -7,15 +7,15 @@ Thus, other converters only need to take care of the V4 data models.
 
 ## Conversions
 
-| OData V2 Type | OData V4 Type      | Converter Id                      | Description                                                                                            |
-|---------------|--------------------|:----------------------------------|--------------------------------------------------------------------------------------------------------|
-| Edm.DateTime  | Edm.DateTimeOffset | dateTimeToDateTimeOffsetConverter | Converts "/Date(123...)/" to ISO8601 "2022-02-22T12:00:00Z"; offsets are supported "/Date(123..+120)/" |
-| Edm.Byte      | number             | stringToNumberConverter           |                                                                                                        |
-| Edm.SByte     | number             | stringToNumberConverter           |                                                                                                        |
-| Edm.Single    | number             | stringToNumberConverter           |                                                                                                        |
-| Edm.Double    | number             | stringToNumberConverter           |                                                                                                        |
-| Edm.Time      | Edm.TimeOfDay      | timeToTimeOfDayConverter          | Converts duration format to time format, e.g. `PT12H15M` to `12:15:00`                                 |
-| Edm.Time      | Edm.Duration       | timeToDurationConverter           | Relabels `Edm.Time` to `Edm.Duration` (no conversion required); not a default converter                |
+| OData V2 Type  | Result Type          | Converter Id                      | Description                                                                                            |
+|----------------|----------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------|
+| `Edm.DateTime` | `Edm.DateTimeOffset` | dateTimeToDateTimeOffsetConverter | Converts "/Date(123...)/" to ISO8601 "2022-02-22T12:00:00Z"; offsets are supported "/Date(123..+120)/" |
+| `Edm.Byte`     | `number`             | stringToNumberConverter           |                                                                                                        |
+| `Edm.SByte`    | `number`             | stringToNumberConverter           |                                                                                                        |
+| `Edm.Single`   | `number`             | stringToNumberConverter           |                                                                                                        |
+| `Edm.Double`   | `number`             | stringToNumberConverter           |                                                                                                        |
+| `Edm.Time`     | `Edm.TimeOfDay`      | timeToTimeOfDayConverter          | Converts duration format to time format, e.g. `PT12H15M` to `12:15:00`                                 |
+| `Edm.Time`     | `Edm.Duration`       | timeToDurationConverter           | Relabels `Edm.Time` to `Edm.Duration` (no conversion required); not a default converter                |
 
 `Edm.Int64` & `Edm.Decimal` do not get converted to the `number` type as V4 does it; 
 they remain `string` types as they potentially don't fit into JS' number type with the implied precision loss.

@@ -10,12 +10,12 @@ User facing data types:
 
 ## Conversions
 
-| OData Type         | Converter Id                   | Luxon Type | Description                                                                     |
-|--------------------|--------------------------------|:----------:|---------------------------------------------------------------------------------|
-| Edm.DateTimeOffset | dateTimeOffsetToLuxonConverter |  DateTime  |                                                                                 |
-| Edm.Date           | dateToLuxonConverter           |  DateTime  | Luxon's DateTime will still have the time part, which should be ignored by user |
-| Edm.TimeOfDay      | timeOfDayToLuxonConverter      |  DateTime  | Luxon's DateTime will still have the date part, which should be ignored by user |
-| Edm.Duration       | durationToLuxonConverter       |  Duration  |                                                                                 |
+| OData Type           | Result Type | Converter Id                   | Description                                                                     |
+|----------------------|-------------|--------------------------------|---------------------------------------------------------------------------------|
+| `Edm.DateTimeOffset` | `DateTime`  | dateTimeOffsetToLuxonConverter |                                                                                 |
+| `Edm.Date`           | `DateTime`  | dateToLuxonConverter           | Luxon's DateTime will still have the time part, which should be ignored by user |
+| `Edm.TimeOfDay`      | `DateTime`  | timeOfDayToLuxonConverter      | Luxon's DateTime will still have the date part, which should be ignored by user |
+| `Edm.Duration`       | `Duration`  | durationToLuxonConverter       |                                                                                 |
 
 
 ## Installation
