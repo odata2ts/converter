@@ -6,10 +6,14 @@ Common converters compatible with [odata2ts](https://github.com/odata2ts/odata2t
 
 ## Conversions
 
-| OData Type           | Converter Id                  |    Data Type     | Description                                                                     |
-|----------------------|-------------------------------|:----------------:|---------------------------------------------------------------------------------|
-| `Edm.DateTimeOffset` | dateTimeOffsetToDateConverter |      `Date`      | Conversion to JS' date instance                                                 |
-| `Edm.Duration`       | simpleDurationConverter       | `SimpleDuration` | Result data type is provided by the package                                     |
+| OData Type           | Converter Id                  |    Data Type     |  Description                                |
+|----------------------|-------------------------------|:----------------:|---------------------------------------------|
+| `Edm.DateTimeOffset` | dateTimeOffsetToDateConverter |      `Date`      | Conversion to JS' date instance             |
+| `Edm.Duration`       | simpleDurationConverter       | `SimpleDuration` | Result data type is provided by the package |
+| `Edm.Int64`          | int64ToBigIntConverter        |     `bigint`     | Converts to JS' built-in `bigint` type      |
+
+By default, only the `dateTimeOffsetToDateConverter` is included when the whole converter package is used.
+It's rather intended to pick the converters you need.
 
 ### `SimpleDuration`
 Converts duration string (e.g. `P12YT09H13S`) into a simple duration object:

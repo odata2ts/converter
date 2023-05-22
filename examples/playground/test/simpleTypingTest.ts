@@ -13,7 +13,7 @@ const test: Tester = {
   SByte: -1,
   Int16: 123,
   Int32: 123,
-  Int64: "123",
+  Int64: BigInt("123"),
   Single: 1.1,
   Double: 1.123,
   Decimal: "123.123",

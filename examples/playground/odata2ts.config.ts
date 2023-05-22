@@ -7,7 +7,10 @@ const config: ConfigFileOptions = {
   converters: [
     "@odata2ts/converter-v2-to-v4",
     { use: ["timeToDurationConverter"], module: "@odata2ts/converter-v2-to-v4" },
-    "@odata2ts/converter-common",
+    {
+      use: ["dateTimeOffsetToDateConverter", "simpleDurationConverter", "int64ToBigIntConverter"],
+      module: "@odata2ts/converter-common",
+    },
   ],
   services: {
     test: {
