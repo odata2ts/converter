@@ -8,6 +8,16 @@ User facing data types:
 * [DateTime](https://moment.github.io/luxon/api-docs/index.html#datetime)
 * [Duration](https://moment.github.io/luxon/api-docs/index.html#duration)
 
+## Conversions
+
+| OData Type         | Converter Id                   | Luxon Type | Description                                                                     |
+|--------------------|--------------------------------|:----------:|---------------------------------------------------------------------------------|
+| Edm.DateTimeOffset | dateTimeOffsetToLuxonConverter |  DateTime  |                                                                                 |
+| Edm.Date           | dateToLuxonConverter           |  DateTime  | Luxon's DateTime will still have the time part, which should be ignored by user |
+| Edm.TimeOfDay      | timeOfDayToLuxonConverter      |  DateTime  | Luxon's DateTime will still have the date part, which should be ignored by user |
+| Edm.Duration       | durationToLuxonConverter       |  Duration  |                                                                                 |
+
+
 ## Installation
 Note: This converter expects, that Luxon itself has been already installed, 
 it doesn't pull Luxon automatically into your project. So if not already present, also install `luxon`.
