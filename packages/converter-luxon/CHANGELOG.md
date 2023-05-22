@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.4](https://github.com/odata2ts/converter/compare/@odata2ts/converter-luxon@0.1.3...@odata2ts/converter-luxon@0.1.4) (2023-05-22)
+
+
+### Bug Fixes
+
+* add package test to assure ids and exports match ([4c70269](https://github.com/odata2ts/converter/commit/4c702692ec1c5f56ec4957822dc95989a08b3d78))
+
+
+
+
+
+
 ## [0.1.3](https://github.com/odata2ts/converter/compare/@odata2ts/converter-luxon@0.1.2...@odata2ts/converter-luxon@0.1.3) (2023-04-13)
 
 **Note:** Version bump only for package @odata2ts/converter-luxon

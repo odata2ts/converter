@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/odata2ts/converter/compare/@odata2ts/converter-v2-to-v4@0.1.4...@odata2ts/converter-v2-to-v4@0.2.0) (2023-05-22)
+
+
+### Bug Fixes
+
+* add package test to assure ids and exports match ([4c70269](https://github.com/odata2ts/converter/commit/4c702692ec1c5f56ec4957822dc95989a08b3d78))
+* **converter-v2-to-v4:** don't convert Int64 or Decimal to number ([5564504](https://github.com/odata2ts/converter/commit/55645041a4a887297e3cffa0ccdf20751c1da230))
+
+
+### BREAKING CHANGES
+
+* **converter-v2-to-v4:** we don't handle Int64 and Decimal anymore. It rarely makes sense to treat them as JS numbers (possible precision loss). So here we diverge from how V4 does things, but with a good reason
+
+
+
+
+
+
 ## [0.1.4](https://github.com/odata2ts/converter/compare/@odata2ts/converter-v2-to-v4@0.1.3...@odata2ts/converter-v2-to-v4@0.1.4) (2023-04-13)
 
 **Note:** Version bump only for package @odata2ts/converter-v2-to-v4

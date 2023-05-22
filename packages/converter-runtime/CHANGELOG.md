@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.6](https://github.com/odata2ts/converter/compare/@odata2ts/converter-runtime@0.1.5...@odata2ts/converter-runtime@0.1.6) (2023-05-22)
+
+
+### Bug Fixes
+
+* **runtime:** adapt tests to changed v2-to-v4-converter ([239eaaf](https://github.com/odata2ts/converter/commit/239eaaf432efbebba95d15abd4d5e93c417a1ab1))
+
+
+
+
+
+
 ## [0.1.5](https://github.com/odata2ts/converter/compare/@odata2ts/converter-runtime@0.1.4...@odata2ts/converter-runtime@0.1.5) (2023-04-13)
 
 **Note:** Version bump only for package @odata2ts/converter-runtime
