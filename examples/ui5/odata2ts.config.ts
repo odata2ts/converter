@@ -4,7 +4,7 @@ const config: ConfigFileOptions = {
   mode: Modes.qobjects,
   emitMode: EmitModes.ts,
   prettier: true,
-  converters: ["@odata2ts/converter-ui5"],
+  converters: ["@odata2ts/converter-ui5-v2"],
   services: {
     test: {
       source: "src/test.xml",
