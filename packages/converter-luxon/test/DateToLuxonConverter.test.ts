@@ -9,6 +9,10 @@ describe("DateToLuxonConverter Test", () => {
 
   execCommonConverterTests(TO_TEST);
 
+  test("conversion with invalid dateTime", () => {
+    expect(TO_TEST.convertTo(DateTime.fromISO("hello"))).toBeUndefined();
+  });
+
   test("conversion", () => {
     const candidate = TO_TEST.convertFrom(FROM_STRING);
     const candidate2 = DateTime.utc(2022, 12, 31);
