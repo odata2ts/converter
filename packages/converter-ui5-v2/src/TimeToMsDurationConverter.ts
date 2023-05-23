@@ -8,7 +8,7 @@ export interface MsDuration {
 export const timeToMsDurationConverter: ValueConverter<string, MsDuration> = {
   id: "timeToMsDurationConverter",
   from: "Edm.Time",
-  to: "@odata2ts/converter-ui5.MsDuration",
+  to: "@odata2ts/converter-ui5-v2.MsDuration",
 
   convertFrom: function (value: ParamValueModel<string>): ParamValueModel<MsDuration> {
     if (typeof value !== "string") {
