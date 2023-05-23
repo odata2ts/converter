@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.settings.json",
   "compilerOptions": {
-    "rootDir": "./build",
+    "rootDirs": ["./build", "./test"],
     "outDir": "./lib"
   },
   "include": ["build", ".types", "test"]

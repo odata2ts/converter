@@ -8,9 +8,10 @@
   "main": "./lib/index.js",
   "scripts": {
     "build": "yarn clean && yarn odata2ts",
-    "clean": "rimraf lib coverage",
+    "clean": "rimraf lib build coverage",
     "compile": "tsc",
-    "test": "jest --passWithNoTests"
+    "test": "yarn type-test && jest",
+    "type-test": "tsc -p tsconfig.type-test.json"
   },
   "files": [
     "*.md",
