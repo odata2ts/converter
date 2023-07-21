@@ -5,6 +5,7 @@ import * as pkg from "../src";
 describe("UI5 Converter Package Tests", function () {
   const usedConverters = [
     "stringToNumberConverter",
+    "bigNumberNoopConverter",
     "dateTimeToDateTimeOffsetConverter",
     "dateTimeOffsetToDateConverter",
     "timeToMsDurationConverter",

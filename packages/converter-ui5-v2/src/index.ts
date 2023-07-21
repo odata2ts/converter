@@ -1,6 +1,10 @@
 import { ConverterPackage } from "@odata2ts/converter-api";
 import { dateTimeOffsetToDateConverter } from "@odata2ts/converter-common";
-import { dateTimeToDateTimeOffsetConverter, stringToNumberConverter } from "@odata2ts/converter-v2-to-v4";
+import {
+  bigNumberNoopConverter,
+  dateTimeToDateTimeOffsetConverter,
+  stringToNumberConverter,
+} from "@odata2ts/converter-v2-to-v4";
 
 import { timeToMsDurationConverter } from "./TimeToMsDurationConverter";
 
@@ -10,6 +14,7 @@ const pkg: ConverterPackage = {
   id: "UI5",
   converters: [
     stringToNumberConverter,
+    bigNumberNoopConverter,
     dateTimeToDateTimeOffsetConverter,
     dateTimeOffsetToDateConverter,
     timeToMsDurationConverter,
@@ -19,6 +24,7 @@ const pkg: ConverterPackage = {
 export default pkg;
 export {
   stringToNumberConverter,
+  bigNumberNoopConverter,
   dateTimeToDateTimeOffsetConverter,
   dateTimeOffsetToDateConverter,
   timeToMsDurationConverter,
