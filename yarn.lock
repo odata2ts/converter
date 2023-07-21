@@ -1845,7 +1845,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-example-ui5@workspace:examples/ui5"
   dependencies:
-    "@odata2ts/converter-ui5-v2": ^0.2.0
+    "@odata2ts/converter-ui5-v2": ^0.2.1
     "@odata2ts/odata-query-objects": ^0.17.3
     "@odata2ts/odata2ts": ^0.22.0
     "@types/jest": ^27.4.1
@@ -1882,8 +1882,8 @@ __metadata:
   resolution: "@odata2ts/converter-playground@workspace:examples/playground"
   dependencies:
     "@odata2ts/converter-common": ^0.1.1
-    "@odata2ts/converter-runtime": ^0.2.0
-    "@odata2ts/converter-v2-to-v4": ^0.3.0
+    "@odata2ts/converter-runtime": ^0.2.1
+    "@odata2ts/converter-v2-to-v4": ^0.3.1
     "@odata2ts/odata-query-objects": ^0.17.3
     "@odata2ts/odata2ts": ^0.22.0
     "@types/jest": ^29.5.1
@@ -1896,13 +1896,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@odata2ts/converter-runtime@^0.2.0, @odata2ts/converter-runtime@workspace:packages/converter-runtime":
+"@odata2ts/converter-runtime@^0.2.1, @odata2ts/converter-runtime@workspace:packages/converter-runtime":
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-runtime@workspace:packages/converter-runtime"
   dependencies:
     "@odata2ts/converter-api": ^0.1.2
     "@odata2ts/converter-luxon": ^0.1.5
-    "@odata2ts/converter-v2-to-v4": ^0.3.0
+    "@odata2ts/converter-v2-to-v4": ^0.3.1
     "@types/jest": ^27.4.1
     "@types/node": ^17.0.23
     jest: 27.5.1
@@ -1922,13 +1922,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@odata2ts/converter-ui5-v2@^0.2.0, @odata2ts/converter-ui5-v2@workspace:packages/converter-ui5-v2":
+"@odata2ts/converter-ui5-v2@^0.2.1, @odata2ts/converter-ui5-v2@workspace:packages/converter-ui5-v2":
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-ui5-v2@workspace:packages/converter-ui5-v2"
   dependencies:
     "@odata2ts/converter-api": ^0.1.2
     "@odata2ts/converter-common": ^0.1.1
-    "@odata2ts/converter-v2-to-v4": ^0.3.0
+    "@odata2ts/converter-v2-to-v4": ^0.3.1
     "@types/jest": ^27.4.1
     "@types/node": ^17.0.23
     jest: 27.5.1
@@ -1939,7 +1939,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@odata2ts/converter-v2-to-v4@^0.3.0, @odata2ts/converter-v2-to-v4@workspace:packages/converter-v2-to-v4":
+"@odata2ts/converter-v2-to-v4@^0.3.1, @odata2ts/converter-v2-to-v4@workspace:packages/converter-v2-to-v4":
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-v2-to-v4@workspace:packages/converter-v2-to-v4"
   dependencies:

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/odata2ts/converter/compare/@odata2ts/converter-v2-to-v4@0.3.0...@odata2ts/converter-v2-to-v4@0.3.1) (2023-07-21)
+
+**Note:** Version bump only for package @odata2ts/converter-v2-to-v4
+
+
+
+
+
 # [0.3.0](https://github.com/odata2ts/converter/compare/@odata2ts/converter-v2-to-v4@0.2.1...@odata2ts/converter-v2-to-v4@0.3.0) (2023-07-21)
 
 
