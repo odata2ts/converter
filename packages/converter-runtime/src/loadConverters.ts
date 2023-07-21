@@ -29,11 +29,10 @@ async function doLoad(converters: Array<TypeConverterConfig>): Promise<Array<Run
             for (let convId of conv.use) {
               const loaded = module[convId];
               if (!loaded) {
-                throw new Error(`Use of converter with id "${convId}" of module "${conv.module}" failed!`);
+                throw new Error(`Converter with id "${convId}" doesn't exist in module "${conv.module}"!`);
               }
               converters.push(loaded);
             }
-            // console.log(`Dynamically imported [${conv.use.join(",")}] from converter package ${conv.module}`);
           }
           // use converter list from default export
           else {
@@ -42,7 +41,6 @@ async function doLoad(converters: Array<TypeConverterConfig>): Promise<Array<Run
               throw new Error(`Default export of loaded module "${conv.module}" doesn't conform to specification!`);
             }
             const pkg = candidate as ConverterPackage;
-            // console.log(`Dynamically loaded converter package ${conv.module} with id "${id}"`);
             converters = pkg.converters;
           }
 

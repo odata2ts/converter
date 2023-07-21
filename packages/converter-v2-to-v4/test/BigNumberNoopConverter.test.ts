@@ -1,6 +1,6 @@
 import { ODataTypesV2 } from "@odata2ts/odata-core";
 
-import { bigNumberNoopConverter } from "../lib";
+import { bigNumberNoopConverter } from "../src";
 
 describe("BigNumberNoopConverter Test", () => {
   const TO_TEST = bigNumberNoopConverter;
@@ -18,11 +18,10 @@ describe("BigNumberNoopConverter Test", () => {
     expect(TO_TEST.convertTo("-46")).toBe("-46");
   });
 
-  test("null, undefined and invalid input", () => {
+  test("null, undefined", () => {
     expect(TO_TEST.convertFrom(null)).toBeNull();
-    expect(TO_TEST.convertFrom(undefined)).toBeUndefined();
-
     expect(TO_TEST.convertTo(null)).toBeNull();
+    expect(TO_TEST.convertFrom(undefined)).toBeUndefined();
     expect(TO_TEST.convertTo(undefined)).toBeUndefined();
   });
 });

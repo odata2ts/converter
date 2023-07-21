@@ -37,6 +37,15 @@ describe("LoadConverters Test", () => {
     ]);
   });
 
+  test("fail to load converter", async () => {
+    const fakeModule = "xxxxNotExistentxxxx";
+    const expectedError = new Error(`Failed to load module "${fakeModule}"!`);
+
+    await expect(loadConverters(ODataVersions.V2, [fakeModule])).rejects.toMatchObject(expectedError);
+    await expect(loadConverters(ODataVersions.V2, [V2_TO_V4_PKG, fakeModule])).rejects.toMatchObject(expectedError);
+    await expect(loadConverters(ODataVersions.V2, [fakeModule, V2_TO_V4_PKG])).rejects.toMatchObject(expectedError);
+  });
+
   test("load installed converters with no application", async () => {
     const result = await loadConverters(ODataVersions.V4, [V2_TO_V4_PKG]);
 
@@ -70,8 +79,23 @@ describe("LoadConverters Test", () => {
     } as ValueConverterChain);
   });
 
+  test("fail to load specific converter", async () => {
+    const moduleId = "@odata2ts/converter-v2-to-v4";
+    const fakeId = "xxxxNotExistentxxxx";
+    const expectedError = new Error(`Converter with id "${fakeId}" doesn't exist in module "${moduleId}"!`);
+
+    await expect(loadConverters(ODataVersions.V2, [{ module: V2_TO_V4_PKG, use: [fakeId] }])).rejects.toMatchObject(
+      expectedError
+    );
+    await expect(
+      loadConverters(ODataVersions.V2, [{ module: V2_TO_V4_PKG, use: ["stringToNumberConverter", fakeId] }])
+    ).rejects.toMatchObject(expectedError);
+  });
+
   test("last converter overrides some types of first converter", async () => {
     const converterIds = ["stringToNumberConverter", "bigNumberNoopConverter"];
+
+    // only stringToNumber => decimal gets converted
     let result = await loadConverters(ODataVersions.V2, [{ module: V2_TO_V4_PKG, use: [converterIds[0]] }]);
     expect(result?.get(ODataTypesV2.Decimal)).toStrictEqual({
       from: ODataTypesV2.Decimal,
@@ -85,8 +109,8 @@ describe("LoadConverters Test", () => {
       ],
     });
 
+    // adding bigNumberNoop => decimal remains string
     result = await loadConverters(ODataVersions.V2, [{ module: V2_TO_V4_PKG, use: converterIds }]);
-
     expect(result?.get(ODataTypesV2.Decimal)).toStrictEqual({
       from: ODataTypesV2.Decimal,
       to: "string",
@@ -98,15 +122,8 @@ describe("LoadConverters Test", () => {
         },
       ],
     });
-  });
-
-  test("fail to load converter", async () => {
-    const fakeModule = "xxxxNotExistentxxxx";
-    const expectedError = new Error(`Failed to load module "${fakeModule}"!`);
-
-    await expect(loadConverters(ODataVersions.V2, [fakeModule])).rejects.toMatchObject(expectedError);
-    await expect(loadConverters(ODataVersions.V2, [V2_TO_V4_PKG, fakeModule])).rejects.toMatchObject(expectedError);
-    await expect(loadConverters(ODataVersions.V2, [fakeModule, V2_TO_V4_PKG])).rejects.toMatchObject(expectedError);
+    // make sure that other conversions still apply
+    expect(result?.get(ODataTypesV2.Double)).toMatchObject({ to: "number" });
   });
 
   test("chaining", async () => {
