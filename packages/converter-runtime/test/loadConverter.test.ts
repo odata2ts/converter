@@ -7,8 +7,8 @@ describe("LoadConverters Test", () => {
   const V2_TO_V4_PKG = "@odata2ts/converter-v2-to-v4";
   const LUXON_PKG = "@odata2ts/converter-luxon";
 
-  // time, dateTime, byte, sByte, single, double
-  const V2_TO_V4_CONVERTERS_SIZE = 6;
+  // time, dateTime, byte, sByte, single, double, int64, decimal
+  const V2_TO_V4_CONVERTERS_SIZE = 8;
 
   test("no converters", async () => {
     const result = await loadConverters(ODataVersions.V4, undefined);
@@ -48,7 +48,6 @@ describe("LoadConverters Test", () => {
   test("specify installed converters without using any of them", async () => {
     const result = await loadConverters(ODataVersions.V4, [{ module: V2_TO_V4_PKG, use: [] }]);
 
-    // all string number types would still be mapped, but not Edm.Time and Edm.DateTime
     expect(result).toBeUndefined();
   });
 
@@ -56,7 +55,6 @@ describe("LoadConverters Test", () => {
     const converterIds = ["timeToTimeOfDayConverter", "dateTimeToDateTimeOffsetConverter"];
     const result = await loadConverters(ODataVersions.V2, [{ module: V2_TO_V4_PKG, use: converterIds }]);
 
-    // all string number types would still be mapped, but not Edm.Time and Edm.DateTime
     expect(result).toBeDefined();
     expect(result?.size).toBe(converterIds.length);
     expect(result?.get(ODataTypesV2.Time)).toStrictEqual({
@@ -72,6 +70,36 @@ describe("LoadConverters Test", () => {
     } as ValueConverterChain);
   });
 
+  test("last converter overrides some types of first converter", async () => {
+    const converterIds = ["stringToNumberConverter", "bigNumberNoopConverter"];
+    let result = await loadConverters(ODataVersions.V2, [{ module: V2_TO_V4_PKG, use: [converterIds[0]] }]);
+    expect(result?.get(ODataTypesV2.Decimal)).toStrictEqual({
+      from: ODataTypesV2.Decimal,
+      to: "number",
+      toModule: undefined,
+      converters: [
+        {
+          package: V2_TO_V4_PKG,
+          converterId: converterIds[0],
+        },
+      ],
+    });
+
+    result = await loadConverters(ODataVersions.V2, [{ module: V2_TO_V4_PKG, use: converterIds }]);
+
+    expect(result?.get(ODataTypesV2.Decimal)).toStrictEqual({
+      from: ODataTypesV2.Decimal,
+      to: "string",
+      toModule: undefined,
+      converters: [
+        {
+          package: V2_TO_V4_PKG,
+          converterId: converterIds[1],
+        },
+      ],
+    });
+  });
+
   test("fail to load converter", async () => {
     const fakeModule = "xxxxNotExistentxxxx";
     const expectedError = new Error(`Failed to load module "${fakeModule}"!`);
@@ -85,7 +113,7 @@ describe("LoadConverters Test", () => {
     const modules = [V2_TO_V4_PKG, LUXON_PKG];
 
     const result = await loadConverters(ODataVersions.V2, modules);
-    expect(result?.size).toBe(7);
+    expect(result?.size).toBe(9);
 
     const dateTimeToLuxon = result?.get(ODataTypesV2.DateTime);
     expect(dateTimeToLuxon).toStrictEqual({
