@@ -12,8 +12,8 @@ describe("StringToNumberConverter Test", () => {
       ODataTypesV2.SByte,
       ODataTypesV2.Single,
       ODataTypesV2.Double,
-      // ODataTypesV2.Int64,
-      // ODataTypesV2.Decimal,
+      ODataTypesV2.Int64,
+      ODataTypesV2.Decimal,
     ]);
     expect(TO_TEST.to).toBe("number");
   });

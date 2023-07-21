@@ -1,5 +1,6 @@
 import { ConverterPackage } from "@odata2ts/converter-api";
 
+import { bigNumberNoopConverter } from "./BigNumberNoopConverter";
 import { dateTimeToDateTimeOffsetConverter } from "./DateTimeToDateTimeOffsetConverter";
 import { stringToNumberConverter } from "./StringToNumberConverter";
 import { timeToDurationConverter } from "./TimeToDurationConverter";
@@ -14,6 +15,7 @@ export default pkg;
 export {
   dateTimeToDateTimeOffsetConverter,
   stringToNumberConverter,
+  bigNumberNoopConverter,
   timeToDurationConverter,
   timeToTimeOfDayConverter,
 };
