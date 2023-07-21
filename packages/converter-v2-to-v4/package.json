@@ -1,6 +1,6 @@
 {
   "name": "@odata2ts/converter-v2-to-v4",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "publishConfig": {
     "access": "public"
   },
