@@ -1825,9 +1825,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@odata2ts/converter-big-numbers@^0.1.0, @odata2ts/converter-big-numbers@workspace:packages/converter-big-numbers":
+"@odata2ts/converter-big-number@^0.0.0, @odata2ts/converter-big-number@workspace:packages/converter-big-number":
   version: 0.0.0-use.local
-  resolution: "@odata2ts/converter-big-numbers@workspace:packages/converter-big-numbers"
+  resolution: "@odata2ts/converter-big-number@workspace:packages/converter-big-number"
   dependencies:
     "@odata2ts/converter-api": ^0.1.2
     "@types/jest": ^27.4.1
@@ -1915,7 +1915,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-playground@workspace:examples/playground"
   dependencies:
-    "@odata2ts/converter-big-numbers": ^0.1.0
+    "@odata2ts/converter-big-number": ^0.0.0
     "@odata2ts/converter-common": ^0.1.1
     "@odata2ts/converter-runtime": ^0.2.2
     "@odata2ts/converter-v2-to-v4": ^0.3.1
