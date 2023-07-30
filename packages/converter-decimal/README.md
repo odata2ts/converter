@@ -1,11 +1,11 @@
-[![npm (scoped)](https://img.shields.io/npm/v/@odata2ts/converter-big-numbers?style=for-the-badge)](https://www.npmjs.com/package/@odata2ts/converter-big-numbers)
+[![npm (scoped)](https://img.shields.io/npm/v/@odata2ts/converter-decimal?style=for-the-badge)](https://www.npmjs.com/package/@odata2ts/converter-decimal)
 
-# BigNumber Converter
+# Decimal Converter
 
-[bignumber.js](https://github.com/MikeMcl/bignumber.js) based [odata2ts](https://github.com/odata2ts/odata2ts)
+[decimal.js](https://github.com/MikeMcl/decimal.js/) based [odata2ts](https://github.com/odata2ts/odata2ts)
 compatible converter for OData's `Edm.Int64` and `Edm.Decimal` types.
 
-## Comparison to decimal.js
+## Comparison to bignumber.js
 
 From [the comparison](https://github.com/MikeMcl/big.js/wiki):
 
@@ -27,28 +27,28 @@ From [the comparison](https://github.com/MikeMcl/big.js/wiki):
 
 ## Conversions
 
-| OData Type    | Result Type  | Converter Id       | Description                                                            |
-| ------------- | ------------ | ------------------ | ---------------------------------------------------------------------- |
-| `Edm.Int64`   | `BigNumber`  | bigNumberConverter | see [BigNumber documentation](https://mikemcl.github.io/bignumber.js/) |
-| `Edm.Decimal` | `BigNumber ` | bigNumberConverter | see [BigNumber documentation](https://mikemcl.github.io/bignumber.js/) |
+| OData Type    | Result Type | Converter Id     | Description                                                        |
+| ------------- | ----------- | ---------------- | ------------------------------------------------------------------ |
+| `Edm.Int64`   | `Decimal`   | decimalConverter | see [Decimal documentation](https://mikemcl.github.io/decimal.js/) |
+| `Edm.Decimal` | `Decimal`   | decimalConverter | see [Decimal documentation](https://mikemcl.github.io/decimal.js/) |
 
 ## Installation
 
 As usual:
 
 ```
-npm install --save @odata2ts/converter-big-numbers
+npm install --save @odata2ts/converter-decimal
 ```
 
-Note, that this converter expects, that you install `bignumber.js` by yourself:
+Note, that this converter expects, that you install `decimal.js` by yourself:
 
 ```
-npm install --save bignumber.js
+npm install --save decimal.js
 ```
 
 ## Documentation
 
-[BigNumber Converter Documentation](https://odata2ts.github.io/docs/generator/converters/bignumber-converter)
+[Decimal Converter Documentation](https://odata2ts.github.io/docs/generator/converters/decimal-converter)
 
 Main Documentation of odata2ts: [https://odata2ts.github.io/](https://odata2ts.github.io/)
 

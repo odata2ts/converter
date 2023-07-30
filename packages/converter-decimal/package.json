@@ -1,10 +1,10 @@
 {
-  "name": "@odata2ts/converter-big-numbers",
-  "version": "0.1.0",
+  "name": "@odata2ts/converter-decimal",
+  "version": "0.0.0",
   "publishConfig": {
     "access": "public"
   },
-  "description": "bignumber.js based odata2ts compatible converter for OData's `Edm.Int64` and `Edm.Decimal` types",
+  "description": "decimal.js based odata2ts compatible converter for OData's `Edm.Int64` and `Edm.Decimal` types",
   "license": "MIT",
   "repository": "git@github.com:odata2ts/converter.git",
   "author": "texttechne",
@@ -22,7 +22,7 @@
     "LICENSE"
   ],
   "keywords": [
-    "bignumber.js",
+    "decimal.js",
     "converter",
     "odata2ts",
     "odata",
@@ -30,14 +30,16 @@
     "decimal",
     "ts"
   ],
+  "peerDependencies": {
+    "decimal.js": ">1"
+  },
   "dependencies": {
-    "@odata2ts/converter-api": "^0.1.2",
-    "bignumber.js": ">1"
+    "@odata2ts/converter-api": "^0.1.2"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.23",
-    "bignumber.js": "^9.1.1",
+    "decimal.js": "^10.4.3",
     "jest": "27.5.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.1.4",

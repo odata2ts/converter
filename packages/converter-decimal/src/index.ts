@@ -1,12 +1,12 @@
 import { ConverterPackage } from "@odata2ts/converter-api";
 
-import { bigNumberConverter } from "./BigNumberConverter";
+import { decimalConverter } from "./DecimalConverter";
 
 const pkg: ConverterPackage = {
   id: "BigNumber",
-  converters: [bigNumberConverter],
+  converters: [decimalConverter],
 };
 
 export default pkg;
 
-export { bigNumberConverter };
+export { decimalConverter };
