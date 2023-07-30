@@ -1,7 +1,7 @@
 import { ValueConverterChain } from "@odata2ts/converter-runtime";
 import { ODataTypesV2, ODataTypesV4, ODataVersions } from "@odata2ts/odata-core";
 
-import { loadConverters } from "../src";
+import { getPropTypeAndModule, loadConverters } from "../src";
 
 describe("LoadConverters Test", () => {
   const V2_TO_V4_PKG = "@odata2ts/converter-v2-to-v4";
@@ -148,5 +148,12 @@ describe("LoadConverters Test", () => {
         },
       ],
     } as ValueConverterChain);
+  });
+
+  test("getPropTypeAndModule", () => {
+    expect(getPropTypeAndModule("aba")).toStrictEqual(["aba"]);
+    expect(getPropTypeAndModule("AbA")).toStrictEqual(["AbA"]);
+    expect(getPropTypeAndModule("aba.ts")).toStrictEqual(["ts", "aba"]);
+    expect(getPropTypeAndModule("aba.js.Type")).toStrictEqual(["Type", "aba.js"]);
   });
 });
