@@ -32,11 +32,6 @@
     "decimal",
     "ts"
   ],
-  "peerDependencies": {
-    "big.js": ">1",
-    "bignumber.js": ">1",
-    "decimal.js": ">1"
-  },
   "dependencies": {
     "@odata2ts/converter-api": "^0.1.2"
   },

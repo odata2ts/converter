@@ -1842,9 +1842,9 @@ __metadata:
     ts-node: 10.7.0
     typescript: 4.6.3
   peerDependencies:
-    big.js: ^6.2.1
-    bignumber.js: ^9.1.1
-    decimal.js: ^10.4.3
+    big.js: ">1"
+    bignumber.js: ">1"
+    decimal.js: ">1"
   languageName: unknown
   linkType: soft
 
