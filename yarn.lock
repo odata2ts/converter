@@ -1825,7 +1825,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@odata2ts/converter-big-numbers@^0.0.0, @odata2ts/converter-big-numbers@workspace:packages/converter-big-numbers":
+"@odata2ts/converter-big-numbers@^0.1.0, @odata2ts/converter-big-numbers@workspace:packages/converter-big-numbers":
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-big-numbers@workspace:packages/converter-big-numbers"
   dependencies:
@@ -1900,9 +1900,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-playground@workspace:examples/playground"
   dependencies:
-    "@odata2ts/converter-big-numbers": ^0.0.0
+    "@odata2ts/converter-big-numbers": ^0.1.0
     "@odata2ts/converter-common": ^0.1.1
-    "@odata2ts/converter-runtime": ^0.2.1
+    "@odata2ts/converter-runtime": ^0.2.2
     "@odata2ts/converter-v2-to-v4": ^0.3.1
     "@odata2ts/odata-query-objects": ^0.17.3
     "@types/jest": ^29.5.1
@@ -1916,7 +1916,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@odata2ts/converter-runtime@^0.2.1, @odata2ts/converter-runtime@workspace:packages/converter-runtime":
+"@odata2ts/converter-runtime@^0.2.2, @odata2ts/converter-runtime@workspace:packages/converter-runtime":
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-runtime@workspace:packages/converter-runtime"
   dependencies:

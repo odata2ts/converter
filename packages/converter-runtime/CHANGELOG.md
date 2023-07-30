@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/odata2ts/converter/compare/@odata2ts/converter-runtime@0.2.1...@odata2ts/converter-runtime@0.2.2) (2023-07-30)
+
+
+### Bug Fixes
+
+* **runtime:** split package and type by last dot ([#11](https://github.com/odata2ts/converter/issues/11)) ([587fe56](https://github.com/odata2ts/converter/commit/587fe5670a4b281265351730752d4e309caa33c8))
+
+
+
+
+
 ## [0.2.1](https://github.com/odata2ts/converter/compare/@odata2ts/converter-runtime@0.2.0...@odata2ts/converter-runtime@0.2.1) (2023-07-21)
 
 **Note:** Version bump only for package @odata2ts/converter-runtime
