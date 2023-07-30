@@ -1,4 +1,4 @@
-import { Tester } from "../build/TestModel";
+/*import { Tester } from "../build/TestModel";
 
 const test: Tester = {
   Name: "hi",
@@ -17,4 +17,4 @@ const test: Tester = {
   Single: 1.1,
   Double: 1.123,
   Decimal: "123.123",
-};
+};*/
