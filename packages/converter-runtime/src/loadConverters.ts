@@ -136,9 +136,11 @@ function chainConverters(converters: MappedConverters, dataType: string): ValueC
   };
 }
 
-function getPropTypeAndModule(typeName: string) {
-  if (typeName.match(/\./)?.length === 1 && !typeName.startsWith("Edm.")) {
-    const [module, type] = typeName.split(".");
+export function getPropTypeAndModule(typeName: string) {
+  if (typeName.match(/\./)?.length && !typeName.startsWith("Edm.")) {
+    const separator = typeName.lastIndexOf(".");
+    const module = typeName.substring(0, separator);
+    const type = typeName.substring(separator + 1);
     return [type, module];
   }
   return [typeName];
