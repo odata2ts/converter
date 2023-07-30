@@ -1825,6 +1825,25 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@odata2ts/converter-big-numbers@workspace:packages/converter-big-numbers":
+  version: 0.0.0-use.local
+  resolution: "@odata2ts/converter-big-numbers@workspace:packages/converter-big-numbers"
+  dependencies:
+    "@odata2ts/converter-api": ^0.1.2
+    "@types/big.js": ^6.1.6
+    "@types/jest": ^27.4.1
+    "@types/node": ^17.0.23
+    big.js: ^6.2.1
+    bignumber.js: ^9.1.1
+    decimal.js: ^10.4.3
+    jest: 27.5.1
+    rimraf: ^3.0.2
+    ts-jest: ^27.1.4
+    ts-node: 10.7.0
+    typescript: 4.6.3
+  languageName: unknown
+  linkType: soft
+
 "@odata2ts/converter-common@^0.1.1, @odata2ts/converter-common@workspace:packages/converter-common":
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-common@workspace:packages/converter-common"
@@ -2178,6 +2197,13 @@ __metadata:
   dependencies:
     "@babel/types": ^7.3.0
   checksum: d20953338b2f012ab7750932ece0a78e7d1645b0a6ff42d49be90f55e9998085da1374a9786a7da252df89555c6586695ba4d1d4b4e88ab2b9f306bcd35e00d3
+  languageName: node
+  linkType: hard
+
+"@types/big.js@npm:^6.1.6":
+  version: 6.1.6
+  resolution: "@types/big.js@npm:6.1.6"
+  checksum: 290936fc4e9ebd9883ead8e8278126f43783b3e57bf7736b12ce6d922c62515a83b8c62cd3ef557a043508109d403cb0bd89c7556b221c2c1057fd3a1d03e683
   languageName: node
   linkType: hard
 
@@ -2851,6 +2877,20 @@ __metadata:
   version: 2.2.3
   resolution: "before-after-hook@npm:2.2.3"
   checksum: a1a2430976d9bdab4cd89cb50d27fa86b19e2b41812bf1315923b0cba03371ebca99449809226425dd3bcef20e010db61abdaff549278e111d6480034bebae87
+  languageName: node
+  linkType: hard
+
+"big.js@npm:^6.2.1":
+  version: 6.2.1
+  resolution: "big.js@npm:6.2.1"
+  checksum: 0b234a2fd56c52bed2798ed2020bcab6fef5e9523b99a05406ad071d1aed6ee97ada9fb8de9576092da74c68825c276e19015743b8d1baea269b60a5c666b0cd
+  languageName: node
+  linkType: hard
+
+"bignumber.js@npm:^9.1.1":
+  version: 9.1.1
+  resolution: "bignumber.js@npm:9.1.1"
+  checksum: ad243b7e2f9120b112d670bb3d674128f0bd2ca1745b0a6c9df0433bd2c0252c43e6315d944c2ac07b4c639e7496b425e46842773cf89c6a2dcd4f31e5c4b11e
   languageName: node
   linkType: hard
 
@@ -3752,7 +3792,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"decimal.js@npm:^10.2.1":
+"decimal.js@npm:^10.2.1, decimal.js@npm:^10.4.3":
   version: 10.4.3
   resolution: "decimal.js@npm:10.4.3"
   checksum: 796404dcfa9d1dbfdc48870229d57f788b48c21c603c3f6554a1c17c10195fc1024de338b0cf9e1efe0c7c167eeb18f04548979bcc5fdfabebb7cc0ae3287bae
