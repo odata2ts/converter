@@ -1,6 +1,6 @@
 {
-  "name": "@odata2ts/converter-big-numbers",
-  "version": "0.1.0",
+  "name": "@odata2ts/converter-big-number",
+  "version": "0.0.0",
   "publishConfig": {
     "access": "public"
   },

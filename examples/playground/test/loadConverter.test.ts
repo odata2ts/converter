@@ -3,7 +3,7 @@ import { stringToNumberConverter } from "@odata2ts/converter-v2-to-v4";
 import { ODataVersions } from "@odata2ts/odata-core";
 
 const V2_TO_V4 = "@odata2ts/converter-v2-to-v4";
-const BIG_NUMBERS = "@odata2ts/converter-big-numbers";
+const BIG_NUMBERS = "@odata2ts/converter-big-number";
 
 describe("Loading actual converters", function () {
   const converters = [
