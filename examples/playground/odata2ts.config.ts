@@ -11,6 +11,7 @@ const config: ConfigFileOptions = {
       use: ["dateTimeOffsetToDateConverter", "simpleDurationConverter", "int64ToBigIntConverter"],
       module: "@odata2ts/converter-common",
     },
+    "@odata2ts/converter-big-numbers",
   ],
   services: {
     test: {
