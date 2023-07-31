@@ -48,7 +48,7 @@ npm install --save bignumber.js
 
 ## Documentation
 
-[BigNumber Converter Documentation](https://odata2ts.github.io/docs/generator/converters/bignumber-converter)
+[BigNumber Converter Documentation](https://odata2ts.github.io/docs/generator/converters/big-number-converters)
 
 Main Documentation of odata2ts: [https://odata2ts.github.io/](https://odata2ts.github.io/)
 

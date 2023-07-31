@@ -48,7 +48,7 @@ npm install --save decimal.js
 
 ## Documentation
 
-[Decimal Converter Documentation](https://odata2ts.github.io/docs/generator/converters/decimal-converter)
+[Decimal Converter Documentation](https://odata2ts.github.io/docs/generator/converters/big-number-converters)
 
 Main Documentation of odata2ts: [https://odata2ts.github.io/](https://odata2ts.github.io/)
 
