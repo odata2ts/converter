@@ -10,8 +10,8 @@ export { SimpleTime } from "./SimpleTimeConverter";
 
 const pkg: ConverterPackage = {
   id: "Common",
-  converters: [dateTimeOffsetToDateConverter, simpleTimeConverter],
+  converters: [dateTimeOffsetToDateConverter],
 };
 
 export default pkg;
-export { dateTimeOffsetToDateConverter, simpleTimeConverter, simpleDurationConverter, int64ToBigIntConverter };
+export { dateTimeOffsetToDateConverter, simpleDurationConverter, int64ToBigIntConverter, simpleTimeConverter };

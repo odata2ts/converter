@@ -3,7 +3,12 @@ import { ValueConverter } from "@odata2ts/converter-api";
 import * as pkg from "../src";
 
 describe("Common Converter Package Tests", function () {
-  const usedConverters = ["dateTimeOffsetToDateConverter", "simpleDurationConverter", "int64ToBigIntConverter"];
+  const usedConverters = [
+    "dateTimeOffsetToDateConverter",
+    "simpleDurationConverter",
+    "int64ToBigIntConverter",
+    "simpleTimeConverter",
+  ];
 
   test("package basics", () => {
     expect(pkg.default.id).toBe("Common");
