@@ -28,11 +28,11 @@ describe("LoadConverters Test", () => {
 
     const timeType = result?.get(ODataTypesV2.Time);
     expect(timeType?.from).toBe("Edm.Time");
-    expect(timeType?.to).toBe(ODataTypesV4.Duration);
+    expect(timeType?.to).toBe(ODataTypesV4.TimeOfDay);
     expect(timeType?.converters).toStrictEqual([
       {
         package: V2_TO_V4_PKG,
-        converterId: "timeToDurationConverter",
+        converterId: "timeToTimeOfDayConverter",
       },
     ]);
   });
