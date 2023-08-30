@@ -70,7 +70,7 @@ export const simpleDurationConverter: ValueConverter<string, SimpleDuration> = {
       return value;
     }
     // invalid duration returns undefined
-    if (!value || !value.startsWith(PERIOD_PREFIX)) {
+    if (!value || !value.startsWith(PERIOD_PREFIX) || value.match(/^[^T]+(H|S)/)) {
       return undefined;
     }
 

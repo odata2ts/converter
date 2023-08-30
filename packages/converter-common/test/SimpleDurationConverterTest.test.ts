@@ -24,6 +24,17 @@ describe("SimpleDurationConverter Test", () => {
     expect(TO_TEST.convertTo(candidate)).toBe(FROM_STRING);
   });
 
+  test("undefined for wrong format", () => {
+    expect(TO_TEST.convertFrom("T12H")).toBeUndefined();
+    expect(TO_TEST.convertFrom("12M")).toBeUndefined();
+    expect(TO_TEST.convertFrom("")).toBeUndefined();
+    expect(TO_TEST.convertFrom("xxx")).toBeUndefined();
+    expect(TO_TEST.convertFrom("P12H")).toBeUndefined();
+    expect(TO_TEST.convertFrom("P12ST")).toBeUndefined();
+
+    expect(TO_TEST.convertTo({})).toBe("PT0H");
+  });
+
   test("conversion with ms precision", () => {
     const candidate = TO_TEST.convertFrom("PT12H51.123S");
     const expected: SimpleDuration = {
