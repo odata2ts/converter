@@ -1,6 +1,6 @@
 {
   "name": "@odata2ts/converter-ui5-v2",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "publishConfig": {
     "access": "public"
   },
@@ -34,8 +34,8 @@
   ],
   "dependencies": {
     "@odata2ts/converter-api": "^0.1.2",
-    "@odata2ts/converter-common": "^0.1.1",
-    "@odata2ts/converter-v2-to-v4": "^0.3.1"
+    "@odata2ts/converter-common": "^0.2.0",
+    "@odata2ts/converter-v2-to-v4": "^0.4.0"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/odata2ts/converter/compare/@odata2ts/converter-common@0.1.1...@odata2ts/converter-common@0.2.0) (2023-08-30)
+
+
+### Features
+
+* **common:** add simple time converter ([#15](https://github.com/odata2ts/converter/issues/15)) ([ffeb0f3](https://github.com/odata2ts/converter/commit/ffeb0f3294e39560fcec0b56bd1ca4edbfa8112d))
+
+
+
+
+
+
 ## [0.1.1](https://github.com/odata2ts/converter/compare/@odata2ts/converter-common@0.1.0...@odata2ts/converter-common@0.1.1) (2023-05-23)
 
 **Note:** Version bump only for package @odata2ts/converter-common

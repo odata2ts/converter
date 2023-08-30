@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/odata2ts/converter/compare/@odata2ts/converter-runtime@0.2.2...@odata2ts/converter-runtime@0.3.0) (2023-08-30)
+
+
+### Code Refactoring
+
+* **v2-to-v4:** convert Ed.Time to Edm.TimeOfDay by default instead of Edm.Duration ([#16](https://github.com/odata2ts/converter/issues/16)) ([a3ffe54](https://github.com/odata2ts/converter/commit/a3ffe54a0ac23fc531b661d71c20de74baa0cd84))
+
+
+### BREAKING CHANGES
+
+* **v2-to-v4:** different converter used by default
+
+
+
+
+
+
 ## [0.2.2](https://github.com/odata2ts/converter/compare/@odata2ts/converter-runtime@0.2.1...@odata2ts/converter-runtime@0.2.2) (2023-07-30)
 
 
