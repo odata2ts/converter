@@ -8,14 +8,14 @@ import { timeToTimeOfDayConverter } from "./TimeToTimeOfDayConverter";
 
 const pkg: ConverterPackage = {
   id: "V2ToV4",
-  converters: [dateTimeToDateTimeOffsetConverter, stringToNumberConverter, timeToDurationConverter],
+  converters: [dateTimeToDateTimeOffsetConverter, stringToNumberConverter, timeToTimeOfDayConverter],
 };
 
 export default pkg;
 export {
   dateTimeToDateTimeOffsetConverter,
   stringToNumberConverter,
-  bigNumberNoopConverter,
-  timeToDurationConverter,
   timeToTimeOfDayConverter,
+  timeToDurationConverter,
+  bigNumberNoopConverter,
 };
