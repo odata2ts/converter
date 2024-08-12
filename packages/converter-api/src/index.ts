@@ -58,7 +58,7 @@ export type ParamValueModel<Type> = Type | null | undefined;
 /**
  * Noop converter.
  */
-export interface IdentityConverter<OriginalType, ConvertedType> extends ValueConverter<OriginalType, ConvertedType> {}
+export interface IdentityConverter<OriginalType> extends ValueConverter<OriginalType, OriginalType> {}
 
 export interface ChainableValueConverter<OriginalType, ConvertedType>
   extends ValueConverter<OriginalType, ConvertedType> {

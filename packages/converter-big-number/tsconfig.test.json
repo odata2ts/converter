@@ -1,9 +1,9 @@
 {
   "extends": "../../tsconfig.settings.json",
   "compilerOptions": {
-    "types": ["reflect-metadata", "jest"],
+    "types": ["vitest/globals"],
     "outDir": "./lib"
   },
-  "include": ["**/*"],
+  "include": ["test/"],
   "exclude": ["node_modules", "lib", "build"]
 }
