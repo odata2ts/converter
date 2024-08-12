@@ -5,6 +5,7 @@ export default defineConfig({
     coverage: {
       provider: "istanbul",
       include: ["packages/**/src/**"],
+      reporter: ["lcov", "html-spa"],
     },
   },
 });
