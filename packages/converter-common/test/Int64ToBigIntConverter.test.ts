@@ -1,3 +1,5 @@
+import { describe, expect, test } from "vitest";
+
 import { int64ToBigIntConverter } from "../src";
 import { execCommonConverterTests } from "./CommonTests";
 

@@ -1,5 +1,6 @@
 import { ValueConverterChain } from "@odata2ts/converter-runtime";
 import { ODataTypesV2, ODataTypesV4, ODataVersions } from "@odata2ts/odata-core";
+import { describe, expect, test } from "vitest";
 
 import { getPropTypeAndModule, loadConverters } from "../src";
 

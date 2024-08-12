@@ -1,5 +1,6 @@
 import { loadConverters } from "@odata2ts/converter-runtime";
 import { ODataVersions } from "@odata2ts/odata-core";
+import { describe, expect, test } from "vitest";
 
 const V2_TO_V4 = "@odata2ts/converter-v2-to-v4";
 const BIG_NUMBERS = "@odata2ts/converter-big-number";

@@ -1,4 +1,5 @@
 import { ValueConverter } from "@odata2ts/converter-api";
+import { describe, expect, test } from "vitest";
 
 import * as pkg from "../src";
 
