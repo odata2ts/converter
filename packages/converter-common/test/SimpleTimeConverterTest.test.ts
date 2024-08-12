@@ -1,3 +1,5 @@
+import { describe, expect, test } from "vitest";
+
 import { SimpleTime, simpleTimeConverter } from "../src";
 import { execCommonConverterTests } from "./CommonTests";
 

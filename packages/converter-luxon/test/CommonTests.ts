@@ -1,4 +1,5 @@
 import { ValueConverter } from "@odata2ts/converter-api";
+import { expect, test } from "vitest";
 
 export const execCommonConverterTests = (converter: ValueConverter<any, any>) => {
   test("null and undefined", () => {

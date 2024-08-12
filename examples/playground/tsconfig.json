@@ -4,5 +4,5 @@
     "rootDirs": ["./build", "./test"],
     "noEmit": true
   },
-  "include": ["build", ".types", "test"]
+  "include": ["build", "test"]
 }

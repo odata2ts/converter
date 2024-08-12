@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.settings.json",
   "compilerOptions": {
     "rootDirs": ["./build", "./test"],
-    "outDir": "./lib"
+    "noEmit": true
   },
-  "include": ["build", ".types", "test"]
+  "include": ["build", "test"]
 }

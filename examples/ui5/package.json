@@ -10,8 +10,8 @@
     "build": "yarn clean && yarn odata2ts",
     "clean": "rimraf lib build coverage",
     "compile": "tsc",
-    "test": "yarn type-test && jest",
-    "type-test": "tsc -p tsconfig.type-test.json"
+    "test": "yarn type-test && vitest run",
+    "type-test": "yarn compile"
   },
   "files": [
     "*.md",

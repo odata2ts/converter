@@ -9,12 +9,12 @@
   "repository": "git@github.com:odata2ts/converter.git",
   "author": "texttechne",
   "main": "./lib/index.js",
+  "type": "module",
   "scripts": {
     "build": "yarn clean && yarn compile",
     "clean": "rimraf lib coverage",
     "compile": "tsc",
-    "prepublish": "yarn build",
-    "test": "jest --passWithNoTests"
+    "prepublish": "yarn build"
   },
   "files": [
     "*.md",

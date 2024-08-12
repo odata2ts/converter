@@ -20,6 +20,6 @@ export const dateToLuxonConverter: ValueConverter<string, DateTime> = {
       return value;
     }
 
-    return value.isValid ? value.toISO().split("T")[0] : undefined;
+    return value.isValid ? value.toISO()?.split("T")[0] : undefined;
   },
 };

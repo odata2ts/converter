@@ -1,4 +1,5 @@
 import { ODataTypesV2, ODataTypesV4 } from "@odata2ts/odata-core";
+import { describe, expect, test } from "vitest";
 
 import { dateTimeToDateTimeOffsetConverter } from "../src";
 
@@ -32,7 +33,7 @@ describe("V2DateTimeToDateTimeOffset Test", () => {
   });
 
   test("conversion with negative timestamps", () => {
-    const negTimestamp = -2208988800000
+    const negTimestamp = -2208988800000;
     const negFrom = `/Date(${negTimestamp})/`;
     const to = "1900-01-01T00:00:00.000Z";
 
