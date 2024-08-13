@@ -7,11 +7,10 @@
   "author": "texttechne",
   "main": "./lib/index.js",
   "scripts": {
-    "build": "yarn clean && yarn odata2ts",
+    "build-nrn": "yarn clean && yarn odata2ts",
     "clean": "rimraf lib build coverage",
-    "compile": "tsc",
-    "test": "yarn type-test && vitest run",
-    "type-test": "yarn compile"
+    "compile-nrn": "tsc",
+    "test-nrn": "yarn type-test && vitest run"
   },
   "files": [
     "*.md",
