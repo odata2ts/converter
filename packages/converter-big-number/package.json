@@ -1,6 +1,6 @@
 {
   "name": "@odata2ts/converter-big-number",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "bignumber.js based odata2ts compatible converter for OData's `Edm.Int64` and `Edm.Decimal` types",
   "keywords": [
     "bignumber.js",
@@ -30,7 +30,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@odata2ts/converter-api": "^0.1.2",
+    "@odata2ts/converter-api": "^0.2.0",
     "bignumber.js": ">1"
   },
   "devDependencies": {

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/odata2ts/converter/compare/@odata2ts/converter-example-ui5@0.2.4...@odata2ts/converter-example-ui5@0.3.0) (2024-08-13)
+
+
+### Code Refactoring
+
+* replace jest with vitest & switch to ESM ([#18](https://github.com/odata2ts/converter/issues/18)) ([29754ab](https://github.com/odata2ts/converter/commit/29754abec8617cfe45f647ffbf91e92586b79ee9))
+
+
+### BREAKING CHANGES
+
+* switch to ES modules which might break things.
+
+
+
+
+
+
 ## [0.2.4](https://github.com/odata2ts/converter/compare/@odata2ts/converter-example-ui5@0.2.3...@odata2ts/converter-example-ui5@0.2.4) (2023-08-30)
 
 **Note:** Version bump only for package @odata2ts/converter-example-ui5
