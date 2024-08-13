@@ -1,5 +1,4 @@
 import { ConverterPackage } from "@odata2ts/converter-api";
-
 import { dateTimeOffsetToLuxonConverter } from "./DateTimeOffsetToLuxonConverter";
 import { dateToLuxonConverter } from "./DateToLuxonConverter";
 import { durationToLuxonConverter } from "./DurationToLuxonConverter";

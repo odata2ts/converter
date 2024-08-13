@@ -7,7 +7,7 @@ export class ChainedConverter<FromType, IntermediateType, ToType> implements Cha
 
   constructor(
     private converter: ValueConverter<FromType, IntermediateType>,
-    private converter2: ValueConverter<IntermediateType, ToType>
+    private converter2: ValueConverter<IntermediateType, ToType>,
   ) {
     this.from = converter.from;
     this.to = converter2.to;

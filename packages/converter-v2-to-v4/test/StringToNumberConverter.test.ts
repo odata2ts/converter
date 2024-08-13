@@ -1,6 +1,5 @@
 import { ODataTypesV2 } from "@odata2ts/odata-core";
 import { describe, expect, test } from "vitest";
-
 import { stringToNumberConverter } from "../src";
 
 describe("StringToNumberConverter Test", () => {

@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
-  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
-    <Schema Namespace="Test" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2007/05/edm">
+  <edmx:DataServices
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    m:DataServiceVersion="2.0"
+  >
+    <Schema
+      Namespace="Test"
+      xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+      xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+      xmlns="http://schemas.microsoft.com/ado/2007/05/edm"
+    >
       <EntityType Name="Tester">
         <Key>
           <PropertyRef Name="Name" />
@@ -20,7 +28,7 @@
         <Property Name="Decimal" Type="Edm.Decimal" />
       </EntityType>
       <EntityContainer Name="Container">
-        <EntitySet Name="Testers" EntityType="Test.Tester"/>
+        <EntitySet Name="Testers" EntityType="Test.Tester" />
       </EntityContainer>
     </Schema>
   </edmx:DataServices>

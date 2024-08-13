@@ -1,28 +1,7 @@
 {
   "name": "@odata2ts/converter-runtime",
   "version": "0.3.0",
-  "publishConfig": {
-    "access": "public"
-  },
   "description": "Provides necessary implementations for using odata2ts converters at runtime",
-  "license": "MIT",
-  "repository": "git@github.com:odata2ts/converter.git",
-  "author": "texttechne",
-  "main": "./lib/index.js",
-  "type": "module",
-  "scripts": {
-    "build": "yarn clean && yarn compile",
-    "check-circular-deps": "madge ./src --extensions ts --circular",
-    "clean": "rimraf lib coverage",
-    "compile": "tsc",
-    "prepublish": "yarn build",
-    "test": "vitest run"
-  },
-  "files": [
-    "*.md",
-    "lib",
-    "LICENSE"
-  ],
   "keywords": [
     "odata2ts",
     "odata",
@@ -33,6 +12,25 @@
     "javascript",
     "js"
   ],
+  "repository": "git@github.com:odata2ts/converter.git",
+  "license": "MIT",
+  "author": "texttechne",
+  "type": "module",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "*.md",
+    "lib",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn compile",
+    "check-circular-deps": "madge ./src --extensions ts --circular",
+    "clean": "rimraf lib coverage",
+    "compile": "tsc",
+    "prepublish": "yarn build",
+    "test": "vitest run"
+  },
   "dependencies": {
     "@odata2ts/converter-api": "^0.1.2"
   },
@@ -46,5 +44,7 @@
     "typescript": "4.6.3",
     "vitest": "^2.0.5"
   },
-  "types": "./lib/index.d.ts"
+  "publishConfig": {
+    "access": "public"
+  }
 }

@@ -1,6 +1,5 @@
 import { ODataTypesV2, ODataTypesV4 } from "@odata2ts/odata-core";
 import { describe, expect, test } from "vitest";
-
 import { timeToTimeOfDayConverter } from "../src";
 
 describe("TimeToTimeOfDayConverter Test", () => {

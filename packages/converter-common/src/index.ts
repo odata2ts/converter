@@ -1,5 +1,4 @@
 import { ConverterPackage } from "@odata2ts/converter-api";
-
 import { dateTimeOffsetToDateConverter } from "./DateTimeOffsetToDateConverter";
 import { int64ToBigIntConverter } from "./Int64ToBigIntConverter";
 import { simpleDurationConverter } from "./SimpleDurationConverter";

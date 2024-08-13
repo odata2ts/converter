@@ -1,7 +1,6 @@
 import { ValueConverterChain } from "@odata2ts/converter-runtime";
 import { ODataTypesV2, ODataTypesV4, ODataVersions } from "@odata2ts/odata-core";
 import { describe, expect, test } from "vitest";
-
 import { getPropTypeAndModule, loadConverters } from "../src";
 
 describe("LoadConverters Test", () => {
@@ -86,10 +85,10 @@ describe("LoadConverters Test", () => {
     const expectedError = new Error(`Converter with id "${fakeId}" doesn't exist in module "${moduleId}"!`);
 
     await expect(loadConverters(ODataVersions.V2, [{ module: V2_TO_V4_PKG, use: [fakeId] }])).rejects.toMatchObject(
-      expectedError
+      expectedError,
     );
     await expect(
-      loadConverters(ODataVersions.V2, [{ module: V2_TO_V4_PKG, use: ["stringToNumberConverter", fakeId] }])
+      loadConverters(ODataVersions.V2, [{ module: V2_TO_V4_PKG, use: ["stringToNumberConverter", fakeId] }]),
     ).rejects.toMatchObject(expectedError);
   });
 

@@ -4,7 +4,6 @@ import {
   stringToPrefixModelConverter,
 } from "@odata2ts/test-converters";
 import { describe, expect, test } from "vitest";
-
 import { ChainedConverter, createChain } from "../src";
 
 describe("ChainedConverter Test", () => {

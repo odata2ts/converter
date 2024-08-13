@@ -1,5 +1,4 @@
 import { ConverterPackage } from "@odata2ts/converter-api";
-
 import { decimalConverter } from "./DecimalConverter";
 
 const pkg: ConverterPackage = {
