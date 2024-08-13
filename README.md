@@ -58,8 +58,11 @@ Main Documentation of odata2ts: [https://odata2ts.github.io/](https://odata2ts.g
 
 ## Support, Feedback, Contributing
 
-This project is open to feature requests, suggestions, bug reports, usage questions etc.
-via [GitHub issues](https://github.com/odata2ts/converter/issues).
+If you have any sorts of questions use [GitHub Discussions](https://github.com/odata2ts/odata2ts/discussions)
+of the main `odata2ts` repository.
+
+This project is open to feature requests, suggestions, bug reports, and the like
+via [GitHub issues](https://github.com/odata2ts/odata2ts/issues) of the main `odata2ts` repository.
 
 Contributions and feedback are encouraged and always welcome.
 
