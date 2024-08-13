@@ -2123,7 +2123,6 @@ __metadata:
     "@types/node": ^20.2.1
     "@vitest/coverage-istanbul": ^2.0.5
     env-cmd: ^10.1.0
-    import-sort-style-module: ^6.0.0
     lerna: ^4.0.0
     madge: ^5.0.1
     prettier: ^3.3.3
@@ -5809,13 +5808,6 @@ __metadata:
   bin:
     import-local-fixture: fixtures/cli.js
   checksum: 0b0b0b412b2521739fbb85eeed834a3c34de9bc67e670b3d0b86248fc460d990a7b116ad056c084b87a693ef73d1f17268d6a5be626bb43c998a8b1c8a230004
-  languageName: node
-  linkType: hard
-
-"import-sort-style-module@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "import-sort-style-module@npm:6.0.0"
-  checksum: 591a8ac05eda17406a8b3b1c2ac828cbedfe3bcfe6d6e69acdac09761bd328c724c4b7f4729704cd42414dab5416d3313fdc801920f6221d5022eb1e756a2848
   languageName: node
   linkType: hard
 
