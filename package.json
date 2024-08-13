@@ -3,43 +3,35 @@
   "version": "1.0.0",
   "private": true,
   "description": "Root project which bundles all converter related packages for odata2ts.",
-  "license": "MIT",
   "repository": "git@github.com:odata2ts/converter.git",
+  "license": "MIT",
   "type": "module",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
   "scripts": {
     "build": "yarn clean && lerna run build",
     "check-circular-deps": "lerna run check-circular-deps",
     "clean": "rimraf coverage",
     "coverage": "vitest run --coverage",
-    "postversion": "lerna publish from-git",
     "release": "env-cmd -f .env.local --no-override lerna version",
     "test": "lerna run test -- --no-cache",
-    "version": "yarn install && git add yarn.lock"
+    "version": "yarn install && git add yarn.lock",
+    "postversion": "lerna publish from-git"
   },
   "devDependencies": {
-    "@prettier/plugin-xml": "^2.0.1",
+    "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
+    "@prettier/plugin-xml": "^3.4.1",
     "@types/node": "^20.2.1",
     "@vitest/coverage-istanbul": "^2.0.5",
     "env-cmd": "^10.1.0",
-    "import-sort-style-module": "^6.0.0",
     "lerna": "^4.0.0",
     "madge": "^5.0.1",
-    "prettier": "^2.7.1",
-    "prettier-plugin-import-sort": "^0.0.7",
-    "prettier-plugin-package": "^1.3.0",
-    "prettier-plugin-properties": "^0.1.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-packagejson": "^2.5.1",
     "rimraf": "^3.0.2",
     "typescript": "^4.6.3",
     "vitest": "^2.0.5"
-  },
-  "importSort": {
-    ".js, .jsx, .ts, .tsx": {
-      "style": "module",
-      "parser": "typescript"
-    }
-  },
-  "workspaces": [
-    "packages/*",
-    "examples/*"
-  ]
+  }
 }
