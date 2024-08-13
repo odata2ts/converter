@@ -1,5 +1,4 @@
 import { ConverterPackage } from "@odata2ts/converter-api";
-
 import { booleanToNumberConverter } from "./BooleanToNumberConverter";
 import { converterWithWrongId } from "./ConverterWithWrongId";
 import { numberToStringConverter } from "./NumberToStringConverter";

@@ -60,7 +60,7 @@ export const simpleTimeConverter: ValueConverter<string, SimpleTime> = {
         duration[typeInfo.prop] = getSafeValue(value, typeInfo.pattern, typeInfo.allowFloat);
         return duration;
       },
-      { hour: 0, minute: 0, second: 0 }
+      { hour: 0, minute: 0, second: 0 },
     );
   },
 

@@ -2,7 +2,7 @@
 
 # UI5 ODataModel V2 Converters
 
-Converter package for interoperability between [odata2ts](https://github.com/odata2ts/odata2ts) and 
+Converter package for interoperability between [odata2ts](https://github.com/odata2ts/odata2ts) and
 SAP's V2 ODataModel (`sap.ui.model.odata.v2.ODataModel`).
 
 The `ODataModel` is not only responsible for the REST communication, but also takes care of data type conversion.
@@ -15,11 +15,12 @@ values. On the other hand, it also allows you to use the generated OData client 
 
 This package adds only one special converter for converting `Edm.Time` to a custom object which holds the milliseconds
 since midnight. All other converters are imported from other packages:
-* converter-v2-to-v4
-* converter-common
+
+- converter-v2-to-v4
+- converter-common
 
 | OData Type           | JSON Rep. | Format                                           |    Data Type     | Uses                                                                |
-|----------------------|-----------|--------------------------------------------------|:----------------:|---------------------------------------------------------------------|
+| -------------------- | --------- | ------------------------------------------------ | :--------------: | ------------------------------------------------------------------- |
 | `Edm.DateTime`       | `string`  | `/Date(timestamp)/`                              |      `Date`      | dateTimeToDateTimeOffsetConverter<br/>dateTimeOffsetToDateConverter |
 | `Edm.DateTimeOffset` | `string`  | ISO 8601 Date and Time<br/>with offsets          |      `Date`      | dateTimeOffsetToDateConverter                                       |
 | `Edm.Time`           | `string`  | ISO 8601 Duration<br/>(limited to the time part) | `{ ms: number }` | timeToMsDurationConverter                                           |
@@ -41,6 +42,7 @@ npm install --save @odata2ts/converter-ui5-v2
 Main Documentation of odata2ts: [https://odata2ts.github.io/](https://odata2ts.github.io/)
 
 ## Support, Feedback, Contributing
+
 This project is open to feature requests, suggestions, bug reports, usage questions etc.
 via [GitHub issues](https://github.com/odata2ts/converter/issues).
 
@@ -49,15 +51,17 @@ Contributions and feedback are encouraged and always welcome.
 See the [contribution guidelines](https://github.com/odata2ts/converter/blob/main/CONTRIBUTING.md) for further information.
 
 ## Spirit
+
 This project has been created and is maintained in the following spirit:
 
-* adhere to the **OData specification** as much as possible
-  * support any OData service implementation which conforms to the spec
-  * allow to work around faulty implementations if possible
-* stability matters
-  * exercise Test Driven Development
-  * bomb the place with unit tests (code coverage > 95%)
-  * ensure that assumptions & understanding are correct by creating integration tests
+- adhere to the **OData specification** as much as possible
+  - support any OData service implementation which conforms to the spec
+  - allow to work around faulty implementations if possible
+- stability matters
+  - exercise Test Driven Development
+  - bomb the place with unit tests (code coverage > 95%)
+  - ensure that assumptions & understanding are correct by creating integration tests
 
 ## License
+
 MIT - see [License](./LICENSE).

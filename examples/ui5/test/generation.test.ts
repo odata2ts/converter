@@ -1,5 +1,4 @@
 import { describe, expect, test } from "vitest";
-
 import { QTester } from "../build/QTest";
 
 describe("Testing Generated Q-Objects for UI5 Converters", function () {

@@ -2,19 +2,20 @@
   "name": "@odata2ts/converter-playground",
   "version": "0.2.7",
   "private": true,
-  "license": "MIT",
   "repository": "git@github.com:odata2ts/converter.git",
+  "license": "MIT",
   "author": "texttechne",
   "main": "./lib/index.js",
-  "scripts": {
-    "compile": "tsc",
-    "test": "yarn compile & vitest run"
-  },
+  "types": "./lib/index.d.ts",
   "files": [
     "*.md",
     "lib",
     "LICENSE"
   ],
+  "scripts": {
+    "compile": "tsc",
+    "test": "yarn compile & vitest run"
+  },
   "dependencies": {
     "@odata2ts/converter-big-number": "^0.1.0",
     "@odata2ts/converter-common": "^0.2.0",
@@ -29,6 +30,5 @@
     "rimraf": "^3.0.2",
     "typescript": "4.6.3",
     "vitest": "^2.0.5"
-  },
-  "types": "./lib/index.d.ts"
+  }
 }

@@ -1,6 +1,5 @@
 import { DateTime } from "luxon";
 import { describe, expect, test } from "vitest";
-
 import { timeOfDayToLuxonConverter } from "../src";
 import { execCommonConverterTests } from "./CommonTests";
 

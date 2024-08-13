@@ -1,27 +1,7 @@
 {
   "name": "@odata2ts/converter-decimal",
   "version": "0.1.0",
-  "publishConfig": {
-    "access": "public"
-  },
   "description": "decimal.js based odata2ts compatible converter for OData's `Edm.Int64` and `Edm.Decimal` types",
-  "license": "MIT",
-  "repository": "git@github.com:odata2ts/converter.git",
-  "author": "texttechne",
-  "main": "./lib/index.js",
-  "type": "module",
-  "scripts": {
-    "build": "yarn clean && yarn compile",
-    "clean": "rimraf lib coverage",
-    "compile": "tsc",
-    "prepublish": "yarn build",
-    "test": "vitest run"
-  },
-  "files": [
-    "*.md",
-    "lib",
-    "LICENSE"
-  ],
   "keywords": [
     "decimal.js",
     "converter",
@@ -31,8 +11,23 @@
     "decimal",
     "ts"
   ],
-  "peerDependencies": {
-    "decimal.js": ">1"
+  "repository": "git@github.com:odata2ts/converter.git",
+  "license": "MIT",
+  "author": "texttechne",
+  "type": "module",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "*.md",
+    "lib",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn compile",
+    "clean": "rimraf lib coverage",
+    "compile": "tsc",
+    "prepublish": "yarn build",
+    "test": "vitest run"
   },
   "dependencies": {
     "@odata2ts/converter-api": "^0.1.2"
@@ -44,5 +39,10 @@
     "typescript": "4.6.3",
     "vitest": "^2.0.5"
   },
-  "types": "./lib/index.d.ts"
+  "peerDependencies": {
+    "decimal.js": ">1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }

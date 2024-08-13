@@ -33,15 +33,17 @@ types as `string`. This would like this in the `odata2ts` configuration:
 
 ```ts
 {
-  converters: [{
-    module: "@odata2ts/converter-v2-to-v4",
-    use: [
-      "stringToNumberConverter",
-      "bigNumberNoopConverter",
-      "dateTimeToDateTimeOffsetConverter",
-      "timeToTimeOfDayConverter"
-    ]
-  }]
+  converters: [
+    {
+      module: "@odata2ts/converter-v2-to-v4",
+      use: [
+        "stringToNumberConverter",
+        "bigNumberNoopConverter",
+        "dateTimeToDateTimeOffsetConverter",
+        "timeToTimeOfDayConverter",
+      ],
+    },
+  ];
 }
 ```
 

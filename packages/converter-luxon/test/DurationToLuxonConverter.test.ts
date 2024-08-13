@@ -1,6 +1,5 @@
 import { Duration } from "luxon";
 import { describe, expect, test } from "vitest";
-
 import { durationToLuxonConverter } from "../src";
 import { execCommonConverterTests } from "./CommonTests";
 

@@ -1,6 +1,5 @@
 import { ConverterPackage, ValueConverterType } from "@odata2ts/converter-api";
 import { ODataTypesV2, ODataTypesV4, ODataVersions } from "@odata2ts/odata-core";
-
 import { RuntimeConverterPackage, TypeConverterConfig, ValueConverterChain } from "./ConverterModels";
 
 type MappedConverters = Map<string, ValueConverterType & { package: string; toModule?: string }>;
@@ -49,7 +48,7 @@ async function doLoad(converters: Array<TypeConverterConfig>): Promise<Array<Run
             converters,
           };
         });
-    })
+    }),
   );
 }
 
@@ -90,7 +89,7 @@ function mapConvertersBySource(converterPkgs: Array<RuntimeConverterPackage>): M
  */
 export async function loadConverters(
   version: ODataVersions,
-  converters: Array<string | TypeConverterConfig> | undefined
+  converters: Array<string | TypeConverterConfig> | undefined,
 ): Promise<MappedConverterChains | undefined> {
   if (!converters?.length) {
     return undefined;
@@ -98,7 +97,7 @@ export async function loadConverters(
 
   const odataTypes = version === ODataVersions.V2 ? ODataTypesV2 : ODataTypesV4;
   const normalizedConverters = converters.map((conv) =>
-    typeof conv === "string" ? { module: conv } : (conv as TypeConverterConfig)
+    typeof conv === "string" ? { module: conv } : (conv as TypeConverterConfig),
   );
 
   const loadedPkgs = await doLoad(normalizedConverters);

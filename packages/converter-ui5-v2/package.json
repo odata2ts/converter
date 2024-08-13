@@ -1,27 +1,7 @@
 {
   "name": "@odata2ts/converter-ui5-v2",
   "version": "0.2.2",
-  "publishConfig": {
-    "access": "public"
-  },
   "description": "Collection of odata2ts compatible converters suitable for integrating with UI5's OData V2 model",
-  "license": "MIT",
-  "repository": "git@github.com:odata2ts/converter.git",
-  "author": "texttechne",
-  "main": "./lib/index.js",
-  "type": "module",
-  "scripts": {
-    "build": "yarn clean && yarn compile",
-    "clean": "rimraf lib coverage",
-    "compile": "tsc",
-    "prepublish": "yarn build",
-    "test": "vitest run"
-  },
-  "files": [
-    "*.md",
-    "lib",
-    "LICENSE"
-  ],
   "keywords": [
     "converter",
     "UI5",
@@ -33,6 +13,24 @@
     "datetimeoffset",
     "typescript"
   ],
+  "repository": "git@github.com:odata2ts/converter.git",
+  "license": "MIT",
+  "author": "texttechne",
+  "type": "module",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "*.md",
+    "lib",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn compile",
+    "clean": "rimraf lib coverage",
+    "compile": "tsc",
+    "prepublish": "yarn build",
+    "test": "vitest run"
+  },
   "dependencies": {
     "@odata2ts/converter-api": "^0.1.2",
     "@odata2ts/converter-common": "^0.2.0",
@@ -44,5 +42,7 @@
     "typescript": "4.6.3",
     "vitest": "^2.0.5"
   },
-  "types": "./lib/index.d.ts"
+  "publishConfig": {
+    "access": "public"
+  }
 }

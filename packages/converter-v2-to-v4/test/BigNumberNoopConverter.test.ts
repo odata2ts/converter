@@ -1,6 +1,5 @@
 import { ODataTypesV2 } from "@odata2ts/odata-core";
 import { describe, expect, test } from "vitest";
-
 import { bigNumberNoopConverter } from "../src";
 
 describe("BigNumberNoopConverter Test", () => {
