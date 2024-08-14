@@ -1,6 +1,6 @@
 {
   "name": "@odata2ts/converter-playground",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "repository": "git@github.com:odata2ts/converter.git",
   "license": "MIT",
@@ -17,11 +17,11 @@
     "test": "yarn compile & vitest run"
   },
   "dependencies": {
-    "@odata2ts/converter-big-number": "^0.2.0",
-    "@odata2ts/converter-common": "^0.3.0",
-    "@odata2ts/converter-luxon": "^0.2.0",
-    "@odata2ts/converter-runtime": "^0.4.0",
-    "@odata2ts/converter-v2-to-v4": "^0.5.0",
+    "@odata2ts/converter-big-number": "^0.2.1",
+    "@odata2ts/converter-common": "^0.3.1",
+    "@odata2ts/converter-luxon": "^0.2.1",
+    "@odata2ts/converter-runtime": "^0.4.1",
+    "@odata2ts/converter-v2-to-v4": "^0.5.1",
     "@odata2ts/odata-query-objects": "^0.17.3",
     "bignumber.js": "^9.1.1"
   },

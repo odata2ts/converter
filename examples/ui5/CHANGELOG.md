@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/odata2ts/converter/compare/@odata2ts/converter-example-ui5@0.3.0...@odata2ts/converter-example-ui5@0.3.1) (2024-08-14)
+
+**Note:** Version bump only for package @odata2ts/converter-example-ui5
+
+
+
+
+
 # [0.3.0](https://github.com/odata2ts/converter/compare/@odata2ts/converter-example-ui5@0.2.4...@odata2ts/converter-example-ui5@0.3.0) (2024-08-13)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@odata2ts/converter-v2-to-v4",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A set of odata2ts compatible converters to convert certain OData V2 types to their V4 analog",
   "keywords": [
     "odata2ts",

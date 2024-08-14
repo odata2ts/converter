@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/odata2ts/converter/compare/@odata2ts/converter-common@0.3.0...@odata2ts/converter-common@0.3.1) (2024-08-14)
+
+
+### Bug Fixes
+
+* add ".js" to all relative imports ([#21](https://github.com/odata2ts/converter/issues/21)) ([808d021](https://github.com/odata2ts/converter/commit/808d0217edf9b8b90062e412ddc8e956c865c01b))
+
+
+
+
+
 # [0.3.0](https://github.com/odata2ts/converter/compare/@odata2ts/converter-common@0.2.0...@odata2ts/converter-common@0.3.0) (2024-08-13)
 
 
