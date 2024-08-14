@@ -1,9 +1,9 @@
 import { ConverterPackage } from "@odata2ts/converter-api";
-import { bigNumberNoopConverter } from "./BigNumberNoopConverter";
-import { dateTimeToDateTimeOffsetConverter } from "./DateTimeToDateTimeOffsetConverter";
-import { stringToNumberConverter } from "./StringToNumberConverter";
-import { timeToDurationConverter } from "./TimeToDurationConverter";
-import { timeToTimeOfDayConverter } from "./TimeToTimeOfDayConverter";
+import { bigNumberNoopConverter } from "./BigNumberNoopConverter.js";
+import { dateTimeToDateTimeOffsetConverter } from "./DateTimeToDateTimeOffsetConverter.js";
+import { stringToNumberConverter } from "./StringToNumberConverter.js";
+import { timeToDurationConverter } from "./TimeToDurationConverter.js";
+import { timeToTimeOfDayConverter } from "./TimeToTimeOfDayConverter.js";
 
 const pkg: ConverterPackage = {
   id: "V2ToV4",
