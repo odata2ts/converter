@@ -5,7 +5,7 @@ import {
   dateTimeToDateTimeOffsetConverter,
   stringToNumberConverter,
 } from "@odata2ts/converter-v2-to-v4";
-import { timeToMsDurationConverter } from "./TimeToMsDurationConverter";
+import { timeToMsDurationConverter } from "./TimeToMsDurationConverter.js";
 
 export { MsDuration } from "./TimeToMsDurationConverter";
 

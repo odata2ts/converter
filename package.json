@@ -14,6 +14,7 @@
     "build": "yarn clean && lerna run build",
     "check-circular-deps": "lerna run check-circular-deps",
     "clean": "rimraf coverage",
+    "clean-libs": "lerna run clean",
     "coverage": "vitest run --coverage",
     "release": "env-cmd -f .env.local --no-override lerna version",
     "test": "lerna run test -- --no-cache",
