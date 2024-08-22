@@ -1,5 +1,5 @@
 import { ConverterPackage } from "@odata2ts/converter-api";
-import { decimalConverter } from "./DecimalConverter.js";
+import { decimalConverter } from "./DecimalConverter";
 
 const pkg: ConverterPackage = {
   id: "BigNumber",

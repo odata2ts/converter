@@ -1,5 +1,5 @@
 import { ConverterPackage } from "@odata2ts/converter-api";
-import { bigNumberConverter } from "./BigNumberConverter.js";
+import { bigNumberConverter } from "./BigNumberConverter";
 
 const pkg: ConverterPackage = {
   id: "BigNumber",

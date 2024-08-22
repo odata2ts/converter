@@ -1,6 +1,6 @@
 import { ConverterPackage, ValueConverterType } from "@odata2ts/converter-api";
 import { ODataTypesV2, ODataTypesV4, ODataVersions } from "@odata2ts/odata-core";
-import { RuntimeConverterPackage, TypeConverterConfig, ValueConverterChain } from "./ConverterModels.js";
+import { RuntimeConverterPackage, TypeConverterConfig, ValueConverterChain } from "./ConverterModels";
 
 type MappedConverters = Map<string, ValueConverterType & { package: string; toModule?: string }>;
 

@@ -1,8 +1,8 @@
 import { ConverterPackage } from "@odata2ts/converter-api";
-import { dateTimeOffsetToLuxonConverter } from "./DateTimeOffsetToLuxonConverter.js";
-import { dateToLuxonConverter } from "./DateToLuxonConverter.js";
-import { durationToLuxonConverter } from "./DurationToLuxonConverter.js";
-import { timeOfDayToLuxonConverter } from "./TimeOfDayToLuxonConverter.js";
+import { dateTimeOffsetToLuxonConverter } from "./DateTimeOffsetToLuxonConverter";
+import { dateToLuxonConverter } from "./DateToLuxonConverter";
+import { durationToLuxonConverter } from "./DurationToLuxonConverter";
+import { timeOfDayToLuxonConverter } from "./TimeOfDayToLuxonConverter";
 
 const pkg: ConverterPackage = {
   id: "Luxon",

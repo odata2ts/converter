@@ -1,11 +1,11 @@
 import { ConverterPackage } from "@odata2ts/converter-api";
-import { dateTimeOffsetToDateConverter } from "./DateTimeOffsetToDateConverter.js";
-import { int64ToBigIntConverter } from "./Int64ToBigIntConverter.js";
-import { simpleDurationConverter } from "./SimpleDurationConverter.js";
-import { simpleTimeConverter } from "./SimpleTimeConverter.js";
+import { dateTimeOffsetToDateConverter } from "./DateTimeOffsetToDateConverter";
+import { int64ToBigIntConverter } from "./Int64ToBigIntConverter";
+import { simpleDurationConverter } from "./SimpleDurationConverter";
+import { simpleTimeConverter } from "./SimpleTimeConverter";
 
-export { SimpleDuration } from "./SimpleDurationConverter.js";
-export { SimpleTime } from "./SimpleTimeConverter.js";
+export { SimpleDuration } from "./SimpleDurationConverter";
+export { SimpleTime } from "./SimpleTimeConverter";
 
 const pkg: ConverterPackage = {
   id: "Common",
