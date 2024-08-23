@@ -5,7 +5,7 @@
   "repository": "git@github.com:odata2ts/converter.git",
   "license": "MIT",
   "author": "texttechne",
-  "type": "module",
+  "type": "commonjs",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "files": [

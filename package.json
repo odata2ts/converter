@@ -5,7 +5,7 @@
   "description": "Root project which bundles all converter related packages for odata2ts.",
   "repository": "git@github.com:odata2ts/converter.git",
   "license": "MIT",
-  "type": "module",
+  "type": "commonjs",
   "workspaces": [
     "packages/*",
     "examples/*"
@@ -14,7 +14,6 @@
     "build": "yarn clean && lerna run build",
     "check-circular-deps": "lerna run check-circular-deps",
     "clean": "rimraf coverage",
-    "clean-libs": "lerna run clean",
     "coverage": "vitest run --coverage",
     "release": "env-cmd -f .env.local --no-override lerna version",
     "test": "lerna run test -- --no-cache",
@@ -34,5 +33,6 @@
     "rimraf": "^3.0.2",
     "typescript": "^4.6.3",
     "vitest": "^2.0.5"
-  }
+  },
+  "packageManager": "yarn@3.5.0"
 }
