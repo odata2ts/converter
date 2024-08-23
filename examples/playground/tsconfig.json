@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.settings.json",
   "compilerOptions": {
+    "module": "ESNext",
     "rootDirs": ["./build", "./test"],
     "noEmit": true
   },
