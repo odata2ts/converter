@@ -1,6 +1,6 @@
 {
   "name": "@odata2ts/converter-luxon",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Luxon based odata2ts compatible converters for date and time related OData types",
   "keywords": [
     "odata2ts",
@@ -38,7 +38,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@odata2ts/converter-api": "^0.2.0"
+    "@odata2ts/converter-api": "^0.2.1"
   },
   "devDependencies": {
     "@types/luxon": "^3.0.1",
