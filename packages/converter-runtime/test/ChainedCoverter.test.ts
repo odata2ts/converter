@@ -2,7 +2,7 @@ import {
   booleanToNumberConverter,
   numberToStringConverter,
   stringToPrefixModelConverter,
-} from "@odata2ts/test-converters";
+} from "@odata2ts/converter-example";
 import { describe, expect, test } from "vitest";
 import { ChainedConverter, createChain } from "../src";
 

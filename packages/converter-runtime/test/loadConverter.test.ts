@@ -5,10 +5,11 @@ import { getPropTypeAndModule, loadConverters } from "../src";
 
 describe("LoadConverters Test", () => {
   const V2_TO_V4_PKG = "@odata2ts/converter-v2-to-v4";
-  const LUXON_PKG = "@odata2ts/converter-luxon";
-
   // time, dateTime, byte, sByte, single, double, int64, decimal
   const V2_TO_V4_CONVERTERS_SIZE = 8;
+  const LUXON_PKG = "@odata2ts/converter-luxon";
+  const TEST_CONV_PKG = "@odata2ts/converter-example";
+
 
   test("no converters", async () => {
     const result = await loadConverters(ODataVersions.V4, undefined);
@@ -156,4 +157,31 @@ describe("LoadConverters Test", () => {
     expect(getPropTypeAndModule("aba.ts")).toStrictEqual(["ts", "aba"]);
     expect(getPropTypeAndModule("aba.js.Type")).toStrictEqual(["Type", "aba.js"]);
   });
+
+  test("with fixing converter in between", async () => {
+    const result = await loadConverters(ODataVersions.V4, [TEST_CONV_PKG]);
+
+    const booleanChain = result?.get(ODataTypesV4.Boolean);
+    expect(booleanChain).toStrictEqual({
+      from: ODataTypesV4.Boolean,
+      to: "string",
+      toModule: undefined,
+      converters: [
+        {
+          package: TEST_CONV_PKG,
+          converterId: "exampleOfFixingConverter",
+        },
+        {
+          package: TEST_CONV_PKG,
+          converterId: "booleanToNumberConverter",
+        },
+        {
+          package: TEST_CONV_PKG,
+          converterId: "numberToStringConverter",
+        },
+      ],
+    } as ValueConverterChain);
+  });
+
+
 });

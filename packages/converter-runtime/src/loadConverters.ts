@@ -1,8 +1,15 @@
 import { ConverterPackage, ValueConverterType } from "@odata2ts/converter-api";
 import { ODataTypesV2, ODataTypesV4, ODataVersions } from "@odata2ts/odata-core";
-import { RuntimeConverterPackage, TypeConverterConfig, ValueConverterChain } from "./ConverterModels";
+import {
+  RuntimeConverterPackage,
+  TypeConverterConfig,
+  ValueConverterChain,
+  ValueConverterImport
+} from "./ConverterModels";
 
-type MappedConverters = Map<string, ValueConverterType & { package: string; toModule?: string }>;
+type MappedConverter = ValueConverterType & { package: string; toModule?: string }
+// we use an array of converters because of converters which fix stuff, mapping from and to the identical type
+type MappedConverters = Map<string, Array<MappedConverter>>;
 
 export type MappedConverterChains = Map<string, ValueConverterChain>;
 
@@ -65,13 +72,22 @@ function mapConvertersBySource(converterPkgs: Array<RuntimeConverterPackage>): M
       for (let from of froms) {
         const [fromType] = getPropTypeAndModule(from);
         const [toType, toModule] = getPropTypeAndModule(converter.to);
-        collector.set(from, {
+
+        const result:MappedConverter = {
           package: converterPkg.package,
           id: converter.id,
           from: fromType,
           to: toType,
           toModule,
-        });
+        }
+
+        const prev = collector.get(from);
+        if (prev?.length && prev[prev.length-1].to === fromType) {
+          prev.push(result);
+        }
+        else {
+          collector.set(from, [result]);
+        }
       }
     }
     return collector;
@@ -121,17 +137,33 @@ export async function loadConverters(
 // Recursive function to find chainable converters and chain them
 function chainConverters(converters: MappedConverters, dataType: string): ValueConverterChain | undefined {
   const conv = converters.get(dataType);
-  if (!conv) {
+  if (!conv?.length) {
     return undefined;
   }
 
-  const chainedConv = chainConverters(converters, conv.to);
+  const finalConv = conv[conv.length-1];
+  const usedConverters: Array<ValueConverterImport> = [];
+  if (conv.length > 1) {
+    usedConverters.push(...conv.slice(0, conv.length -1).map(c => ({
+        package: c.package, converterId: c.id
+    })))
+  }
+
+  usedConverters.push({
+    package: finalConv.package,
+    converterId: finalConv.id
+  })
+
+  const chainedConv = chainConverters(converters, finalConv.to);
+  if (chainedConv?.converters) {
+    usedConverters.push(...chainedConv.converters);
+  }
 
   return {
     from: dataType,
-    to: chainedConv?.to ?? conv.to,
-    toModule: chainedConv?.to ? chainedConv.toModule : conv.toModule,
-    converters: [{ package: conv.package, converterId: conv.id }, ...(chainedConv?.converters ?? [])],
+    to: chainedConv?.to ?? finalConv.to,
+    toModule: chainedConv?.to ? chainedConv.toModule : finalConv.toModule,
+    converters: usedConverters,
   };
 }
 
