@@ -1966,8 +1966,6 @@ __metadata:
   resolution: "@odata2ts/converter-api@workspace:packages/converter-api"
   dependencies:
     "@odata2ts/odata-core": ^0.1.0
-    rimraf: ^3.0.2
-    typescript: 4.6.3
   languageName: unknown
   linkType: soft
 
@@ -1985,11 +1983,7 @@ __metadata:
   resolution: "@odata2ts/converter-big-number@workspace:packages/converter-big-number"
   dependencies:
     "@odata2ts/converter-api": ^0.2.1
-    "@types/node": ^17.0.23
     bignumber.js: ^9.1.1
-    rimraf: ^3.0.2
-    typescript: 4.6.3
-    vitest: ^2.0.5
   languageName: unknown
   linkType: soft
 
@@ -1998,11 +1992,6 @@ __metadata:
   resolution: "@odata2ts/converter-common@workspace:packages/converter-common"
   dependencies:
     "@odata2ts/converter-api": ^0.2.1
-    "@types/luxon": ^3.0.1
-    "@types/node": ^17.0.23
-    rimraf: ^3.0.2
-    typescript: 4.6.3
-    vitest: ^2.0.5
   languageName: unknown
   linkType: soft
 
@@ -2011,11 +2000,7 @@ __metadata:
   resolution: "@odata2ts/converter-decimal@workspace:packages/converter-decimal"
   dependencies:
     "@odata2ts/converter-api": ^0.2.1
-    "@types/node": ^17.0.23
     decimal.js: ^10.4.3
-    rimraf: ^3.0.2
-    typescript: 4.6.3
-    vitest: ^2.0.5
   peerDependencies:
     decimal.js: ">1"
   languageName: unknown
@@ -2054,11 +2039,7 @@ __metadata:
   dependencies:
     "@odata2ts/converter-api": ^0.2.1
     "@types/luxon": ^3.0.1
-    "@types/node": ^17.0.23
     luxon: ^3.0.4
-    rimraf: ^3.0.2
-    typescript: 4.6.3
-    vitest: ^2.0.5
   peerDependencies:
     luxon: ^3.0.4
   languageName: unknown
@@ -2090,12 +2071,7 @@ __metadata:
     "@odata2ts/converter-example": ^0.3.1
     "@odata2ts/converter-luxon": ^0.2.2
     "@odata2ts/converter-v2-to-v4": ^0.5.2
-    "@types/node": ^17.0.23
     luxon: ^3.5.0
-    rimraf: ^3.0.2
-    ts-node: 10.7.0
-    typescript: 4.6.3
-    vitest: ^2.0.5
   languageName: unknown
   linkType: soft
 
@@ -2115,10 +2091,6 @@ __metadata:
     "@odata2ts/converter-api": ^0.2.1
     "@odata2ts/converter-common": ^0.3.2
     "@odata2ts/converter-v2-to-v4": ^0.5.2
-    "@types/node": ^17.0.23
-    rimraf: ^3.0.2
-    typescript: 4.6.3
-    vitest: ^2.0.5
   languageName: unknown
   linkType: soft
 
@@ -2127,10 +2099,6 @@ __metadata:
   resolution: "@odata2ts/converter-v2-to-v4@workspace:packages/converter-v2-to-v4"
   dependencies:
     "@odata2ts/converter-api": ^0.2.1
-    "@types/node": ^17.0.23
-    rimraf: ^3.0.2
-    typescript: 4.6.3
-    vitest: ^2.0.5
   languageName: unknown
   linkType: soft
 
@@ -2140,7 +2108,7 @@ __metadata:
   dependencies:
     "@ianvs/prettier-plugin-sort-imports": ^4.3.1
     "@prettier/plugin-xml": ^3.4.1
-    "@types/node": ^20.2.1
+    "@types/node": ^22.5.0
     "@vitest/coverage-istanbul": ^2.0.5
     env-cmd: ^10.1.0
     lerna: ^4.0.0
@@ -2548,19 +2516,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^17.0.23":
-  version: 17.0.45
-  resolution: "@types/node@npm:17.0.45"
-  checksum: aa04366b9103b7d6cfd6b2ef64182e0eaa7d4462c3f817618486ea0422984c51fc69fd0d436eae6c9e696ddfdbec9ccaa27a917f7c2e8c75c5d57827fe3d95e8
-  languageName: node
-  linkType: hard
-
 "@types/node@npm:^20.2.1":
   version: 20.14.15
   resolution: "@types/node@npm:20.14.15"
   dependencies:
     undici-types: ~5.26.4
   checksum: 0407600c1a426efd3e97c94ef1c13edce453142a06ea4be7102bf7be3e907ea578872c7795988a72e981b8ffe942f8cfaafd98552ba82915cd6f963dd1fa9adc
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^22.5.0":
+  version: 22.5.0
+  resolution: "@types/node@npm:22.5.0"
+  dependencies:
+    undici-types: ~6.19.2
+  checksum: 3710b6f42416796061cf47cff0a37955f2ca0afc63ab281cc23e46b3ec8dffcabc66b970e4ee34fff5e2082617bed47610b4a1122c7b3880f551d3c673c40f84
   languageName: node
   linkType: hard
 
@@ -10841,6 +10811,13 @@ __metadata:
   version: 6.13.0
   resolution: "undici-types@npm:6.13.0"
   checksum: 9d0ef6bf58994bebbea6a4ab75f381c69a89a7ed151bfbae0d4ef95450d56502c9eccb323abf17b7d099c1d9c1cbae62e909e4dfeb8d204612d2f1fdada24707
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~6.19.2":
+  version: 6.19.8
+  resolution: "undici-types@npm:6.19.8"
+  checksum: de51f1b447d22571cf155dfe14ff6d12c5bdaec237c765085b439c38ca8518fc360e88c70f99469162bf2e14188a7b0bcb06e1ed2dc031042b984b0bb9544017
   languageName: node
   linkType: hard
 
