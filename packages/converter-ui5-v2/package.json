@@ -36,12 +36,6 @@
     "@odata2ts/converter-common": "^0.3.2",
     "@odata2ts/converter-v2-to-v4": "^0.5.2"
   },
-  "devDependencies": {
-    "@types/node": "^17.0.23",
-    "rimraf": "^3.0.2",
-    "typescript": "4.6.3",
-    "vitest": "^2.0.5"
-  },
   "publishConfig": {
     "access": "public"
   }
