@@ -1,7 +1,7 @@
 {
   "name": "@odata2ts/converter-api",
   "version": "0.2.2",
-  "description": "Contract between odata2ts and converters",
+  "description": "The converter API establishes a contract between odata2ts and converter implementations",
   "keywords": [
     "odata2ts",
     "odata",
@@ -30,9 +30,6 @@
     "clean": "rimraf lib coverage",
     "compile": "tsc",
     "prepublish": "yarn build"
-  },
-  "dependencies": {
-    "@odata2ts/odata-core": "^0.1.0"
   },
   "publishConfig": {
     "access": "public"
