@@ -1964,8 +1964,6 @@ __metadata:
 "@odata2ts/converter-api@^0.2.2, @odata2ts/converter-api@workspace:packages/converter-api":
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-api@workspace:packages/converter-api"
-  dependencies:
-    "@odata2ts/odata-core": ^0.1.0
   languageName: unknown
   linkType: soft
 
