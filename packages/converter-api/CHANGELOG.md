@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/odata2ts/converter/compare/@odata2ts/converter-api@0.2.2...@odata2ts/converter-api@0.2.3) (2024-12-18)
+
+
+### Bug Fixes
+
+* converter-api has no dependency ([#25](https://github.com/odata2ts/converter/issues/25)) ([3ea3117](https://github.com/odata2ts/converter/commit/3ea31175273037a1d0e1107b1dabf561b52c9f45))
+
+
+
+
+
+
 ## [0.2.2](https://github.com/odata2ts/converter/compare/@odata2ts/converter-api@0.2.1...@odata2ts/converter-api@0.2.2) (2024-08-25)
 
 **Note:** Version bump only for package @odata2ts/converter-api
