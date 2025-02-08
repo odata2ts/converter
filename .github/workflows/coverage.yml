@@ -12,8 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
-      matrix: [20]
-      script: ["build", "check-circular-deps", "coverage"]
+      matrix:
+        node: [20]
+        script: ["build", "check-circular-deps", "coverage"]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
