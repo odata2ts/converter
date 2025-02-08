@@ -1,6 +1,6 @@
 {
   "name": "@odata2ts/converter-decimal",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "decimal.js based odata2ts compatible converter for OData's `Edm.Int64` and `Edm.Decimal` types",
   "keywords": [
     "decimal.js",
@@ -30,7 +30,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@odata2ts/converter-api": "^0.2.4"
+    "@odata2ts/converter-api": "^0.2.5"
   },
   "devDependencies": {
     "decimal.js": "^10.4.3"

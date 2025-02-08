@@ -9,6 +9,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
   * dependencies
     * @odata2ts/converter-api bumped from ^0.2.3 to ^0.2.4
 
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @odata2ts/converter-api bumped from ^0.2.4 to ^0.2.5
+
 ## [0.2.4](https://github.com/odata2ts/converter/compare/@odata2ts/converter-decimal@0.2.3...@odata2ts/converter-decimal@0.2.4) (2024-12-18)
 
 **Note:** Version bump only for package @odata2ts/converter-decimal

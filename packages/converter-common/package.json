@@ -1,6 +1,6 @@
 {
   "name": "@odata2ts/converter-common",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "Luxon based odata2ts compatible converters for date and time related OData types",
   "keywords": [
     "converter",
@@ -32,7 +32,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@odata2ts/converter-api": "^0.2.4"
+    "@odata2ts/converter-api": "^0.2.5"
   },
   "publishConfig": {
     "access": "public"

@@ -946,7 +946,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@odata2ts/converter-api@npm:^0.2.4, @odata2ts/converter-api@workspace:packages/converter-api":
+"@odata2ts/converter-api@npm:^0.2.5, @odata2ts/converter-api@workspace:packages/converter-api":
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-api@workspace:packages/converter-api"
   languageName: unknown
@@ -956,16 +956,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-big-number@workspace:packages/converter-big-number"
   dependencies:
-    "@odata2ts/converter-api": "npm:^0.2.4"
+    "@odata2ts/converter-api": "npm:^0.2.5"
     bignumber.js: "npm:^9.1.1"
   languageName: unknown
   linkType: soft
 
-"@odata2ts/converter-common@npm:^0.3.4, @odata2ts/converter-common@npm:^0.3.5, @odata2ts/converter-common@workspace:packages/converter-common":
+"@odata2ts/converter-common@npm:^0.3.4, @odata2ts/converter-common@npm:^0.3.6, @odata2ts/converter-common@workspace:packages/converter-common":
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-common@workspace:packages/converter-common"
   dependencies:
-    "@odata2ts/converter-api": "npm:^0.2.4"
+    "@odata2ts/converter-api": "npm:^0.2.5"
   languageName: unknown
   linkType: soft
 
@@ -973,7 +973,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-decimal@workspace:packages/converter-decimal"
   dependencies:
-    "@odata2ts/converter-api": "npm:^0.2.4"
+    "@odata2ts/converter-api": "npm:^0.2.5"
     decimal.js: "npm:^10.4.3"
   peerDependencies:
     decimal.js: ">1"
@@ -997,21 +997,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@odata2ts/converter-example@npm:^1.0.0, @odata2ts/converter-example@workspace:examples/test-converters":
+"@odata2ts/converter-example@npm:^1.0.1, @odata2ts/converter-example@workspace:examples/test-converters":
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-example@workspace:examples/test-converters"
   dependencies:
-    "@odata2ts/converter-api": "npm:^0.2.4"
+    "@odata2ts/converter-api": "npm:^0.2.5"
     rimraf: "npm:^3.0.2"
     typescript: "npm:4.6.3"
   languageName: unknown
   linkType: soft
 
-"@odata2ts/converter-luxon@npm:^0.2.4, @odata2ts/converter-luxon@npm:^0.2.5, @odata2ts/converter-luxon@workspace:packages/converter-luxon":
+"@odata2ts/converter-luxon@npm:^0.2.4, @odata2ts/converter-luxon@npm:^0.2.6, @odata2ts/converter-luxon@workspace:packages/converter-luxon":
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-luxon@workspace:packages/converter-luxon"
   dependencies:
-    "@odata2ts/converter-api": "npm:^0.2.4"
+    "@odata2ts/converter-api": "npm:^0.2.5"
     "@types/luxon": "npm:^3.0.1"
     luxon: "npm:^3.0.4"
   peerDependencies:
@@ -1050,10 +1050,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-runtime@workspace:packages/converter-runtime"
   dependencies:
-    "@odata2ts/converter-api": "npm:^0.2.4"
-    "@odata2ts/converter-example": "npm:^1.0.0"
-    "@odata2ts/converter-luxon": "npm:^0.2.5"
-    "@odata2ts/converter-v2-to-v4": "npm:^0.5.5"
+    "@odata2ts/converter-api": "npm:^0.2.5"
+    "@odata2ts/converter-example": "npm:^1.0.1"
+    "@odata2ts/converter-luxon": "npm:^0.2.6"
+    "@odata2ts/converter-v2-to-v4": "npm:^0.5.6"
     luxon: "npm:^3.5.0"
   languageName: unknown
   linkType: soft
@@ -1062,17 +1062,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-ui5-v2@workspace:packages/converter-ui5-v2"
   dependencies:
-    "@odata2ts/converter-api": "npm:^0.2.4"
-    "@odata2ts/converter-common": "npm:^0.3.5"
-    "@odata2ts/converter-v2-to-v4": "npm:^0.5.5"
+    "@odata2ts/converter-api": "npm:^0.2.5"
+    "@odata2ts/converter-common": "npm:^0.3.6"
+    "@odata2ts/converter-v2-to-v4": "npm:^0.5.6"
   languageName: unknown
   linkType: soft
 
-"@odata2ts/converter-v2-to-v4@npm:^0.5.4, @odata2ts/converter-v2-to-v4@npm:^0.5.5, @odata2ts/converter-v2-to-v4@workspace:packages/converter-v2-to-v4":
+"@odata2ts/converter-v2-to-v4@npm:^0.5.4, @odata2ts/converter-v2-to-v4@npm:^0.5.6, @odata2ts/converter-v2-to-v4@workspace:packages/converter-v2-to-v4":
   version: 0.0.0-use.local
   resolution: "@odata2ts/converter-v2-to-v4@workspace:packages/converter-v2-to-v4"
   dependencies:
-    "@odata2ts/converter-api": "npm:^0.2.4"
+    "@odata2ts/converter-api": "npm:^0.2.5"
   languageName: unknown
   linkType: soft
 

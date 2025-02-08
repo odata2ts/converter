@@ -1,6 +1,6 @@
 {
   "name": "@odata2ts/converter-runtime",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Provides necessary implementations for using odata2ts converters at runtime",
   "keywords": [
     "odata2ts",
@@ -31,12 +31,12 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@odata2ts/converter-api": "^0.2.4"
+    "@odata2ts/converter-api": "^0.2.5"
   },
   "devDependencies": {
-    "@odata2ts/converter-example": "^1.0.0",
-    "@odata2ts/converter-luxon": "^0.2.5",
-    "@odata2ts/converter-v2-to-v4": "^0.5.5",
+    "@odata2ts/converter-example": "^1.0.1",
+    "@odata2ts/converter-luxon": "^0.2.6",
+    "@odata2ts/converter-v2-to-v4": "^0.5.6",
     "luxon": "^3.5.0"
   },
   "publishConfig": {
