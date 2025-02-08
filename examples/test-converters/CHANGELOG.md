@@ -9,6 +9,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
   * dependencies
     * @odata2ts/converter-api bumped from ^0.2.4 to ^0.2.5
 
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @odata2ts/converter-api bumped from ^0.2.5 to ^0.2.6
+
 ## 1.0.0 (2025-02-08)
 
 

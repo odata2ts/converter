@@ -19,6 +19,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
     * @odata2ts/converter-common bumped from ^0.3.5 to ^0.3.6
     * @odata2ts/converter-v2-to-v4 bumped from ^0.5.5 to ^0.5.6
 
+## [0.3.7](https://github.com/odata2ts/converter/compare/@odata2ts/converter-ui5-v2-v0.3.6...@odata2ts/converter-ui5-v2-v0.3.7) (2025-02-08)
+
+
+### Bug Fixes
+
+* deployment without compiled code ([#36](https://github.com/odata2ts/converter/issues/36)) ([b2da86c](https://github.com/odata2ts/converter/commit/b2da86c5fffd4727198e5fcb0f34774376d5a7ba))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @odata2ts/converter-api bumped from ^0.2.5 to ^0.2.6
+    * @odata2ts/converter-common bumped from ^0.3.6 to ^0.3.7
+    * @odata2ts/converter-v2-to-v4 bumped from ^0.5.6 to ^0.5.7
+
 ## [0.3.4](https://github.com/odata2ts/converter/compare/@odata2ts/converter-ui5-v2@0.3.3...@odata2ts/converter-ui5-v2@0.3.4) (2024-12-18)
 
 **Note:** Version bump only for package @odata2ts/converter-ui5-v2
