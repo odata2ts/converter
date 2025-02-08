@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
-      matrix: [20]
-      script: ["build", "check-circular-deps", "coverage"]
+      matrix:
+        node: [20]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -32,8 +32,12 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install packages
         run: yarn --immutable
-      - name: Run script
-        run: yarn ${{matrix.script}}
+      - name: Build
+        run: yarn build
+      - name: Check Circular Deps
+        run: yarn check-circular-deps
+      - name: Test with Coverage
+        run: yarn coverage
       - name: Coveralls
         uses: coverallsapp/github-action@v1.1.2
         with:
