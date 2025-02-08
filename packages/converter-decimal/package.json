@@ -27,6 +27,7 @@
     "check-circular-deps": "madge ./src --extensions ts --circular",
     "clean": "rimraf lib coverage",
     "compile": "tsc",
+    "prepack": "yarn compile",
     "test": "vitest run"
   },
   "dependencies": {

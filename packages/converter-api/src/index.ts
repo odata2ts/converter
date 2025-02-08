@@ -20,7 +20,7 @@ export interface ConverterPackage {
 export interface ValueConverterType {
   /**
    * Must exactly match the ValueConverter name as it is exported from the package.
-   * E.g. id = "timeToDuration" would result in trying to load the given converter by calling
+   * E.g. id = "timeToDurationConverter" would result in trying to load the given converter by calling
    * import { timeToDurationConverter } from "@odata2ts/converter-v2-to-v4"
    */
   id: string;
