@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.6](https://github.com/odata2ts/converter/compare/@odata2ts/converter-v2-to-v4-v0.5.5...@odata2ts/converter-v2-to-v4-v0.5.6) (2025-02-08)
+
+
+### Bug Fixes
+
+* pass along ISO8601 dates when using convertFrom ([ae7b407](https://github.com/odata2ts/converter/commit/ae7b4074fa49b50ea81d9cd0c8527fa80e586954))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @odata2ts/converter-api bumped from ^0.2.4 to ^0.2.5
+
 ## [0.5.5](https://github.com/odata2ts/converter/compare/@odata2ts/converter-v2-to-v4@0.5.4...@odata2ts/converter-v2-to-v4-v0.5.5) (2025-02-08)
 
 

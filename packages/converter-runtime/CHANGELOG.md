@@ -13,6 +13,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
     * @odata2ts/converter-luxon bumped from ^0.2.4 to ^0.2.5
     * @odata2ts/converter-v2-to-v4 bumped from ^0.5.4 to ^0.5.5
 
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @odata2ts/converter-api bumped from ^0.2.4 to ^0.2.5
+  * devDependencies
+    * @odata2ts/converter-example bumped from ^1.0.0 to ^1.0.1
+    * @odata2ts/converter-luxon bumped from ^0.2.5 to ^0.2.6
+    * @odata2ts/converter-v2-to-v4 bumped from ^0.5.5 to ^0.5.6
+
 ## [0.5.1](https://github.com/odata2ts/converter/compare/@odata2ts/converter-runtime@0.5.0...@odata2ts/converter-runtime@0.5.1) (2024-12-18)
 
 **Note:** Version bump only for package @odata2ts/converter-runtime

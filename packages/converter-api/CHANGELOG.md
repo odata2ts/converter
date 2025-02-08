@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.5](https://github.com/odata2ts/converter/compare/@odata2ts/converter-api-v0.2.4...@odata2ts/converter-api-v0.2.5) (2025-02-08)
+
+
+### Bug Fixes
+
+* add options to convertFrom as well ([0dffe1f](https://github.com/odata2ts/converter/commit/0dffe1fe50bbae0d019c5bcbaeda02b925d5ac67))
+
 ## [0.2.4](https://github.com/odata2ts/converter/compare/@odata2ts/converter-api@0.2.3...@odata2ts/converter-api-v0.2.4) (2025-02-08)
 
 
