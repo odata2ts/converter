@@ -14,7 +14,6 @@ jobs:
       fail-fast: true
       matrix:
         node: [20]
-        script: ["check-circular-deps", "coverage"]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -35,8 +34,10 @@ jobs:
         run: yarn --immutable
       - name: Build
         run: yarn build
-      - name: Run script
-        run: yarn ${{matrix.script}}
+      - name: Check Circular Deps
+        run: yarn check-circular-deps
+      - name: Test with Coverage
+        run: yarn coverage
       - name: Coveralls
         uses: coverallsapp/github-action@v1.1.2
         with:
