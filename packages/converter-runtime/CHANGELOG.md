@@ -23,6 +23,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
     * @odata2ts/converter-luxon bumped from ^0.2.5 to ^0.2.6
     * @odata2ts/converter-v2-to-v4 bumped from ^0.5.5 to ^0.5.6
 
+## [0.5.5](https://github.com/odata2ts/converter/compare/@odata2ts/converter-runtime-v0.5.4...@odata2ts/converter-runtime-v0.5.5) (2025-02-08)
+
+
+### Bug Fixes
+
+* chained converters must respect & pass along options ([#38](https://github.com/odata2ts/converter/issues/38)) ([478be5b](https://github.com/odata2ts/converter/commit/478be5ba0694edcc10a0704e8108c527f88224be))
+
 ## [0.5.4](https://github.com/odata2ts/converter/compare/@odata2ts/converter-runtime-v0.5.3...@odata2ts/converter-runtime-v0.5.4) (2025-02-08)
 
 
