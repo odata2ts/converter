@@ -1,0 +1,10 @@
+{
+  "packages/converter-api": "0.2.3",
+  "packages/converter-runtime": "0.5.1",
+  "packages/converter-big-number": "0.2.4",
+  "packages/converter-common": "0.3.4",
+  "packages/converter-decimal": "0.2.4",
+  "packages/converter-luxon": "0.2.4",
+  "packages/converter-ui5-v2": "0.3.4",
+  "packages/converter-v2-to-v4": "0.5.4"
+}
