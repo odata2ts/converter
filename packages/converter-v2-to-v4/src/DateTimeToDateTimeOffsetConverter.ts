@@ -15,8 +15,10 @@ function formatDateTimeV2(iso8601: string, offset?: string) {
   return `/Date(${new Date(iso8601).getTime()}${offset || ""})/`;
 }
 
+// offset in minutes might be specified as suffix of the timestamp,e.g. "+90"
 const DATE_TIME_V2_REGEXP = /\/Date\(([+-]?\d+)(([+-])(\d+))?\)\//;
 const ISO_OFFSET_REGEXP = /([+-])(\d{2}):(\d{2})/;
+const ISO_DATETIME_REGEXP = /^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(\.\d+)?(([+-]\d\d:\d\d)|Z)?$/i
 
 /**
  * Converts Edm.DateTime, which is a very special construct, to Edm.DateTimeOffset, which is the typical
@@ -35,10 +37,10 @@ export const dateTimeToDateTimeOffsetConverter: ValueConverter<string, string> =
       return value;
     }
 
-    // offset in minutes might be specified as suffix of the timestamp,e.g. "+90"
     const matched = value.match(DATE_TIME_V2_REGEXP);
-    if (!matched || matched.length < 5) {
-      return undefined;
+    if (!matched) {
+      // pass along ISO8601 DateTimes as they are
+      return value.match(ISO_DATETIME_REGEXP) ? value : undefined;
     }
 
     const timestamp = matched[1];

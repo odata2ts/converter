@@ -1,6 +1,6 @@
-import { ODataTypesV2, ODataTypesV4 } from "@odata2ts/odata-core";
-import { describe, expect, test } from "vitest";
-import { dateTimeToDateTimeOffsetConverter } from "../src";
+import {ODataTypesV2, ODataTypesV4} from "@odata2ts/odata-core";
+import {describe, expect, test} from "vitest";
+import {dateTimeToDateTimeOffsetConverter} from "../src";
 
 describe("V2DateTimeToDateTimeOffset Test", () => {
   const TIMESTAMP = 1672531199000;
@@ -23,8 +23,11 @@ describe("V2DateTimeToDateTimeOffset Test", () => {
   });
 
   test("url conversion", () => {
-    expect(TO_TEST.convertFrom(FROM_STRING)).toBe(TO_STRING);
-    expect(TO_TEST.convertTo(TO_STRING, {urlConversion: true})).toBe(TO_STRING);
+    expect(TO_TEST.convertTo(TO_STRING, { urlConversion: true })).toBe(TO_STRING);
+  });
+
+  test("convertFrom with ISO dates", () => {
+    expect(TO_TEST.convertFrom(TO_STRING)).toBe(TO_STRING);
   });
 
   test("null and undefined", () => {
