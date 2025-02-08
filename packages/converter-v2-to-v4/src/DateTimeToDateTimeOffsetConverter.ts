@@ -1,4 +1,4 @@
-import { ParamValueModel, ValueConverter } from "@odata2ts/converter-api";
+import {ConverterOptions, ParamValueModel, ValueConverter} from "@odata2ts/converter-api";
 import { ODataTypesV2, ODataTypesV4 } from "@odata2ts/odata-core";
 
 function padZerosLeft(input: number) {
@@ -51,8 +51,11 @@ export const dateTimeToDateTimeOffsetConverter: ValueConverter<string, string> =
     return offset ? iso.substring(0, iso.length - 1) + offset : iso;
   },
 
-  convertTo: function (value: ParamValueModel<string>): ParamValueModel<string> {
-    if (!value) {
+  convertTo: function (value: ParamValueModel<string>, options?: ConverterOptions): ParamValueModel<string> {
+    // Special workaround only for this converter:
+    // Within URL ISO8601 format is used, but not in request / response bodies
+    // => we prevent the conversion for URL values here
+    if (!value || options?.urlConversion) {
       return value;
     }
 
