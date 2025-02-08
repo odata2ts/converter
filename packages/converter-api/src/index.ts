@@ -42,8 +42,9 @@ export interface ValueConverter<OriginalType, ConvertedType> extends ValueConver
   /**
    * Converts from the source value type to the user facing type.
    * @param value source value
+   * @param options additional options
    */
-  convertFrom(value: ParamValueModel<OriginalType>): ParamValueModel<ConvertedType>;
+  convertFrom(value: ParamValueModel<OriginalType>, options?: ConverterOptions): ParamValueModel<ConvertedType>;
 
   /**
    * Converts from user facing type to the source value type.
