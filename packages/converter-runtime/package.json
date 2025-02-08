@@ -1,6 +1,6 @@
 {
   "name": "@odata2ts/converter-runtime",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "Provides necessary implementations for using odata2ts converters at runtime",
   "keywords": [
     "odata2ts",
