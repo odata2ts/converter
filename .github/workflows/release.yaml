@@ -1,10 +1,9 @@
+name: release
+
 on:
   push:
     branches:
       - main
-      - release/v1
-
-name: release
 
 jobs:
   release-please:
