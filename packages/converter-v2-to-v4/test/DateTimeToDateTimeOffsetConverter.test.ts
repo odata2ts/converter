@@ -22,6 +22,11 @@ describe("V2DateTimeToDateTimeOffset Test", () => {
     expect(TO_TEST.convertTo(TO_STRING)).toBe(FROM_STRING);
   });
 
+  test("url conversion", () => {
+    expect(TO_TEST.convertFrom(FROM_STRING)).toBe(TO_STRING);
+    expect(TO_TEST.convertTo(TO_STRING, {urlConversion: true})).toBe(TO_STRING);
+  });
+
   test("null and undefined", () => {
     expect(TO_TEST.convertFrom(null)).toBeNull();
     expect(TO_TEST.convertFrom(undefined)).toBeUndefined();

@@ -34,6 +34,10 @@ export interface ValueConverterType {
   to: string;
 }
 
+export interface ConverterOptions {
+  urlConversion?: boolean
+}
+
 export interface ValueConverter<OriginalType, ConvertedType> extends ValueConverterType {
   /**
    * Converts from the source value type to the user facing type.
@@ -42,10 +46,11 @@ export interface ValueConverter<OriginalType, ConvertedType> extends ValueConver
   convertFrom(value: ParamValueModel<OriginalType>): ParamValueModel<ConvertedType>;
 
   /**
-   * Converts from use facing type to the source value type.
+   * Converts from user facing type to the source value type.
    * @param value user facing value
+   * @param options additional options
    */
-  convertTo(value: ParamValueModel<ConvertedType>): ParamValueModel<OriginalType>;
+  convertTo(value: ParamValueModel<ConvertedType>, options?: ConverterOptions): ParamValueModel<OriginalType>;
 }
 
 /**
