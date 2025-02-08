@@ -14,6 +14,32 @@
   "pull-request-title-pattern": "chore(release): publish branch ${branch}",
   "group-pull-request-title-pattern": "chore(release): publish branch ${branch}",
   "packages": {
-    ".": {}
+    "packages/converter-api": {
+      "component": "@odata2ts/converter-api"
+    },
+    "packages/converter-runtime": {
+      "component": "@odata2ts/converter-runtime"
+    },
+    "packages/converter-big-number": {
+      "component": "@odata2ts/converter-big-number"
+    },
+    "packages/converter-common": {
+      "component": "@odata2ts/converter-common"
+    },
+    "packages/converter-decimal": {
+      "component": "@odata2ts/converter-decimal"
+    },
+    "packages/converter-luxon": {
+      "component": "@odata2ts/converter-luxon"
+    },
+    "packages/converter-ui5-v2": {
+      "component": "@odata2ts/converter-ui5-v2"
+    },
+    "packages/converter-v2-to-v4": {
+      "component": "@odata2ts/converter-v2-to-v4"
+    },
+    "examples/test-converters": {
+      "component": "@odata2ts/converter-example"
+    }
   }
 }

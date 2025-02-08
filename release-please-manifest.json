@@ -6,6 +6,5 @@
   "packages/converter-decimal": "0.2.4",
   "packages/converter-luxon": "0.2.4",
   "packages/converter-ui5-v2": "0.3.4",
-  "packages/converter-v2-to-v4": "0.5.4",
-  ".": "1.0.0"
+  "packages/converter-v2-to-v4": "0.5.4"
 }
