@@ -11,11 +11,11 @@
     "examples/*"
   ],
   "scripts": {
-    "build": "yarn clean && yarn workspaces foreach build",
-    "check-circular-deps": "yarn workspaces foreach check-circular-deps",
+    "build": "yarn clean && yarn workspaces foreach -A run build",
+    "check-circular-deps": "yarn workspaces foreach -A -p run check-circular-deps",
     "clean": "rimraf coverage",
     "coverage": "vitest run --coverage",
-    "test": "yarn workspaces foreach test"
+    "test": "yarn workspaces foreach -A -p run test"
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
