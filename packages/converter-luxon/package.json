@@ -32,6 +32,7 @@
   ],
   "scripts": {
     "build": "yarn clean && yarn compile",
+    "check-circular-deps": "madge ./src --extensions ts --circular",
     "clean": "rimraf lib coverage",
     "compile": "tsc",
     "prepublish": "yarn build",
