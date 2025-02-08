@@ -28,8 +28,7 @@
   "scripts": {
     "build": "yarn clean && yarn compile",
     "clean": "rimraf lib coverage",
-    "compile": "tsc",
-    "prepack": "yarn compile"
+    "compile": "tsc"
   },
   "publishConfig": {
     "access": "public"
