@@ -1,6 +1,6 @@
 {
   "name": "@odata2ts/converter-ui5-v2",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Collection of odata2ts compatible converters suitable for integrating with UI5's OData V2 model",
   "keywords": [
     "converter",
@@ -33,9 +33,9 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@odata2ts/converter-api": "^0.2.3",
-    "@odata2ts/converter-common": "^0.3.4",
-    "@odata2ts/converter-v2-to-v4": "^0.5.4"
+    "@odata2ts/converter-api": "^0.2.4",
+    "@odata2ts/converter-common": "^0.3.5",
+    "@odata2ts/converter-v2-to-v4": "^0.5.5"
   },
   "publishConfig": {
     "access": "public"
