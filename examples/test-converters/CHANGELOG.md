@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.0 (2025-02-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* switch to ES modules which might break things.
+
+### Features
+
+* **converter-runtime:** support fixing converters ([#23](https://github.com/odata2ts/converter/issues/23)) ([8beeffc](https://github.com/odata2ts/converter/commit/8beeffc0f791949ad4b524cb844b0701b4dfc628))
+
+
+### Code Refactoring
+
+* replace jest with vitest & switch to ESM ([#18](https://github.com/odata2ts/converter/issues/18)) ([29754ab](https://github.com/odata2ts/converter/commit/29754abec8617cfe45f647ffbf91e92586b79ee9))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @odata2ts/converter-api bumped from ^0.2.3 to ^0.2.4
+
 ## [0.4.1](https://github.com/odata2ts/converter/compare/@odata2ts/converter-example@0.4.0...@odata2ts/converter-example@0.4.1) (2024-12-18)
 
 **Note:** Version bump only for package @odata2ts/converter-example

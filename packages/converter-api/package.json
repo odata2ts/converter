@@ -1,6 +1,6 @@
 {
   "name": "@odata2ts/converter-api",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "The converter API establishes a contract between odata2ts and converter implementations",
   "keywords": [
     "odata2ts",

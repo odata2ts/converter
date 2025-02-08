@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/odata2ts/converter/compare/@odata2ts/converter-api@0.2.3...@odata2ts/converter-api-v0.2.4) (2025-02-08)
+
+
+### Bug Fixes
+
+* don't convert Edm.DateTime for URL values ([#26](https://github.com/odata2ts/converter/issues/26)) ([311e5e4](https://github.com/odata2ts/converter/commit/311e5e4ac9dff32188630547927fccfb2df3a38d))
+
 ## [0.2.3](https://github.com/odata2ts/converter/compare/@odata2ts/converter-api@0.2.2...@odata2ts/converter-api@0.2.3) (2024-12-18)
 
 
