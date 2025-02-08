@@ -1,6 +1,6 @@
 {
   "name": "@odata2ts/converter-v2-to-v4",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "description": "A set of odata2ts compatible converters to convert certain OData V2 types to their V4 analog",
   "keywords": [
     "odata2ts",
@@ -38,7 +38,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@odata2ts/converter-api": "^0.2.5"
+    "@odata2ts/converter-api": "^0.2.6"
   },
   "publishConfig": {
     "access": "public"
