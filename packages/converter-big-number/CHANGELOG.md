@@ -15,6 +15,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
   * dependencies
     * @odata2ts/converter-api bumped from ^0.2.4 to ^0.2.5
 
+## [0.2.8](https://github.com/odata2ts/converter/compare/@odata2ts/converter-big-number-v0.2.7...@odata2ts/converter-big-number-v0.2.8) (2026-07-14)
+
+
+### Bug Fixes
+
+* **big-number:** convertTo with conform signature not accepting strings as input ([#42](https://github.com/odata2ts/converter/issues/42)) ([36c6475](https://github.com/odata2ts/converter/commit/36c6475e151cc759f0b84a59c31722069981d7b1))
+
 ## [0.2.7](https://github.com/odata2ts/converter/compare/@odata2ts/converter-big-number-v0.2.6...@odata2ts/converter-big-number-v0.2.7) (2025-02-08)
 
 
