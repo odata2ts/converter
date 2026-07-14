@@ -1,9 +1,7 @@
 import { ParamValueModel, ValueConverter } from "@odata2ts/converter-api";
 import { BigNumber } from "bignumber.js";
 
-export const bigNumberConverter: ValueConverter<string, BigNumber> & {
-  convertTo: (value: ParamValueModel<BigNumber | string>) => ParamValueModel<string>;
-} = {
+export const bigNumberConverter: ValueConverter<string, BigNumber> = {
   id: "bigNumberConverter",
   from: ["Edm.Int64", "Edm.Decimal"],
   to: "bignumber.js.BigNumber",
@@ -20,7 +18,7 @@ export const bigNumberConverter: ValueConverter<string, BigNumber> & {
     return result;
   },
 
-  convertTo: function (value: ParamValueModel<BigNumber | string>): ParamValueModel<string> {
+  convertTo: function (value: ParamValueModel<BigNumber>): ParamValueModel<string> {
     if (value === undefined || value === null) {
       return value;
     }
