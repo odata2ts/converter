@@ -29,12 +29,16 @@ describe("BigNumberConverter Test", () => {
     expect(TO_TEST.convertTo(undefined)).toBeUndefined();
   });
 
-  test("convertTo: no conversion for string value", () => {
-    expect(TO_TEST.convertTo(FROM_STRING)).toBe(FROM_STRING);
-    expect(TO_TEST.convertTo("INVALID!!!")).toBe("INVALID!!!");
-  });
-
   test("convertFrom with invalid value", () => {
     expect(() => TO_TEST.convertFrom("hello")).toThrow("[BigNumber Error] Invalid argument: hello");
   });
+
+  test("convertTo: no conversion for string value", () => {
+    // @ts-expect-error
+    expect(TO_TEST.convertTo(FROM_STRING)).toBe(FROM_STRING);
+    // @ts-expect-error
+    expect(TO_TEST.convertTo("INVALID!!!")).toBe("INVALID!!!");
+  });
+
+
 });
