@@ -41,8 +41,8 @@
     "@odata2ts/converter-api": "^0.2.6"
   },
   "devDependencies": {
-    "@types/luxon": "^3.0.1",
-    "luxon": "^3.0.4"
+    "@types/luxon": "^3.7.2",
+    "luxon": "^3.7.2"
   },
   "peerDependencies": {
     "luxon": "^3.0.4"
