@@ -33,7 +33,7 @@
     "@odata2ts/converter-api": "^0.2.6"
   },
   "devDependencies": {
-    "decimal.js": "^10.4.3"
+    "decimal.js": "^10.6.0"
   },
   "peerDependencies": {
     "decimal.js": ">1"

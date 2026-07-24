@@ -18,6 +18,14 @@ export type MappedConverterChains = Map<string, ValueConverterChain>;
  *
  * @param converters
  */
+function isConverterPackage(candidate: unknown): candidate is ConverterPackage {
+  return (
+    !!candidate &&
+    typeof (candidate as ConverterPackage).id === "string" &&
+    typeof (candidate as ConverterPackage).converters?.length === "number"
+  );
+}
+
 async function doLoad(converters: Array<TypeConverterConfig>): Promise<Array<RuntimeConverterPackage>> {
   return Promise.all(
     converters.map((conv) => {
@@ -42,12 +50,16 @@ async function doLoad(converters: Array<TypeConverterConfig>): Promise<Array<Run
           }
           // use converter list from default export
           else {
-            const candidate = module.config || module.default;
-            if (!candidate || typeof candidate.id !== "string" || typeof candidate.converters?.length !== "number") {
+            let candidate = module.config || module.default;
+            // some bundlers' CJS/ESM interop double-wraps the default export (candidate.default)
+            // instead of exposing the ConverterPackage directly - unwrap one more level if needed
+            if (!isConverterPackage(candidate) && isConverterPackage(candidate?.default)) {
+              candidate = candidate.default;
+            }
+            if (!isConverterPackage(candidate)) {
               throw new Error(`Default export of loaded module "${conv.module}" doesn't conform to specification!`);
             }
-            const pkg = candidate as ConverterPackage;
-            converters = pkg.converters;
+            converters = candidate.converters;
           }
 
           return {
