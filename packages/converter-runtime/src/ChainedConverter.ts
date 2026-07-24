@@ -1,4 +1,4 @@
-import {ChainableValueConverter, ConverterOptions, ParamValueModel, ValueConverter} from "@odata2ts/converter-api";
+import { ChainableValueConverter, ConverterOptions, ParamValueModel, ValueConverter } from "@odata2ts/converter-api";
 
 export class ChainedConverter<FromType, IntermediateType, ToType> implements ChainableValueConverter<FromType, ToType> {
   public readonly id = "ChainedConverter";
