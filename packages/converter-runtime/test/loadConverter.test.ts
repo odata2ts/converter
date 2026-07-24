@@ -10,7 +10,6 @@ describe("LoadConverters Test", () => {
   const LUXON_PKG = "@odata2ts/converter-luxon";
   const TEST_CONV_PKG = "@odata2ts/converter-example";
 
-
   test("no converters", async () => {
     const result = await loadConverters(ODataVersions.V4, undefined);
     expect(result).toBeUndefined();
@@ -182,6 +181,4 @@ describe("LoadConverters Test", () => {
       ],
     } as ValueConverterChain);
   });
-
-
 });

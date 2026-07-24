@@ -4,10 +4,10 @@ import {
   RuntimeConverterPackage,
   TypeConverterConfig,
   ValueConverterChain,
-  ValueConverterImport
+  ValueConverterImport,
 } from "./ConverterModels";
 
-type MappedConverter = ValueConverterType & { package: string; toModule?: string }
+type MappedConverter = ValueConverterType & { package: string; toModule?: string };
 // we use an array of converters because of converters which fix stuff, mapping from and to the identical type
 type MappedConverters = Map<string, Array<MappedConverter>>;
 
@@ -85,19 +85,18 @@ function mapConvertersBySource(converterPkgs: Array<RuntimeConverterPackage>): M
         const [fromType] = getPropTypeAndModule(from);
         const [toType, toModule] = getPropTypeAndModule(converter.to);
 
-        const result:MappedConverter = {
+        const result: MappedConverter = {
           package: converterPkg.package,
           id: converter.id,
           from: fromType,
           to: toType,
           toModule,
-        }
+        };
 
         const prev = collector.get(from);
-        if (prev?.length && prev[prev.length-1].to === fromType) {
+        if (prev?.length && prev[prev.length - 1].to === fromType) {
           prev.push(result);
-        }
-        else {
+        } else {
           collector.set(from, [result]);
         }
       }
@@ -153,18 +152,21 @@ function chainConverters(converters: MappedConverters, dataType: string): ValueC
     return undefined;
   }
 
-  const finalConv = conv[conv.length-1];
+  const finalConv = conv[conv.length - 1];
   const usedConverters: Array<ValueConverterImport> = [];
   if (conv.length > 1) {
-    usedConverters.push(...conv.slice(0, conv.length -1).map(c => ({
-        package: c.package, converterId: c.id
-    })))
+    usedConverters.push(
+      ...conv.slice(0, conv.length - 1).map((c) => ({
+        package: c.package,
+        converterId: c.id,
+      })),
+    );
   }
 
   usedConverters.push({
     package: finalConv.package,
-    converterId: finalConv.id
-  })
+    converterId: finalConv.id,
+  });
 
   const chainedConv = chainConverters(converters, finalConv.to);
   if (chainedConv?.converters) {

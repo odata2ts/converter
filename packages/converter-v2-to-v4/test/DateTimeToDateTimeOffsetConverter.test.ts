@@ -1,6 +1,6 @@
-import {ODataTypesV2, ODataTypesV4} from "@odata2ts/odata-core";
-import {describe, expect, test} from "vitest";
-import {dateTimeToDateTimeOffsetConverter} from "../src";
+import { ODataTypesV2, ODataTypesV4 } from "@odata2ts/odata-core";
+import { describe, expect, test } from "vitest";
+import { dateTimeToDateTimeOffsetConverter } from "../src";
 
 describe("V2DateTimeToDateTimeOffset Test", () => {
   const TIMESTAMP = 1672531199000;

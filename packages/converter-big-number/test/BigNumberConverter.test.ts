@@ -39,6 +39,4 @@ describe("BigNumberConverter Test", () => {
     // @ts-expect-error
     expect(TO_TEST.convertTo("INVALID!!!")).toBe("INVALID!!!");
   });
-
-
 });

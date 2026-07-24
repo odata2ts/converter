@@ -1,4 +1,4 @@
-import {ConverterOptions, ParamValueModel, ValueConverter} from "@odata2ts/converter-api";
+import { ConverterOptions, ParamValueModel, ValueConverter } from "@odata2ts/converter-api";
 import { ODataTypesV2, ODataTypesV4 } from "@odata2ts/odata-core";
 
 function padZerosLeft(input: number) {
@@ -18,7 +18,7 @@ function formatDateTimeV2(iso8601: string, offset?: string) {
 // offset in minutes might be specified as suffix of the timestamp,e.g. "+90"
 const DATE_TIME_V2_REGEXP = /\/Date\(([+-]?\d+)(([+-])(\d+))?\)\//;
 const ISO_OFFSET_REGEXP = /([+-])(\d{2}):(\d{2})/;
-const ISO_DATETIME_REGEXP = /^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(\.\d+)?(([+-]\d\d:\d\d)|Z)?$/i
+const ISO_DATETIME_REGEXP = /^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(\.\d+)?(([+-]\d\d:\d\d)|Z)?$/i;
 
 /**
  * Converts Edm.DateTime, which is a very special construct, to Edm.DateTimeOffset, which is the typical

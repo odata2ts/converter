@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   plugins: ["@prettier/plugin-xml", "prettier-plugin-packagejson", "@ianvs/prettier-plugin-sort-imports"],
   printWidth: 120,
   tabWidth: 2,
