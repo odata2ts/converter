@@ -1,0 +1,65 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", "schedule:weekly"],
+  "dependencyDashboard": true,
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "description": "examples/ui5 is dormant: it uses its own disconnected toolchain (jest/ts-jest/ts-node, not this workspace's vitest) and has no 'build'/'test' script, so it's excluded from every routine build/test/CI script here - nothing would ever verify a Renovate PR touching it",
+      "matchFileNames": ["examples/ui5/package.json"],
+      "enabled": false
+    },
+    {
+      "description": "This repo's own published packages are cross-referenced via plain semver ranges (not workspace:), and their interdependency versions are managed by release-please as part of this repo's own release process - not Renovate",
+      "matchPackageNames": [
+        "@odata2ts/converter-api",
+        "@odata2ts/converter-big-number",
+        "@odata2ts/converter-common",
+        "@odata2ts/converter-decimal",
+        "@odata2ts/converter-luxon",
+        "@odata2ts/converter-runtime",
+        "@odata2ts/converter-ui5-v2",
+        "@odata2ts/converter-v2-to-v4",
+        "@odata2ts/converter-playground",
+        "@odata2ts/converter-example",
+        "@odata2ts/converter-example-ui5"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "Group all prettier-related packages together",
+      "matchPackageNames": [
+        "prettier",
+        "prettier-plugin-packagejson",
+        "@ianvs/prettier-plugin-sort-imports",
+        "@prettier/plugin-xml"
+      ],
+      "groupName": "prettier"
+    },
+    {
+      "description": "Group vitest with its coverage plugin",
+      "matchPackageNames": ["vitest", "@vitest/coverage-istanbul"],
+      "groupName": "vitest"
+    },
+    {
+      "description": "Keep @types/node aligned with the Node 24 runtime major",
+      "matchPackageNames": ["@types/node"],
+      "allowedVersions": "<25"
+    },
+    {
+      "description": "Automerge safe devDependency patch/minor updates once CI is green",
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "groupName": "dev dependencies (patch/minor)",
+      "automerge": true,
+      "platformAutomerge": true
+    },
+    {
+      "description": "Never automerge major updates - always requires manual review",
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    }
+  ]
+}
