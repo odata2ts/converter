@@ -31,10 +31,10 @@
   },
   "dependencies": {
     "@odata2ts/converter-api": "^0.2.6",
-    "bignumber.js": ">1"
+    "bignumber.js": "^11.1.5"
   },
   "devDependencies": {
-    "bignumber.js": "^9.1.1"
+    "bignumber.js": "^11.1.5"
   },
   "publishConfig": {
     "access": "public"

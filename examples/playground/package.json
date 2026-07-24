@@ -24,7 +24,7 @@
     "@odata2ts/converter-runtime": "^0.5.1",
     "@odata2ts/converter-v2-to-v4": "^0.5.4",
     "@odata2ts/odata-query-objects": "^0.17.3",
-    "bignumber.js": "^9.1.1"
+    "bignumber.js": "^11.1.5"
   },
   "devDependencies": {
     "@types/node": "^24",
