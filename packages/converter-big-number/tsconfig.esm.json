@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    // Bundler resolution picks the "import" condition, so bignumber.js resolves to its ESM
+    // declarations here - which is the entire point: an ESM consumer has to end up with the same
+    // `BigNumber` class declaration this build was compiled against, or the private `_isBigNumber`
+    // makes the two mutually unassignable.
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "outDir": "lib/esm"
+  }
+}
