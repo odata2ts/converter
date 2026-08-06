@@ -1,7 +1,7 @@
 {
   "packages/converter-api": "0.3.0",
   "packages/converter-runtime": "0.6.0",
-  "packages/converter-big-number": "0.3.0",
+  "packages/converter-big-number": "0.3.1",
   "packages/converter-common": "0.4.0",
   "packages/converter-decimal": "0.3.0",
   "packages/converter-luxon": "0.3.0",

@@ -15,6 +15,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
   * dependencies
     * @odata2ts/converter-api bumped from ^0.2.4 to ^0.2.5
 
+## [0.3.1](https://github.com/odata2ts/converter/compare/@odata2ts/converter-big-number-v0.3.0...@odata2ts/converter-big-number-v0.3.1) (2026-08-06)
+
+
+### Bug Fixes
+
+* **converter-big-number:** type the converter on BigNumber, not BigNumber.Instance ([#64](https://github.com/odata2ts/converter/issues/64)) ([73568f0](https://github.com/odata2ts/converter/commit/73568f031cf72ad7090112cd25dd50a06cac67dc))
+
 ## [0.3.0](https://github.com/odata2ts/converter/compare/@odata2ts/converter-big-number-v0.2.8...@odata2ts/converter-big-number-v0.3.0) (2026-08-06)
 
 
