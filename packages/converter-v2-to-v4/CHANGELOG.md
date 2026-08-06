@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.8](https://github.com/odata2ts/converter/compare/@odata2ts/converter-v2-to-v4-v0.5.7...@odata2ts/converter-v2-to-v4-v0.5.8) (2026-08-06)
+
+
+### Bug Fixes
+
+* load prettier.config.js correctly under CommonJS ([#46](https://github.com/odata2ts/converter/issues/46)) ([3fa2c9a](https://github.com/odata2ts/converter/commit/3fa2c9a46d46ee640e9be286145ad0cbbd90bd1d))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @odata2ts/converter-api bumped from ^0.2.6 to ^0.3.0
+
 ## [0.5.7](https://github.com/odata2ts/converter/compare/@odata2ts/converter-v2-to-v4-v0.5.6...@odata2ts/converter-v2-to-v4-v0.5.7) (2025-02-08)
 
 

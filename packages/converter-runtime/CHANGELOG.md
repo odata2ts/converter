@@ -23,6 +23,35 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
     * @odata2ts/converter-luxon bumped from ^0.2.5 to ^0.2.6
     * @odata2ts/converter-v2-to-v4 bumped from ^0.5.5 to ^0.5.6
 
+## [0.6.0](https://github.com/odata2ts/converter/compare/@odata2ts/converter-runtime-v0.5.5...@odata2ts/converter-runtime-v0.6.0) (2026-08-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* **converter-api:** `from`/`to` no longer split a string at the last dot. A third-party converter still declaring `to: "luxon.DateTime"` now means a type of that literal name and gets no import - it has to become `to: { module: "luxon", type: "DateTime" }`. This is deliberately not auto-detected: guessing whether a dot separates a module is the behaviour being removed, and it would misread a legitimate global like "Intl.DateTimeFormat". The export `getPropTypeAndModule` was removed from @odata2ts/converter-runtime.
+
+### Features
+
+* **converter-api:** state a type's module explicitly instead of encoding it in a dotted string ([#59](https://github.com/odata2ts/converter/issues/59)) ([f3789c7](https://github.com/odata2ts/converter/commit/f3789c79ea452da8bd8c071ff4e363f666d10676))
+
+
+### Bug Fixes
+
+* **converter-runtime:** report actionable errors when loading converters ([d25471e](https://github.com/odata2ts/converter/commit/d25471e97cccc0433d014f3568f51b2d3baf21a4))
+* load prettier.config.js correctly under CommonJS ([#46](https://github.com/odata2ts/converter/issues/46)) ([3fa2c9a](https://github.com/odata2ts/converter/commit/3fa2c9a46d46ee640e9be286145ad0cbbd90bd1d))
+* update to TypeScript 6.0.3 and migrate to nodenext resolution ([018355e](https://github.com/odata2ts/converter/commit/018355eeeca92b82eba8c556d0dd11ac35b396c8))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @odata2ts/converter-api bumped from ^0.2.6 to ^0.3.0
+  * devDependencies
+    * @odata2ts/converter-example bumped from ^1.0.2 to ^2.0.0
+    * @odata2ts/converter-luxon bumped from ^0.2.7 to ^0.3.0
+    * @odata2ts/converter-v2-to-v4 bumped from ^0.5.7 to ^0.5.8
+
 ## [0.5.5](https://github.com/odata2ts/converter/compare/@odata2ts/converter-runtime-v0.5.4...@odata2ts/converter-runtime-v0.5.5) (2025-02-08)
 
 

@@ -1,11 +1,11 @@
 {
-  "packages/converter-api": "0.2.6",
-  "packages/converter-runtime": "0.5.5",
-  "packages/converter-big-number": "0.2.8",
-  "packages/converter-common": "0.3.7",
-  "packages/converter-decimal": "0.2.7",
-  "packages/converter-luxon": "0.2.7",
-  "packages/converter-ui5-v2": "0.3.7",
-  "packages/converter-v2-to-v4": "0.5.7",
-  "examples/test-converters": "1.0.2"
+  "packages/converter-api": "0.3.0",
+  "packages/converter-runtime": "0.6.0",
+  "packages/converter-big-number": "0.3.0",
+  "packages/converter-common": "0.4.0",
+  "packages/converter-decimal": "0.3.0",
+  "packages/converter-luxon": "0.3.0",
+  "packages/converter-ui5-v2": "0.4.0",
+  "packages/converter-v2-to-v4": "0.5.8",
+  "examples/test-converters": "2.0.0"
 }
