@@ -1,7 +1,10 @@
+import { fileURLToPath } from "node:url";
 import { ValueConverterChain } from "@odata2ts/converter-runtime";
 import { ODataTypesV2, ODataTypesV4, ODataVersions } from "@odata2ts/odata-core";
 import { describe, expect, test } from "vitest";
 import { getPropTypeAndModule, loadConverters } from "../src";
+
+const fixture = (name: string) => fileURLToPath(new URL(`./fixture/${name}`, import.meta.url));
 
 describe("LoadConverters Test", () => {
   const V2_TO_V4_PKG = "@odata2ts/converter-v2-to-v4";
@@ -44,6 +47,14 @@ describe("LoadConverters Test", () => {
     await expect(loadConverters(ODataVersions.V2, [fakeModule])).rejects.toMatchObject(expectedError);
     await expect(loadConverters(ODataVersions.V2, [V2_TO_V4_PKG, fakeModule])).rejects.toMatchObject(expectedError);
     await expect(loadConverters(ODataVersions.V2, [fakeModule, V2_TO_V4_PKG])).rejects.toMatchObject(expectedError);
+  });
+
+  test("failure to load keeps the underlying reason as cause", async () => {
+    // without it a missing peer dependency is indistinguishable from a typo in the package name
+    const error = await loadConverters(ODataVersions.V2, ["xxxxNotExistentxxxx"]).catch((e) => e);
+
+    expect(error.cause).toBeDefined();
+    expect(String(error.cause)).toContain("xxxxNotExistentxxxx");
   });
 
   test("load installed converters with no application", async () => {
@@ -148,6 +159,49 @@ describe("LoadConverters Test", () => {
         },
       ],
     } as ValueConverterChain);
+  });
+
+  test("cyclic converter chain", async () => {
+    // combining these two packages closes a loop: Edm.String -> IntermediateType -> Edm.String
+    const promise = loadConverters(ODataVersions.V4, [fixture("cyclic-a.mjs"), fixture("cyclic-b.mjs")]);
+
+    await expect(promise).rejects.toThrow(
+      "Cyclic converter chain detected: Edm.String -> IntermediateType -> Edm.String!",
+    );
+    // the packages are what the user has to act on, so they must be named
+    await expect(promise).rejects.toThrow("cyclic-a.mjs");
+    await expect(promise).rejects.toThrow("cyclic-b.mjs");
+  });
+
+  test("package whose converter list is no array", async () => {
+    await expect(loadConverters(ODataVersions.V4, [fixture("invalid-package.mjs")])).rejects.toThrow(
+      `doesn't conform to specification!`,
+    );
+  });
+
+  test("package containing an invalid converter", async () => {
+    await expect(loadConverters(ODataVersions.V4, [fixture("invalid-converter.mjs")])).rejects.toThrow(
+      /Converter "brokenConverter" at index 1 of module ".*invalid-converter\.mjs" is not a valid converter/,
+    );
+  });
+
+  test("named import which is no converter", async () => {
+    const module = fixture("invalid-converter.mjs");
+
+    await expect(loadConverters(ODataVersions.V4, [{ module, use: ["notAConverter"] }])).rejects.toThrow(
+      /Export "notAConverter" of module ".*" is not a valid converter/,
+    );
+    await expect(loadConverters(ODataVersions.V4, [{ module, use: ["halfConverter"] }])).rejects.toThrow(
+      /Export "halfConverter" of module ".*" is not a valid converter/,
+    );
+  });
+
+  test("valid named import from the same module still works", async () => {
+    const result = await loadConverters(ODataVersions.V4, [
+      { module: fixture("invalid-converter.mjs"), use: ["validConverter"] },
+    ]);
+
+    expect(result?.get(ODataTypesV4.String)).toMatchObject({ from: ODataTypesV4.String, to: "number" });
   });
 
   test("getPropTypeAndModule", () => {
