@@ -2,7 +2,7 @@ import { fileURLToPath } from "node:url";
 import { ValueConverterChain } from "@odata2ts/converter-runtime";
 import { ODataTypesV2, ODataTypesV4, ODataVersions } from "@odata2ts/odata-core";
 import { describe, expect, test } from "vitest";
-import { getPropTypeAndModule, loadConverters, resolveTypeSpec } from "../src";
+import { loadConverters, resolveTypeSpec } from "../src";
 
 const fixture = (name: string) => fileURLToPath(new URL(`./fixture/${name}`, import.meta.url));
 
@@ -204,29 +204,24 @@ describe("LoadConverters Test", () => {
     expect(result?.get(ODataTypesV4.String)).toMatchObject({ from: ODataTypesV4.String, to: "number" });
   });
 
-  test("getPropTypeAndModule", () => {
-    expect(getPropTypeAndModule("aba")).toStrictEqual(["aba"]);
-    expect(getPropTypeAndModule("AbA")).toStrictEqual(["AbA"]);
-    expect(getPropTypeAndModule("aba.ts")).toStrictEqual(["ts", "aba"]);
-    expect(getPropTypeAndModule("aba.js.Type")).toStrictEqual(["Type", "aba.js"]);
-  });
-
-  test("resolveTypeSpec handles both forms alike", () => {
-    expect(resolveTypeSpec("luxon.DateTime")).toStrictEqual(["DateTime", "luxon"]);
+  test("resolveTypeSpec never takes a string apart", () => {
     expect(resolveTypeSpec("string")).toStrictEqual(["string"]);
+    // a dot belongs to the type name - these are globals needing no import, not module-qualified types
+    expect(resolveTypeSpec("Edm.Boolean")).toStrictEqual(["Edm.Boolean"]);
+    expect(resolveTypeSpec("Intl.DateTimeFormat")).toStrictEqual(["Intl.DateTimeFormat"]);
+
     expect(resolveTypeSpec({ module: "luxon", type: "DateTime" })).toStrictEqual(["DateTime", "luxon"]);
-    // the explicit form is what makes a qualified type name expressible at all
+    // keeping the two apart is what makes a qualified type name expressible at all
     expect(resolveTypeSpec({ module: "bignumber.js", type: "BigNumber.Instance" })).toStrictEqual([
       "BigNumber.Instance",
       "bignumber.js",
     ]);
-    expect(resolveTypeSpec({ type: "Intl.DateTimeFormat" })).toStrictEqual(["Intl.DateTimeFormat", undefined]);
   });
 
-  describe("explicit type reference", () => {
+  describe("type reference", () => {
     test("a namespaced type keeps its module separate", async () => {
-      // the shorthand would split "bignumber.js.BigNumber.Instance" into the module
-      // "bignumber.js.BigNumber" - there is no spelling of it that works
+      // the removed dot notation would have split "bignumber.js.BigNumber.Instance" into the module
+      // "bignumber.js.BigNumber" - there was no spelling of it that worked
       const result = await loadConverters(ODataVersions.V4, [fixture("type-reference.mjs")]);
 
       expect(result?.get(ODataTypesV4.Decimal)).toMatchObject({
@@ -236,6 +231,7 @@ describe("LoadConverters Test", () => {
     });
 
     test("a global type gets no module invented for it", async () => {
+      // "Intl.DateTimeFormat" as a plain string is a type name, not a module plus a type
       const result = await loadConverters(ODataVersions.V4, [fixture("type-reference.mjs")]);
 
       expect(result?.get(ODataTypesV4.String)).toMatchObject({
@@ -244,17 +240,17 @@ describe("LoadConverters Test", () => {
       });
     });
 
-    test("both forms chain into each other", async () => {
-      // whichever way the producing and the consuming converter spell the type, they have to meet
-      for (const target of ["type-reference-target.mjs", "type-reference-target-shorthand.mjs"]) {
+    test("a reference and a plain name meet when chaining", async () => {
+      // chaining matches on the type alone, so the consuming converter may name the module or not
+      for (const [target, consumerId] of [
+        ["type-reference-target.mjs", "fromLuxonReference"],
+        ["type-reference-target-plain.mjs", "fromLuxonPlain"],
+      ]) {
         const result = await loadConverters(ODataVersions.V4, [fixture("type-reference-source.mjs"), fixture(target)]);
 
         expect(result?.get(ODataTypesV4.DateTimeOffset)).toMatchObject({
           to: "string",
-          converters: [
-            { converterId: "toLuxonShorthand" },
-            { converterId: target.includes("shorthand") ? "fromLuxonShorthand" : "fromLuxonExplicit" },
-          ],
+          converters: [{ converterId: "toLuxon" }, { converterId: consumerId }],
         });
       }
     });

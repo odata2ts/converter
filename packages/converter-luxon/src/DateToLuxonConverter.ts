@@ -4,7 +4,7 @@ import { DateTime } from "luxon";
 export const dateToLuxonConverter: ValueConverter<string, DateTime> = {
   id: "dateToLuxonConverter",
   from: "Edm.Date",
-  to: "luxon.DateTime",
+  to: { module: "luxon", type: "DateTime" },
 
   convertFrom: function (value: ParamValueModel<string>): ParamValueModel<DateTime> {
     if (typeof value !== "string") {

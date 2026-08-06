@@ -1,5 +1,5 @@
-// Produces a module-qualified type using the shorthand ...
+// Produces an imported type ...
 export default {
   id: "TypeReferenceSource",
-  converters: [{ id: "toLuxonShorthand", from: "Edm.DateTimeOffset", to: "luxon.DateTime" }],
+  converters: [{ id: "toLuxon", from: "Edm.DateTimeOffset", to: { module: "luxon", type: "DateTime" } }],
 };

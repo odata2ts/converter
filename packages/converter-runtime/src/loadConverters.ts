@@ -33,7 +33,7 @@ function isConverterPackage(candidate: unknown): candidate is ConverterPackage {
   );
 }
 
-/** Accepts both the dotted shorthand and the explicit {@code { module?, type }} form. */
+/** Accepts a plain type name or a {@code { module, type }} reference. */
 function isTypeSpecification(candidate: unknown): candidate is TypeSpecification {
   if (typeof candidate === "string") {
     return !!candidate;
@@ -42,7 +42,7 @@ function isTypeSpecification(candidate: unknown): candidate is TypeSpecification
     return false;
   }
   const { module, type } = candidate as Exclude<TypeSpecification, string>;
-  return typeof type === "string" && !!type && (module === undefined || (typeof module === "string" && !!module));
+  return typeof type === "string" && !!type && typeof module === "string" && !!module;
 }
 
 /**
@@ -66,7 +66,7 @@ function describeConverter(candidate: unknown) {
 
 const CONVERTER_CONTRACT_HINT =
   `requires a non-empty string "id" plus "from" and "to", ` +
-  `each of them a non-empty type name, a { module?, type } object, or (for "from") an array of those`;
+  `each of them a plain type name, a { module, type } reference, or (for "from") an array of those`;
 
 async function doLoad(converters: Array<TypeConverterConfig>): Promise<Array<RuntimeConverterPackage>> {
   return Promise.all(
@@ -262,25 +262,10 @@ function chainConverters(
 }
 
 /**
- * Resolves the dotted shorthand form: everything up to the last dot is the module, the rest the type.
+ * Brings both forms of a {@code TypeSpecification} into the same [type, module?] shape.
  *
- * Only unambiguous as long as the type name carries no dot of its own - a namespaced type
- * ("BigNumber.Instance") or a global one ("Intl.DateTimeFormat") cannot be expressed this way, which is
- * what {@link TypeReference} is for.
- */
-export function getPropTypeAndModule(typeName: string) {
-  if (typeName.match(/\./)?.length && !typeName.startsWith("Edm.")) {
-    const separator = typeName.lastIndexOf(".");
-    const module = typeName.substring(0, separator);
-    const type = typeName.substring(separator + 1);
-    return [type, module];
-  }
-  return [typeName];
-}
-
-/**
- * Brings either form of a {@link TypeSpecification} into the same [type, module?] shape.
+ * A string is taken verbatim and never split - a dot in it belongs to the type name.
  */
 export function resolveTypeSpec(spec: TypeSpecification): [string, string?] {
-  return typeof spec === "string" ? (getPropTypeAndModule(spec) as [string, string?]) : [spec.type, spec.module];
+  return typeof spec === "string" ? [spec] : [spec.type, spec.module];
 }

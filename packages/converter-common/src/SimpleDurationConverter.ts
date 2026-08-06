@@ -63,7 +63,7 @@ function format(value: number | null | undefined, suffix: string) {
 export const simpleDurationConverter: ValueConverter<string, SimpleDuration> = {
   id: "simpleDurationConverter",
   from: "Edm.Duration",
-  to: "@odata2ts/converter-common.SimpleDuration",
+  to: { module: "@odata2ts/converter-common", type: "SimpleDuration" },
 
   convertFrom: function (value: ParamValueModel<string>): ParamValueModel<SimpleDuration> {
     if (typeof value !== "string") {

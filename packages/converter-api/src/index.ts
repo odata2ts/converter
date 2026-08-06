@@ -15,19 +15,13 @@ export interface ConverterPackage {
 }
 
 /**
- * A type a converter reads from or writes to, stated explicitly.
- *
- * The shorthand {@code string} form encodes both parts in one dotted value ("luxon.DateTime") and is
- * resolved by splitting at the last dot. That works as long as the type name itself carries no dot, so
- * a type living in a namespace ("BigNumber.Instance") or a global one ("Intl.DateTimeFormat") cannot be
- * expressed that way - use this form for those.
+ * A type which has to be imported from a module.
  */
 export interface TypeReference {
   /**
    * The module the type has to be imported from, e.g. "bignumber.js".
-   * Omit it for built-in types such as "string" or "number", which need no import.
    */
-  module?: string;
+  module: string;
   /**
    * The type as it is written in code, e.g. "BigNumber.Instance". May be qualified.
    */
@@ -35,7 +29,14 @@ export interface TypeReference {
 }
 
 /**
- * Either the explicit {@link TypeReference} or its dotted shorthand, e.g. "luxon.DateTime".
+ * A type a converter reads from or writes to.
+ *
+ * A plain {@code string} is the type name verbatim and needs no import - "string", "number",
+ * "Edm.Boolean" or a global like "Intl.DateTimeFormat". It is never taken apart, so a dot in it is
+ * simply part of the name.
+ *
+ * Anything that has to be imported uses {@link TypeReference}, which keeps module and type apart
+ * instead of encoding both into one value.
  */
 export type TypeSpecification = string | TypeReference;
 
