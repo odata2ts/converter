@@ -30,6 +30,10 @@
     "clean": "rimraf lib coverage",
     "compile": "tsc"
   },
+  "devDependencies": {
+    "rimraf": "^6.1.3",
+    "typescript": "6.0.3"
+  },
   "publishConfig": {
     "access": "public"
   }
