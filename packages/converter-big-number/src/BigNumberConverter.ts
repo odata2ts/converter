@@ -4,7 +4,7 @@ import BigNumber from "bignumber.js";
 export const bigNumberConverter: ValueConverter<string, BigNumber.Instance> = {
   id: "bigNumberConverter",
   from: ["Edm.Int64", "Edm.Decimal"],
-  to: "bignumber.js.BigNumber",
+  to: { module: "bignumber.js", type: "BigNumber" },
 
   convertFrom: function (value: ParamValueModel<string>): ParamValueModel<BigNumber.Instance> {
     if (typeof value !== "string") {

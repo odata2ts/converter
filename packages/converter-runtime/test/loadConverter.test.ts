@@ -2,7 +2,7 @@ import { fileURLToPath } from "node:url";
 import { ValueConverterChain } from "@odata2ts/converter-runtime";
 import { ODataTypesV2, ODataTypesV4, ODataVersions } from "@odata2ts/odata-core";
 import { describe, expect, test } from "vitest";
-import { getPropTypeAndModule, loadConverters } from "../src";
+import { loadConverters, resolveTypeSpec } from "../src";
 
 const fixture = (name: string) => fileURLToPath(new URL(`./fixture/${name}`, import.meta.url));
 
@@ -204,11 +204,62 @@ describe("LoadConverters Test", () => {
     expect(result?.get(ODataTypesV4.String)).toMatchObject({ from: ODataTypesV4.String, to: "number" });
   });
 
-  test("getPropTypeAndModule", () => {
-    expect(getPropTypeAndModule("aba")).toStrictEqual(["aba"]);
-    expect(getPropTypeAndModule("AbA")).toStrictEqual(["AbA"]);
-    expect(getPropTypeAndModule("aba.ts")).toStrictEqual(["ts", "aba"]);
-    expect(getPropTypeAndModule("aba.js.Type")).toStrictEqual(["Type", "aba.js"]);
+  test("resolveTypeSpec never takes a string apart", () => {
+    expect(resolveTypeSpec("string")).toStrictEqual(["string"]);
+    // a dot belongs to the type name - these are globals needing no import, not module-qualified types
+    expect(resolveTypeSpec("Edm.Boolean")).toStrictEqual(["Edm.Boolean"]);
+    expect(resolveTypeSpec("Intl.DateTimeFormat")).toStrictEqual(["Intl.DateTimeFormat"]);
+
+    expect(resolveTypeSpec({ module: "luxon", type: "DateTime" })).toStrictEqual(["DateTime", "luxon"]);
+    // keeping the two apart is what makes a qualified type name expressible at all
+    expect(resolveTypeSpec({ module: "bignumber.js", type: "BigNumber.Instance" })).toStrictEqual([
+      "BigNumber.Instance",
+      "bignumber.js",
+    ]);
+  });
+
+  describe("type reference", () => {
+    test("a namespaced type keeps its module separate", async () => {
+      // the removed dot notation would have split "bignumber.js.BigNumber.Instance" into the module
+      // "bignumber.js.BigNumber" - there was no spelling of it that worked
+      const result = await loadConverters(ODataVersions.V4, [fixture("type-reference.mjs")]);
+
+      expect(result?.get(ODataTypesV4.Decimal)).toMatchObject({
+        to: "BigNumber.Instance",
+        toModule: "bignumber.js",
+      });
+    });
+
+    test("a global type gets no module invented for it", async () => {
+      // "Intl.DateTimeFormat" as a plain string is a type name, not a module plus a type
+      const result = await loadConverters(ODataVersions.V4, [fixture("type-reference.mjs")]);
+
+      expect(result?.get(ODataTypesV4.String)).toMatchObject({
+        to: "Intl.DateTimeFormat",
+        toModule: undefined,
+      });
+    });
+
+    test("a reference and a plain name meet when chaining", async () => {
+      // chaining matches on the type alone, so the consuming converter may name the module or not
+      for (const [target, consumerId] of [
+        ["type-reference-target.mjs", "fromLuxonReference"],
+        ["type-reference-target-plain.mjs", "fromLuxonPlain"],
+      ]) {
+        const result = await loadConverters(ODataVersions.V4, [fixture("type-reference-source.mjs"), fixture(target)]);
+
+        expect(result?.get(ODataTypesV4.DateTimeOffset)).toMatchObject({
+          to: "string",
+          converters: [{ converterId: "toLuxon" }, { converterId: consumerId }],
+        });
+      }
+    });
+
+    test("a type reference without a type is rejected", async () => {
+      await expect(loadConverters(ODataVersions.V4, [fixture("invalid-type-reference.mjs")])).rejects.toThrow(
+        /Converter "noTypeConverter" at index 0 of module ".*" is not a valid converter/,
+      );
+    });
   });
 
   test("with fixing converter in between", async () => {

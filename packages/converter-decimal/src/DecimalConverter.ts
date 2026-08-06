@@ -6,7 +6,7 @@ export const decimalConverter: ValueConverter<string, Decimal> & {
 } = {
   id: "decimalConverter",
   from: ["Edm.Int64", "Edm.Decimal"],
-  to: "decimal.js.Decimal",
+  to: { module: "decimal.js", type: "Decimal" },
 
   convertFrom: function (value: ParamValueModel<string>): ParamValueModel<Decimal> {
     if (typeof value !== "string") {

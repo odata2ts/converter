@@ -44,7 +44,7 @@ function format(value: number | null | undefined, suffix: string) {
 export const simpleTimeConverter: ValueConverter<string, SimpleTime> = {
   id: "simpleTimeConverter",
   from: "Edm.Time",
-  to: "@odata2ts/converter-common.SimpleTime",
+  to: { module: "@odata2ts/converter-common", type: "SimpleTime" },
 
   convertFrom: function (value: ParamValueModel<string>): ParamValueModel<SimpleTime> {
     if (typeof value !== "string") {

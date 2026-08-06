@@ -15,6 +15,32 @@ export interface ConverterPackage {
 }
 
 /**
+ * A type which has to be imported from a module.
+ */
+export interface TypeReference {
+  /**
+   * The module the type has to be imported from, e.g. "bignumber.js".
+   */
+  module: string;
+  /**
+   * The type as it is written in code, e.g. "BigNumber.Instance". May be qualified.
+   */
+  type: string;
+}
+
+/**
+ * A type a converter reads from or writes to.
+ *
+ * A plain {@code string} is the type name verbatim and needs no import - "string", "number",
+ * "Edm.Boolean" or a global like "Intl.DateTimeFormat". It is never taken apart, so a dot in it is
+ * simply part of the name.
+ *
+ * Anything that has to be imported uses {@link TypeReference}, which keeps module and type apart
+ * instead of encoding both into one value.
+ */
+export type TypeSpecification = string | TypeReference;
+
+/**
  * Required meta information for any ValueConverter
  */
 export interface ValueConverterType {
@@ -27,11 +53,11 @@ export interface ValueConverterType {
   /**
    * The type or types which will be used as input for this converter.
    */
-  from: string | Array<string>;
+  from: TypeSpecification | Array<TypeSpecification>;
   /**
    * The output type of this converter.
    */
-  to: string;
+  to: TypeSpecification;
 }
 
 export interface ConverterOptions {
