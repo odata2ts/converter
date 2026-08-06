@@ -15,6 +15,31 @@ export interface ConverterPackage {
 }
 
 /**
+ * A type a converter reads from or writes to, stated explicitly.
+ *
+ * The shorthand {@code string} form encodes both parts in one dotted value ("luxon.DateTime") and is
+ * resolved by splitting at the last dot. That works as long as the type name itself carries no dot, so
+ * a type living in a namespace ("BigNumber.Instance") or a global one ("Intl.DateTimeFormat") cannot be
+ * expressed that way - use this form for those.
+ */
+export interface TypeReference {
+  /**
+   * The module the type has to be imported from, e.g. "bignumber.js".
+   * Omit it for built-in types such as "string" or "number", which need no import.
+   */
+  module?: string;
+  /**
+   * The type as it is written in code, e.g. "BigNumber.Instance". May be qualified.
+   */
+  type: string;
+}
+
+/**
+ * Either the explicit {@link TypeReference} or its dotted shorthand, e.g. "luxon.DateTime".
+ */
+export type TypeSpecification = string | TypeReference;
+
+/**
  * Required meta information for any ValueConverter
  */
 export interface ValueConverterType {
@@ -27,11 +52,11 @@ export interface ValueConverterType {
   /**
    * The type or types which will be used as input for this converter.
    */
-  from: string | Array<string>;
+  from: TypeSpecification | Array<TypeSpecification>;
   /**
    * The output type of this converter.
    */
-  to: string;
+  to: TypeSpecification;
 }
 
 export interface ConverterOptions {

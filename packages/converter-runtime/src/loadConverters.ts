@@ -1,4 +1,4 @@
-import { ConverterPackage, ValueConverterType } from "@odata2ts/converter-api";
+import { ConverterPackage, TypeSpecification, ValueConverterType } from "@odata2ts/converter-api";
 import { ODataTypesV2, ODataTypesV4, ODataVersions } from "@odata2ts/odata-core";
 import {
   RuntimeConverterPackage,
@@ -7,7 +7,14 @@ import {
   ValueConverterImport,
 } from "./ConverterModels";
 
-type MappedConverter = ValueConverterType & { package: string; toModule?: string };
+// "from" and "to" are narrowed back to plain strings on purpose: whichever form the converter used,
+// this stage has already resolved it, and the module travels separately in "toModule"
+type MappedConverter = Omit<ValueConverterType, "from" | "to"> & {
+  package: string;
+  from: string;
+  to: string;
+  toModule?: string;
+};
 // we use an array of converters because of converters which fix stuff, mapping from and to the identical type
 type MappedConverters = Map<string, Array<MappedConverter>>;
 
@@ -26,6 +33,18 @@ function isConverterPackage(candidate: unknown): candidate is ConverterPackage {
   );
 }
 
+/** Accepts both the dotted shorthand and the explicit {@code { module?, type }} form. */
+function isTypeSpecification(candidate: unknown): candidate is TypeSpecification {
+  if (typeof candidate === "string") {
+    return !!candidate;
+  }
+  if (!candidate || typeof candidate !== "object") {
+    return false;
+  }
+  const { module, type } = candidate as Exclude<TypeSpecification, string>;
+  return typeof type === "string" && !!type && (module === undefined || (typeof module === "string" && !!module));
+}
+
 /**
  * Checks the meta information every converter must provide, no matter how it was loaded.
  * Without this the first malformed converter surfaces as a TypeError deep within the mapping step,
@@ -36,11 +55,8 @@ function isValueConverter(candidate: unknown): candidate is ValueConverterType {
     return false;
   }
   const { id, from, to } = candidate as ValueConverterType;
-  const validFrom =
-    typeof from === "string"
-      ? !!from
-      : Array.isArray(from) && !!from.length && from.every((f) => !!f && typeof f === "string");
-  return typeof id === "string" && !!id && validFrom && typeof to === "string" && !!to;
+  const validFrom = Array.isArray(from) ? !!from.length && from.every(isTypeSpecification) : isTypeSpecification(from);
+  return typeof id === "string" && !!id && validFrom && isTypeSpecification(to);
 }
 
 function describeConverter(candidate: unknown) {
@@ -48,7 +64,9 @@ function describeConverter(candidate: unknown) {
   return typeof id === "string" && id ? `Converter "${id}"` : "Converter";
 }
 
-const CONVERTER_CONTRACT_HINT = `requires a non-empty string "id", a non-empty string or string array "from" and a non-empty string "to"`;
+const CONVERTER_CONTRACT_HINT =
+  `requires a non-empty string "id" plus "from" and "to", ` +
+  `each of them a non-empty type name, a { module?, type } object, or (for "from") an array of those`;
 
 async function doLoad(converters: Array<TypeConverterConfig>): Promise<Array<RuntimeConverterPackage>> {
   return Promise.all(
@@ -116,10 +134,10 @@ async function doLoad(converters: Array<TypeConverterConfig>): Promise<Array<Run
 function mapConvertersBySource(converterPkgs: Array<RuntimeConverterPackage>): MappedConverters {
   return converterPkgs.reduce<MappedConverters>((collector, converterPkg) => {
     for (let converter of converterPkg.converters) {
-      const froms = typeof converter.from === "string" ? [converter.from] : converter.from;
+      const froms = Array.isArray(converter.from) ? converter.from : [converter.from];
       for (let from of froms) {
-        const [fromType] = getPropTypeAndModule(from);
-        const [toType, toModule] = getPropTypeAndModule(converter.to);
+        const [fromType] = resolveTypeSpec(from);
+        const [toType, toModule] = resolveTypeSpec(converter.to);
 
         const result: MappedConverter = {
           package: converterPkg.package,
@@ -129,11 +147,14 @@ function mapConvertersBySource(converterPkgs: Array<RuntimeConverterPackage>): M
           toModule,
         };
 
-        const prev = collector.get(from);
+        // keyed by the resolved type, because that is what chaining looks up: the "to" of the
+        // preceding converter arrives here without its module, so keying by the raw value would
+        // leave any module-qualified "from" unreachable
+        const prev = collector.get(fromType);
         if (prev?.length && prev[prev.length - 1].to === fromType) {
           prev.push(result);
         } else {
-          collector.set(from, [result]);
+          collector.set(fromType, [result]);
         }
       }
     }
@@ -240,6 +261,13 @@ function chainConverters(
   };
 }
 
+/**
+ * Resolves the dotted shorthand form: everything up to the last dot is the module, the rest the type.
+ *
+ * Only unambiguous as long as the type name carries no dot of its own - a namespaced type
+ * ("BigNumber.Instance") or a global one ("Intl.DateTimeFormat") cannot be expressed this way, which is
+ * what {@link TypeReference} is for.
+ */
 export function getPropTypeAndModule(typeName: string) {
   if (typeName.match(/\./)?.length && !typeName.startsWith("Edm.")) {
     const separator = typeName.lastIndexOf(".");
@@ -248,4 +276,11 @@ export function getPropTypeAndModule(typeName: string) {
     return [type, module];
   }
   return [typeName];
+}
+
+/**
+ * Brings either form of a {@link TypeSpecification} into the same [type, module?] shape.
+ */
+export function resolveTypeSpec(spec: TypeSpecification): [string, string?] {
+  return typeof spec === "string" ? (getPropTypeAndModule(spec) as [string, string?]) : [spec.type, spec.module];
 }

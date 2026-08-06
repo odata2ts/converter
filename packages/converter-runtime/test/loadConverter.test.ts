@@ -2,7 +2,7 @@ import { fileURLToPath } from "node:url";
 import { ValueConverterChain } from "@odata2ts/converter-runtime";
 import { ODataTypesV2, ODataTypesV4, ODataVersions } from "@odata2ts/odata-core";
 import { describe, expect, test } from "vitest";
-import { getPropTypeAndModule, loadConverters } from "../src";
+import { getPropTypeAndModule, loadConverters, resolveTypeSpec } from "../src";
 
 const fixture = (name: string) => fileURLToPath(new URL(`./fixture/${name}`, import.meta.url));
 
@@ -209,6 +209,61 @@ describe("LoadConverters Test", () => {
     expect(getPropTypeAndModule("AbA")).toStrictEqual(["AbA"]);
     expect(getPropTypeAndModule("aba.ts")).toStrictEqual(["ts", "aba"]);
     expect(getPropTypeAndModule("aba.js.Type")).toStrictEqual(["Type", "aba.js"]);
+  });
+
+  test("resolveTypeSpec handles both forms alike", () => {
+    expect(resolveTypeSpec("luxon.DateTime")).toStrictEqual(["DateTime", "luxon"]);
+    expect(resolveTypeSpec("string")).toStrictEqual(["string"]);
+    expect(resolveTypeSpec({ module: "luxon", type: "DateTime" })).toStrictEqual(["DateTime", "luxon"]);
+    // the explicit form is what makes a qualified type name expressible at all
+    expect(resolveTypeSpec({ module: "bignumber.js", type: "BigNumber.Instance" })).toStrictEqual([
+      "BigNumber.Instance",
+      "bignumber.js",
+    ]);
+    expect(resolveTypeSpec({ type: "Intl.DateTimeFormat" })).toStrictEqual(["Intl.DateTimeFormat", undefined]);
+  });
+
+  describe("explicit type reference", () => {
+    test("a namespaced type keeps its module separate", async () => {
+      // the shorthand would split "bignumber.js.BigNumber.Instance" into the module
+      // "bignumber.js.BigNumber" - there is no spelling of it that works
+      const result = await loadConverters(ODataVersions.V4, [fixture("type-reference.mjs")]);
+
+      expect(result?.get(ODataTypesV4.Decimal)).toMatchObject({
+        to: "BigNumber.Instance",
+        toModule: "bignumber.js",
+      });
+    });
+
+    test("a global type gets no module invented for it", async () => {
+      const result = await loadConverters(ODataVersions.V4, [fixture("type-reference.mjs")]);
+
+      expect(result?.get(ODataTypesV4.String)).toMatchObject({
+        to: "Intl.DateTimeFormat",
+        toModule: undefined,
+      });
+    });
+
+    test("both forms chain into each other", async () => {
+      // whichever way the producing and the consuming converter spell the type, they have to meet
+      for (const target of ["type-reference-target.mjs", "type-reference-target-shorthand.mjs"]) {
+        const result = await loadConverters(ODataVersions.V4, [fixture("type-reference-source.mjs"), fixture(target)]);
+
+        expect(result?.get(ODataTypesV4.DateTimeOffset)).toMatchObject({
+          to: "string",
+          converters: [
+            { converterId: "toLuxonShorthand" },
+            { converterId: target.includes("shorthand") ? "fromLuxonShorthand" : "fromLuxonExplicit" },
+          ],
+        });
+      }
+    });
+
+    test("a type reference without a type is rejected", async () => {
+      await expect(loadConverters(ODataVersions.V4, [fixture("invalid-type-reference.mjs")])).rejects.toThrow(
+        /Converter "noTypeConverter" at index 0 of module ".*" is not a valid converter/,
+      );
+    });
   });
 
   test("with fixing converter in between", async () => {
