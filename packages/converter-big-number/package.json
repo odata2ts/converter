@@ -15,7 +15,21 @@
   "license": "MIT",
   "author": "texttechne",
   "type": "commonjs",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/esm/index.d.ts",
+        "default": "./lib/esm/index.js"
+      },
+      "require": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
   "main": "./lib/index.js",
+  "module": "./lib/esm/index.js",
   "types": "./lib/index.d.ts",
   "files": [
     "*.md",
@@ -26,7 +40,8 @@
     "build": "yarn clean && yarn compile",
     "check-circular-deps": "madge ./src --extensions ts --circular",
     "clean": "rimraf lib coverage",
-    "compile": "tsc",
+    "compile": "tsc && tsc -p tsconfig.esm.json && yarn mark-esm",
+    "mark-esm": "node -e \"require('fs').writeFileSync('lib/esm/package.json', JSON.stringify({type:'module'}) + '\\n')\"",
     "test": "vitest run"
   },
   "dependencies": {
