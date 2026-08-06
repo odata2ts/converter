@@ -31,6 +31,12 @@ describe("BigNumberConverter Test", () => {
 
   test("convertFrom with invalid value", () => {
     expect(() => TO_TEST.convertFrom("hello")).toThrow("[BigNumber Error] Invalid argument: hello");
+    expect(() => TO_TEST.convertFrom("")).toThrow("[BigNumber Error] Invalid argument: ");
+  });
+
+  test("convertFrom with NaN", () => {
+    // bignumber.js accepts the literal string "NaN", the converter must not let it pass
+    expect(() => TO_TEST.convertFrom("NaN")).toThrow("[BigNumber Error] Invalid argument: NaN");
   });
 
   test("convertTo: no conversion for string value", () => {

@@ -30,11 +30,13 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@odata2ts/converter-api": "^0.2.6",
-    "bignumber.js": "^11.1.5"
+    "@odata2ts/converter-api": "^0.2.6"
   },
   "devDependencies": {
     "bignumber.js": "^11.1.5"
+  },
+  "peerDependencies": {
+    "bignumber.js": ">1"
   },
   "publishConfig": {
     "access": "public"
