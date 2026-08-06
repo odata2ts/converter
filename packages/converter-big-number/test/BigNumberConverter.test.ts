@@ -1,11 +1,28 @@
+import { ParamValueModel } from "@odata2ts/converter-api";
 import BigNumber from "bignumber.js";
-import { describe, expect, test } from "vitest";
+import { describe, expect, expectTypeOf, test } from "vitest";
 import { bigNumberConverter } from "../src";
 
 describe("BigNumberConverter Test", () => {
   const FROM_STRING = "123.01234567890123456789";
 
   const TO_TEST = bigNumberConverter;
+
+  test("the declared target type is the class, and it is the one produced", () => {
+    /*
+     * `BigNumber.Instance` is not the instance type: it declares `c`, `e` and `s` plus an index
+     * signature and exists for the `BigNumber.Value` union, so that an instance from another copy of
+     * the library can be passed to the constructor. Typing this converter on it silently degrades
+     * every method call on a converted value to `any`. The class is the instance type, and `to` has
+     * to name exactly that, or the generated client types a property on one and gets the other.
+     */
+    expect(TO_TEST.to).toStrictEqual({ module: "bignumber.js", type: "BigNumber" });
+
+    const candidate = TO_TEST.convertFrom(FROM_STRING);
+    expectTypeOf(candidate).toEqualTypeOf<ParamValueModel<BigNumber>>();
+    // via BigNumber.Instance this would be `any`
+    expectTypeOf(candidate!.toFixed(2)).toEqualTypeOf<string>();
+  });
 
   test("conversion", () => {
     const candidate = TO_TEST.convertFrom(FROM_STRING);
