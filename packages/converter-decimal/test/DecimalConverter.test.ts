@@ -36,5 +36,11 @@ describe("BigNumberConverter Test", () => {
 
   test("convertFrom with invalid value", () => {
     expect(() => TO_TEST.convertFrom("hello")).toThrow("[DecimalError] Invalid argument: hello");
+    expect(() => TO_TEST.convertFrom("")).toThrow("[DecimalError] Invalid argument: ");
+  });
+
+  test("convertFrom with NaN", () => {
+    // decimal.js accepts the literal string "NaN", the converter must not let it pass
+    expect(() => TO_TEST.convertFrom("NaN")).toThrow("[DecimalError] Invalid argument: NaN");
   });
 });

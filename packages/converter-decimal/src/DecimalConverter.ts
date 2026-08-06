@@ -13,7 +13,12 @@ export const decimalConverter: ValueConverter<string, Decimal> & {
       return value;
     }
 
-    return new Decimal(value);
+    // decimal.js itself throws for unparsable input, but accepts the literal string "NaN"
+    const result = new Decimal(value);
+    if (result.isNaN()) {
+      throw new Error("[DecimalError] Invalid argument: " + value);
+    }
+    return result;
   },
 
   convertTo: function (value: ParamValueModel<Decimal | string>): ParamValueModel<string> {

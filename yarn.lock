@@ -1083,6 +1083,8 @@ __metadata:
   dependencies:
     "@odata2ts/converter-api": "npm:^0.2.6"
     bignumber.js: "npm:^11.1.5"
+  peerDependencies:
+    bignumber.js: ">1"
   languageName: unknown
   linkType: soft
 
