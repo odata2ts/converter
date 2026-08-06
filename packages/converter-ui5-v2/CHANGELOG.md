@@ -19,6 +19,26 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
     * @odata2ts/converter-common bumped from ^0.3.5 to ^0.3.6
     * @odata2ts/converter-v2-to-v4 bumped from ^0.5.5 to ^0.5.6
 
+## [0.4.0](https://github.com/odata2ts/converter/compare/@odata2ts/converter-ui5-v2-v0.3.7...@odata2ts/converter-ui5-v2-v0.4.0) (2026-08-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* **converter-api:** `from`/`to` no longer split a string at the last dot. A third-party converter still declaring `to: "luxon.DateTime"` now means a type of that literal name and gets no import - it has to become `to: { module: "luxon", type: "DateTime" }`. This is deliberately not auto-detected: guessing whether a dot separates a module is the behaviour being removed, and it would misread a legitimate global like "Intl.DateTimeFormat". The export `getPropTypeAndModule` was removed from @odata2ts/converter-runtime.
+
+### Features
+
+* **converter-api:** state a type's module explicitly instead of encoding it in a dotted string ([#59](https://github.com/odata2ts/converter/issues/59)) ([f3789c7](https://github.com/odata2ts/converter/commit/f3789c79ea452da8bd8c071ff4e363f666d10676))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @odata2ts/converter-api bumped from ^0.2.6 to ^0.3.0
+    * @odata2ts/converter-common bumped from ^0.3.7 to ^0.4.0
+    * @odata2ts/converter-v2-to-v4 bumped from ^0.5.7 to ^0.5.8
+
 ## [0.3.7](https://github.com/odata2ts/converter/compare/@odata2ts/converter-ui5-v2-v0.3.6...@odata2ts/converter-ui5-v2-v0.3.7) (2025-02-08)
 
 
